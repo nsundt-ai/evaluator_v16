@@ -1,0 +1,945 @@
+{
+    "competencies": [
+      {
+        "id": "C001",
+        "name": "Strategic Product Vision",
+        "description": "Develop comprehensive product strategies and analyze complex market dynamics"
+      },
+      {
+        "id": "C002",
+        "name": "Technical Product Implementation",
+        "description": "Build data-driven product solutions using Python and analytics tools"
+      },
+      {
+        "id": "C003",
+        "name": "Product Communication & Collaboration", 
+        "description": "Communicate effectively with stakeholders and lead cross-functional teams"
+      },
+      {
+        "id": "C004",
+        "name": "Data-Driven Decision Making",
+        "description": "Analyze data, present insights, and make evidence-based product decisions"
+      }
+    ],
+    "skills": [
+      {
+        "id": "S001",
+        "name": "Identify user and stakeholder needs",
+        "description": "Gather, interpret, and prioritize requirements from various stakeholders",
+        "competency": "C001",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "S002", 
+        "name": "Frame actionable problem statements",
+        "description": "Transform requirements into clear, solvable product problems",
+        "competency": "C001",
+        "depth": "D1", 
+        "cogLevel": "L2"
+      },
+      {
+        "id": "S003",
+        "name": "Write and run basic Python scripts",
+        "description": "Create functional Python programs for data processing and automation",
+        "competency": "C002",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "S004",
+        "name": "Use pandas for data manipulation", 
+        "description": "Process, clean, and analyze datasets using pandas library",
+        "competency": "C002",
+        "depth": "D2",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "S005",
+        "name": "Handle product data ethically and accessibly",
+        "description": "Apply data privacy and accessibility principles to product data",
+        "competency": "C002",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "S006",
+        "name": "Plan automatable solutions",
+        "description": "Design and architect scalable automation approaches",
+        "competency": "C002", 
+        "depth": "D2",
+        "cogLevel": "L3"
+      },
+      {
+        "id": "S007",
+        "name": "Implement maintainable, user-centered scripts",
+        "description": "Build robust, documented Python solutions with user experience focus",
+        "competency": "C002",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "S008",
+        "name": "Iterate in response to feedback",
+        "description": "Adapt and improve solutions based on stakeholder input",
+        "competency": "C002",
+        "depth": "D1", 
+        "cogLevel": "L2"
+      },
+      {
+        "id": "S009",
+        "name": "Summarize and present product data",
+        "description": "Create clear, actionable data summaries for decision-making",
+        "competency": "C004",
+        "depth": "D2",
+        "cogLevel": "L3"
+      },
+      {
+        "id": "S010",
+        "name": "Advocate for product decisions", 
+        "description": "Present compelling cases for product direction and priorities",
+        "competency": "C003",
+        "depth": "D2",
+        "cogLevel": "L3"
+      },
+      {
+        "id": "S011",
+        "name": "Collaborate effectively in technical environments",
+        "description": "Work productively with engineering and data teams",
+        "competency": "C003",
+        "depth": "D2",
+        "cogLevel": "L3"
+      }
+    ],
+    "subskills": [
+      {
+        "id": "SS001",
+        "skillId": "S001",
+        "description": "Parse raw requirements into user needs and constraints",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS002", 
+        "skillId": "S001",
+        "description": "Infer underlying motivations or goals from context",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS003",
+        "skillId": "S001", 
+        "description": "Highlight contradictions or unclear language in input",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS004",
+        "skillId": "S001",
+        "description": "Organize requirements by user, function, or priority",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS005",
+        "skillId": "S001",
+        "description": "Draft targeted clarification questions based on gaps",
+        "depth": "D1", 
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS006",
+        "skillId": "S002",
+        "description": "Translate requests into user-centered language",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS007",
+        "skillId": "S002",
+        "description": "Identify the \"pain\" or friction in the user's experience", 
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS008",
+        "skillId": "S002",
+        "description": "Express problems in 'jobs to be done' or 'as-is/to-be' form",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS009",
+        "skillId": "S002",
+        "description": "Estimate cost, inefficiency, or opportunity associated with problem",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS010",
+        "skillId": "S002", 
+        "description": "Propose automation suitability (e.g., data entry → script)",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS011",
+        "skillId": "S003",
+        "description": "Write scripts using basic syntax (print, if/else, loops)",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS012",
+        "skillId": "S003",
+        "description": "Use and define functions with inputs and return values",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS013",
+        "skillId": "S003",
+        "description": "Manipulate lists, dicts, and simple nested structures",
+        "depth": "D1", 
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS014",
+        "skillId": "S003",
+        "description": "Handle user input or static file input",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS015",
+        "skillId": "S003",
+        "description": "Save or return structured outputs",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS016",
+        "skillId": "S004",
+        "description": "Load a CSV file using pandas.read_csv()",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS017",
+        "skillId": "S004",
+        "description": "Inspect data types, nulls, and basic distributions",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS018",
+        "skillId": "S004",
+        "description": "Filter data by conditions (e.g., date, segment)",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS019", 
+        "skillId": "S004",
+        "description": "Use .groupby() and .agg() for summaries",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS020",
+        "skillId": "S004",
+        "description": "Merge datasets or reshape data for comparison",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS021",
+        "skillId": "S005",
+        "description": "Identify missing, biased, or skewed data points",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS022",
+        "skillId": "S005",
+        "description": "Discuss what's not included in the dataset (e.g., edge users)",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS023",
+        "skillId": "S005",
+        "description": "Output results in stakeholder-friendly formats (e.g., .csv, markdown)",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS024",
+        "skillId": "S005",
+        "description": "Use visual summaries (bar chart, line plot, etc.)",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS025",
+        "skillId": "S005",
+        "description": "Include data source disclaimers and limitations",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS026",
+        "skillId": "S006",
+        "description": "Break complex workflows into discrete, manageable steps",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS027",
+        "skillId": "S006",
+        "description": "Identify which parts can be automated vs. manual",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS028",
+        "skillId": "S006",
+        "description": "Plan for different input types or edge cases",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS029",
+        "skillId": "S006",
+        "description": "Design user-friendly input/output interfaces",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS030", 
+        "skillId": "S006",
+        "description": "Estimate time savings and implementation effort",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS031",
+        "skillId": "S007",
+        "description": "Add helpful comments and documentation strings",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS032",
+        "skillId": "S007",
+        "description": "Structure code into logical functions and sections",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS033",
+        "skillId": "S007",
+        "description": "Include try/except for likely failure points",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS034",
+        "skillId": "S007",
+        "description": "Write scripts that use user-provided inputs (e.g., CSV, argument)",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS035",
+        "skillId": "S007",
+        "description": "Output readable formats with appropriate labeling",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS036",
+        "skillId": "S008",
+        "description": "Capture change requests from stakeholders",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS037",
+        "skillId": "S008",
+        "description": "Adjust script behavior without breaking other parts",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS038",
+        "skillId": "S008",
+        "description": "Document changes with comments or a changelog",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS039",
+        "skillId": "S008",
+        "description": "Compare 'before' and 'after' behavior",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS040",
+        "skillId": "S008",
+        "description": "Justify scope changes or simplifications",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS041",
+        "skillId": "S009",
+        "description": "Generate clear executive summaries from data analysis",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS042",
+        "skillId": "S009",
+        "description": "Create compelling data visualizations that tell a story",
+        "depth": "D1", 
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS043",
+        "skillId": "S009",
+        "description": "Present key findings with business context and implications",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS044",
+        "skillId": "S009",
+        "description": "Anticipate and address potential questions about the data",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS045",
+        "skillId": "S009",
+        "description": "Recommend specific actions based on data insights",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS046",
+        "skillId": "S010",
+        "description": "Build compelling cases with supporting evidence and rationale",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS047",
+        "skillId": "S010", 
+        "description": "Address potential objections and concerns proactively",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS048",
+        "skillId": "S010",
+        "description": "Present trade-offs and alternative approaches fairly",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS049",
+        "skillId": "S010",
+        "description": "Communicate clearly with both technical and non-technical stakeholders",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS050",
+        "skillId": "S010",
+        "description": "Demonstrate confidence and expertise while remaining open to feedback",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS051",
+        "skillId": "S011",
+        "description": "Facilitate productive discussions between technical and business teams",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS052",
+        "skillId": "S011",
+        "description": "Translate business requirements into technical specifications",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS053",
+        "skillId": "S011",
+        "description": "Provide constructive feedback on technical solutions",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS054",
+        "skillId": "S011",
+        "description": "Manage conflicts and find collaborative solutions",
+        "depth": "D1",
+        "cogLevel": "L2"
+      },
+      {
+        "id": "SS055",
+        "skillId": "S011",
+        "description": "Build consensus around product decisions and technical approaches",
+        "depth": "D1",
+        "cogLevel": "L2"
+      }
+    ],
+    "skillMappings": [
+      {
+        "skillId": "S001",
+        "subskillId": "SS001"
+      },
+      {
+        "skillId": "S001",
+        "subskillId": "SS002"
+      },
+      {
+        "skillId": "S001",
+        "subskillId": "SS003"
+      },
+      {
+        "skillId": "S001",
+        "subskillId": "SS004"
+      },
+      {
+        "skillId": "S001",
+        "subskillId": "SS005"
+      },
+      {
+        "skillId": "S002",
+        "subskillId": "SS006"
+      },
+      {
+        "skillId": "S002",
+        "subskillId": "SS007"
+      },
+      {
+        "skillId": "S002",
+        "subskillId": "SS008"
+      },
+      {
+        "skillId": "S002",
+        "subskillId": "SS009"
+      },
+      {
+        "skillId": "S002",
+        "subskillId": "SS010"
+      },
+      {
+        "skillId": "S003",
+        "subskillId": "SS011"
+      },
+      {
+        "skillId": "S003",
+        "subskillId": "SS012"
+      },
+      {
+        "skillId": "S003",
+        "subskillId": "SS013"
+      },
+      {
+        "skillId": "S003",
+        "subskillId": "SS014"
+      },
+      {
+        "skillId": "S003",
+        "subskillId": "SS015"
+      },
+      {
+        "skillId": "S004",
+        "subskillId": "SS016"
+      },
+      {
+        "skillId": "S004",
+        "subskillId": "SS017"
+      },
+      {
+        "skillId": "S004",
+        "subskillId": "SS018"
+      },
+      {
+        "skillId": "S004",
+        "subskillId": "SS019"
+      },
+      {
+        "skillId": "S004",
+        "subskillId": "SS020"
+      },
+      {
+        "skillId": "S005",
+        "subskillId": "SS021"
+      },
+      {
+        "skillId": "S005",
+        "subskillId": "SS022"
+      },
+      {
+        "skillId": "S005",
+        "subskillId": "SS023"
+      },
+      {
+        "skillId": "S005",
+        "subskillId": "SS024"
+      },
+      {
+        "skillId": "S005",
+        "subskillId": "SS025"
+      },
+      {
+        "skillId": "S006",
+        "subskillId": "SS026"
+      },
+      {
+        "skillId": "S006",
+        "subskillId": "SS027"
+      },
+      {
+        "skillId": "S006",
+        "subskillId": "SS028"
+      },
+      {
+        "skillId": "S006",
+        "subskillId": "SS029"
+      },
+      {
+        "skillId": "S006",
+        "subskillId": "SS030"
+      },
+      {
+        "skillId": "S007",
+        "subskillId": "SS031"
+      },
+      {
+        "skillId": "S007",
+        "subskillId": "SS032"
+      },
+      {
+        "skillId": "S007",
+        "subskillId": "SS033"
+      },
+      {
+        "skillId": "S007",
+        "subskillId": "SS034"
+      },
+      {
+        "skillId": "S007",
+        "subskillId": "SS035"
+      },
+      {
+        "skillId": "S008",
+        "subskillId": "SS036"
+      },
+      {
+        "skillId": "S008",
+        "subskillId": "SS037"
+      },
+      {
+        "skillId": "S008",
+        "subskillId": "SS038"
+      },
+      {
+        "skillId": "S008",
+        "subskillId": "SS039"
+      },
+      {
+        "skillId": "S008",
+        "subskillId": "SS040"
+      },
+      {
+        "skillId": "S009",
+        "subskillId": "SS041"
+      },
+      {
+        "skillId": "S009",
+        "subskillId": "SS042"
+      },
+      {
+        "skillId": "S009",
+        "subskillId": "SS043"
+      },
+      {
+        "skillId": "S009",
+        "subskillId": "SS044"
+      },
+      {
+        "skillId": "S009",
+        "subskillId": "SS045"
+      },
+      {
+        "skillId": "S010",
+        "subskillId": "SS046"
+      },
+      {
+        "skillId": "S010",
+        "subskillId": "SS047"
+      },
+      {
+        "skillId": "S010",
+        "subskillId": "SS048"
+      },
+      {
+        "skillId": "S010",
+        "subskillId": "SS049"
+      },
+      {
+        "skillId": "S010",
+        "subskillId": "SS050"
+      },
+      {
+        "skillId": "S011",
+        "subskillId": "SS051"
+      },
+      {
+        "skillId": "S011",
+        "subskillId": "SS052"
+      },
+      {
+        "skillId": "S011",
+        "subskillId": "SS053"
+      },
+      {
+        "skillId": "S011",
+        "subskillId": "SS054"
+      },
+      {
+        "skillId": "S011",
+        "subskillId": "SS055"
+      }
+    ],
+    "subskillDependencies": [
+      {
+        "prerequisiteSubskillId": "SS001",
+        "dependentSubskillId": "SS002",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS002",
+        "dependentSubskillId": "SS003",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS003",
+        "dependentSubskillId": "SS004",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS004",
+        "dependentSubskillId": "SS005",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS006",
+        "dependentSubskillId": "SS007",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS007",
+        "dependentSubskillId": "SS008",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS008",
+        "dependentSubskillId": "SS009",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS009",
+        "dependentSubskillId": "SS010",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS011",
+        "dependentSubskillId": "SS012",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS012",
+        "dependentSubskillId": "SS013",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS013",
+        "dependentSubskillId": "SS014",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS014",
+        "dependentSubskillId": "SS015",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS016",
+        "dependentSubskillId": "SS017",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS017",
+        "dependentSubskillId": "SS018",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS018",
+        "dependentSubskillId": "SS019",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS019",
+        "dependentSubskillId": "SS020",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS021",
+        "dependentSubskillId": "SS022",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS022",
+        "dependentSubskillId": "SS023",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS023",
+        "dependentSubskillId": "SS024",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS024",
+        "dependentSubskillId": "SS025",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS026",
+        "dependentSubskillId": "SS027",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS027",
+        "dependentSubskillId": "SS028",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS028",
+        "dependentSubskillId": "SS029",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS029",
+        "dependentSubskillId": "SS030",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS031",
+        "dependentSubskillId": "SS032",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS032",
+        "dependentSubskillId": "SS033",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS033",
+        "dependentSubskillId": "SS034",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS034",
+        "dependentSubskillId": "SS035",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS036",
+        "dependentSubskillId": "SS037",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS037",
+        "dependentSubskillId": "SS038",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS038",
+        "dependentSubskillId": "SS039",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS039",
+        "dependentSubskillId": "SS040",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS041",
+        "dependentSubskillId": "SS042",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS042",
+        "dependentSubskillId": "SS043",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS043",
+        "dependentSubskillId": "SS044",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS044",
+        "dependentSubskillId": "SS045",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS046",
+        "dependentSubskillId": "SS047",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS047",
+        "dependentSubskillId": "SS048",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS048",
+        "dependentSubskillId": "SS049",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS049",
+        "dependentSubskillId": "SS050",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS051",
+        "dependentSubskillId": "SS052",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS052",
+        "dependentSubskillId": "SS053",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS053",
+        "dependentSubskillId": "SS054",
+        "weight": 1
+      },
+      {
+        "prerequisiteSubskillId": "SS054",
+        "dependentSubskillId": "SS055",
+        "weight": 1
+      }
+    ]
+  }

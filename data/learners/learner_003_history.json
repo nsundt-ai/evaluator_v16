@@ -1,0 +1,61 @@
+{
+  "learner_id": "learner_003",
+  "created": "2024-12-01T10:00:00Z",
+  "last_updated": "2025-07-29T02:07:37.570198+00:00",
+  "profile": {
+    "name": "Priya Sharma",
+    "email": "priya.sharma@example.com",
+    "enrollment_date": "2024-12-01T10:00:00Z",
+    "status": "active",
+    "background": "Software engineer with 5 years experience in full-stack development. Strong technical background with experience in agile methodologies and cross-functional team collaboration. Looking to transition into product management to leverage technical expertise in business strategy and user experience design.",
+    "experience_level": "intermediate"
+  },
+  "activities": [
+    "problem_scoping_005",
+    "business_needs_interview_001",
+    "opportunity_analysis_004",
+    "requirements_elicitation_008",
+    "solution_framing_006",
+    "user_research_questions_003",
+    "stakeholder_requirements_gathering_002",
+    "issue_framing_session_002",
+    "user_journey_mapping_007",
+    "needs_assessment_session_010",
+    "problem_statement_workshop_001",
+    "market_research_interview_006",
+    "customer_feedback_session_005",
+    "business_analysis_workshop_009",
+    "challenge_definition_003",
+    "product_requirements_workshop_004"
+  ],
+  "skill_progress": {
+    "S002": {
+      "skill_name": "Skill S002",
+      "cumulative_score": 0.658948672288904,
+      "total_adjusted_evidence": 16.429839693758286,
+      "activity_count": 6,
+      "gate_1_status": "approaching",
+      "gate_2_status": "developing",
+      "overall_status": "developing",
+      "last_activity_date": "2025-07-29T02:24:04.649400+00:00",
+      "activities": []
+    },
+    "S001": {
+      "skill_name": "Skill S001",
+      "cumulative_score": 0.7184676711924374,
+      "total_adjusted_evidence": 30.057978682647693,
+      "activity_count": 10,
+      "gate_1_status": "approaching",
+      "gate_2_status": "passed",
+      "overall_status": "approaching",
+      "last_activity_date": "2025-07-29T02:24:04.648069+00:00",
+      "activities": []
+    }
+  },
+  "competency_progress": {},
+  "metadata": {
+    "total_activities": 16,
+    "total_time_minutes": 0,
+    "last_activity_date": "2025-07-29T02:07:37.570198+00:00"
+  }
+}

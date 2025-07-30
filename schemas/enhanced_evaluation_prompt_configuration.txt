@@ -1,0 +1,1222 @@
+{
+  "metadata": {
+    "version": "2.0.0",
+    "description": "Enhanced evaluation prompt configuration with complete 23 prompt templates",
+    "last_updated": "2025-01-15",
+    "compatibility": "evaluator_v16",
+    "total_configurations": 23,
+    "pipeline_order": [
+      "rubric_evaluation",
+      "validity_analysis", 
+      "diagnostic_intelligence",
+      "trend_analysis",
+      "feedback_generation"
+    ]
+  },
+
+  "prompt_components": {
+    "universal_introduction": {
+      "evaluation_context": "EVALUATION CONTEXT:\nYou are evaluating a learner's response to an educational activity as part of the Evaluator v16 competency-based assessment system. This evaluation focuses on {phase_name} for a {item_type} activity targeting skill {skill_id}: {skill_name}.\n\nYour evaluation must be evidence-based, objective, and aligned with the domain model's competency framework. Remember that each activity targets a single primary skill with specific subskills.",
+      
+      "target_skill_context": "TARGET SKILL CONTEXT:\n- Primary Skill: {skill_id} - {skill_description}\n- Cognitive Level: {cognitive_level} with {cognitive_level_description}\n- Depth Level: {depth_level} with {depth_level_description}\n- Parent Competency: {competency_id} - {competency_description}\n- Target Subskills: {subskills_list}",
+      
+      "complexity_context": "COMPLEXITY CONTEXT:\nThis activity has complexity level {l_d_complexity}:\n- Cognitive Level {cognitive_level}: {cognitive_demands}\n- Depth Level {depth_level}: {content_complexity}\nAdjust your evaluation expectations accordingly.",
+      
+      "output_format_reminder": "OUTPUT FORMAT REMINDER:\nYour response must be a valid JSON object with the following structure:\n{\n  \"{phase_root_key}\": {\n    // Required fields as specified in the schema\n  }\n}\n\nBegin your response with { and end with }. No text outside the JSON.",
+      
+      "critical_requirements": "CRITICAL REQUIREMENTS:\n- Evaluate ONLY the target skill specified\n- Base all scores/insights on observable evidence from the activity transcript\n- Maintain objectivity despite learner struggles or successes\n- Generate valid JSON without any external text or markdown\n- Use exact schema field names and data types\n- Never include explanatory text outside the JSON structure"
+    },
+    
+    "phase_specific_components": {
+      "prerequisite_context": "PREREQUISITE CONTEXT:\n- Required Prerequisites: {prerequisite_skills}\n- Dependency Chain Position: {dependency_position}\n- Learning Progression Context: {progression_context}",
+      
+      "pipeline_continuity": "PIPELINE CONTINUITY:\nThis evaluation builds on previous pipeline results. Ensure your analysis:\n- Aligns with rubric evaluation scores: {previous_scores}\n- Incorporates validity modifier impacts: {validity_modifier}\n- Maintains consistency with prior diagnostic insights\n- Creates a coherent learning narrative across all phases",
+      
+      "error_prevention": "ERROR PREVENTION CHECKLIST:\n□ Target skill correctly identified\n□ All evidence cited from transcript\n□ Scores within valid ranges (0.0-1.0)\n□ JSON structure matches schema exactly\n□ No external text or formatting\n□ All required fields populated"
+    }
+  },
+  
+  "general_context": {
+    "system_role": "You are an expert evaluation agent for educational activities specializing in competency-based assessment for product management and Python technical skills. You provide rigorous, evidence-based evaluations that support learner development through clear, actionable insights.",
+    
+    "domain_focus": "Product management competencies (C001-C004) and Python technical capabilities with granular subskill assessment (SS001-SS055). Each evaluation targets a single primary skill within this framework.",
+    
+    "evaluation_philosophy": "Evidence-based assessment focused on competency demonstration at designated cognitive and depth levels. Evaluations must be objective, constructive, and aligned with learning progression principles.",
+    
+    "competency_threshold": 0.75,
+    
+    "single_skill_focus": "CRITICAL: Each activity targets exactly ONE primary skill. While multiple subskills may be demonstrated, all evaluation and scoring must focus solely on the designated target skill for this activity.",
+    
+    "output_requirements": {
+      "format": "Respond ONLY with a valid JSON object following exact schema specifications. No explanatory text, markdown formatting, or content outside JSON.",
+      "validation": "Your response must be parseable by json.loads() without any preprocessing",
+      "critical_warning": "If you include any text before or after the JSON, the evaluation will fail and the learner's progress will not be recorded."
+    },
+    
+    "critical_guidelines": [
+      "Provide evidence-based reasoning for all judgments",
+      "Use precise measurement scales (0.0-1.0) consistently", 
+      "Generate actionable insights for learner development",
+      "Maintain objectivity while being constructive",
+      "Focus on competency demonstration through observable evidence"
+    ]
+  },
+
+  "phase_configurations": {
+    "rubric_evaluation": {
+      "description": "Evaluate learner responses against detailed rubrics for evidence-rich activities",
+      "phase_root_key": "rubric_evaluation",
+      "llm_defaults": {
+        "temperature": 0.1,
+        "max_tokens": 2000,
+        "top_p": 0.9
+      },
+      "primary_objectives": [
+        "Evaluate response quality against rubric criteria",
+        "Provide detailed aspect-level scoring with rationales", 
+        "Generate evidence volume estimates for dual-gate scoring",
+        "Identify specific performance indicators and improvement areas"
+      ],
+      "process_steps": [
+        "1. Review activity specification and rubric criteria",
+        "2. Analyze learner response for evidence of target competencies",
+        "3. Score each rubric aspect using anchor point guidance",
+        "4. Calculate weighted overall component score",
+        "5. Document rationale with specific evidence citations",
+        "6. Estimate evidence volume generated for skill measurement"
+      ],
+      "rubric_interpretation_guidance": [
+        "Use anchor point descriptions to calibrate scoring",
+        "Map evidence to specific rubric aspects",
+        "Consider cognitive and depth level expectations",
+        "Document rationale with specific citations",
+        "Estimate evidence strength and volume"
+      ],
+      "quality_validation_checklist": [
+        "Scores align with rubric anchor points",
+        "Rationales cite specific evidence from response", 
+        "Evidence volume estimates are realistic",
+        "Performance indicators are observable and specific",
+        "Improvement areas are actionable"
+      ],
+      "output_schema": {
+        "rubric_evaluation": {
+          "component_id": "string",
+          "component_score": "float (0.0-1.0)",
+          "aspects": [
+            {
+              "aspect_id": "string",
+              "aspect_name": "string", 
+              "aspect_score": "float (0.0-1.0)",
+              "aspect_weight": "float",
+              "weighted_score": "float",
+              "scoring_reasoning": "string",
+              "evidence_volume": "float",
+              "evidence_quality": "string (strong/moderate/weak/none)",
+              "performance_indicators": ["array of strings"],
+              "improvement_areas": ["array of strings"]
+            }
+          ],
+          "overall_scoring_rationale": "string",
+          "evaluation_confidence": "float (0.0-1.0)",
+          "total_evidence_volume": "float"
+        }
+      }
+    },
+
+    "validity_analysis": {
+      "description": "Assessment of assistance impact on response validity with proportional adjustment",
+      "phase_root_key": "validity_analysis", 
+      "llm_defaults": {
+        "temperature": 0.3,
+        "max_tokens": 1000,
+        "top_p": 0.9
+      },
+      "primary_objectives": [
+        "Analyze assistance provided during activity completion",
+        "Categorize assistance by impact severity",
+        "Calculate proportional impact based on response length/complexity",
+        "Generate validity modifier for evidence volume adjustment"
+      ],
+      "process_steps": [
+        "1. Review complete assistance log with timestamps",
+        "2. Categorize each assistance instance by impact severity",
+        "3. Assess response length and complexity for proportional context", 
+        "4. Calculate evidence proportion affected by each assistance type",
+        "5. Apply proportional adjustment based on response characteristics",
+        "6. Generate final validity modifier with detailed rationale"
+      ],
+      "strict_assistance_principles": [
+        "Any direct content assistance significantly impacts validity",
+        "Multiple assistance instances compound the impact",
+        "Response proportion affected determines severity",
+        "Validity decline accelerates with core competency assistance"
+      ],
+      "assistance_impact_categories": {
+        "no_impact": {
+          "modifier_range": "0.95-1.0",
+          "description": "Minimal guidance that doesn't affect core competency",
+          "examples": ["Encouragement", "Time reminders", "Interface help"]
+        },
+        "slight_assistance": {
+          "modifier_range": "0.85-0.94", 
+          "description": "Minor guidance providing structure without content",
+          "examples": ["Organization hints", "Format suggestions", "General direction"]
+        },
+        "moderate_assistance": {
+          "modifier_range": "0.65-0.84",
+          "description": "Guidance helping with approach but not solutions",
+          "examples": ["Strategy hints", "Conceptual clarifications", "Error identification"]
+        },
+        "substantial_assistance": {
+          "modifier_range": "0.35-0.64",
+          "description": "Direct help with core competency elements", 
+          "examples": ["Content hints", "Solution pathways", "Detailed examples"]
+        },
+        "major_assistance": {
+          "modifier_range": "0.15-0.34",
+          "description": "Significant help compromising independent demonstration",
+          "examples": ["Step-by-step solutions", "Direct answers", "Extensive scaffolding"]
+        },
+        "invalidating_assistance": {
+          "modifier_range": "0.0-0.14",
+          "description": "Complete or near-complete solution provided",
+          "examples": ["Full solutions", "Automated completion", "Work replacement"]
+        }
+      },
+      "evidence_proportion_adjustment": {
+        "response_length_categories": {
+          "minimal": "1-50 words - High sensitivity to any assistance",
+          "brief": "51-200 words - Moderate sensitivity with proportional impact", 
+          "moderate": "201-500 words - Balanced impact assessment",
+          "extensive": "500+ words - Lower sensitivity with larger tolerance"
+        },
+        "proportional_impact_rules": [
+          "Calculate percentage of response affected by assistance",
+          "Apply length-based sensitivity multiplier",
+          "Consider cumulative impact of multiple assistance events",
+          "Adjust base modifier by proportional factor"
+        ]
+      },
+      "quality_validation_checklist": [
+        "All assistance events identified and categorized",
+        "Impact level justified with specific examples",
+        "Modifier aligns with assistance impact category", 
+        "Rationale clearly explains the adjustment",
+        "Fair balance between support and independence"
+      ],
+      "output_schema": {
+        "validity_analysis": {
+          "assistance_impact_level": "string (minimal/moderate/substantial/complete)",
+          "validity_modifier": "float (0.0-1.0)",
+          "response_length_category": "string (minimal/brief/moderate/extensive)",
+          "evidence_proportion_affected": "float (0.0-1.0)",
+          "assistance_instances": [
+            {
+              "assistance_type": "string",
+              "impact_category": "string", 
+              "evidence_affected": "string description",
+              "proportion_of_response": "float (0.0-1.0)"
+            }
+          ],
+          "modifier_calculation": {
+            "base_modifier": "float",
+            "proportional_adjustment": "float",
+            "final_modifier": "float"
+          },
+          "rationale": "string - detailed explanation including proportional impact"
+        }
+      }
+    },
+
+    "diagnostic_intelligence": {
+      "description": "Deep analysis of subskill performance patterns to identify strengths, gaps, and development priorities",
+      "phase_root_key": "diagnostic_analysis",
+      "llm_defaults": {
+        "temperature": 0.6,
+        "max_tokens": 2000,
+        "top_p": 0.9
+      },
+      "primary_objectives": [
+        "Map performance to specific subskills",
+        "Identify demonstrated vs. missing competencies",
+        "Analyze performance patterns and behaviors",
+        "Determine development priorities",
+        "Connect to prerequisite dependencies"
+      ],
+      "process_steps": [
+        "1. Review rubric evaluation and validity analysis results",
+        "2. Map performance evidence to target subskills", 
+        "3. Identify patterns in demonstrated competencies",
+        "4. Analyze gaps and missing prerequisites",
+        "5. Prioritize development recommendations", 
+        "6. Generate diagnostic insights for personalized learning"
+      ],
+      "subskill_performance_levels": {
+        "exemplary": "0.9-1.0 - Exceptional demonstration exceeding expectations",
+        "proficient": "0.75-0.89 - Clear competency meeting standards",
+        "developing": "0.6-0.74 - Emerging competency with inconsistent demonstration",
+        "beginning": "0.4-0.59 - Limited demonstration requiring focused development",
+        "insufficient": "0.0-0.39 - Minimal or no evidence of competency"
+      },
+      "development_priority_levels": {
+        "critical": "Fundamental gaps blocking progress in multiple areas",
+        "high": "Important skills needed for current level advancement",
+        "medium": "Skills that would enhance current performance", 
+        "low": "Enrichment skills for advanced development"
+      },
+      "developmental_milestone_markers": [
+        "Foundation establishment indicators",
+        "Skill integration evidence",
+        "Competency consistency patterns", 
+        "Transfer and application readiness"
+      ],
+      "quality_validation_checklist": [
+        "Subskill mapping supported by evidence",
+        "Performance patterns clearly identified",
+        "Development priorities appropriately ranked",
+        "Prerequisites analysis comprehensive",
+        "Recommendations specific and actionable"
+      ],
+      "output_schema": {
+        "diagnostic_intelligence": {
+          "subskill_performance": [
+            {
+              "subskill_id": "string",
+              "subskill_name": "string",
+              "performance_level": "string",
+              "evidence_summary": "string", 
+              "development_priority": "string (critical/high/medium/low)"
+            }
+          ],
+          "performance_patterns": {
+            "strengths": ["array of strings"],
+            "improvement_areas": ["array of strings"],
+            "behavioral_observations": ["array of strings"]
+          },
+          "prerequisite_analysis": {
+            "missing_prerequisites": ["array of strings"],
+            "foundation_strength": "string (strong/adequate/weak/insufficient)"
+          },
+          "development_recommendations": [
+            {
+              "recommendation": "string", 
+              "target_subskill": "string",
+              "priority": "string",
+              "specific_actions": ["array of strings"]
+            }
+          ],
+          "diagnostic_confidence": "float (0.0-1.0)"
+        }
+      }
+    },
+
+    "trend_analysis": {
+      "description": "Analysis of performance trajectories and learning patterns over time",
+      "phase_root_key": "trend_analysis",
+      "llm_defaults": {
+        "temperature": 0.5,
+        "max_tokens": 1500,
+        "top_p": 0.9
+      },
+      "primary_objectives": [
+        "Identify performance trajectories and patterns over time",
+        "Analyze rate of progress and consistency",
+        "Compare current to historical performance",
+        "Generate personalized development strategies", 
+        "Project likely future progress paths"
+      ],
+      "process_steps": [
+        "1. Review historical performance data across activities",
+        "2. Identify performance trajectories and patterns",
+        "3. Analyze rate of progress and consistency", 
+        "4. Compare current to historical performance",
+        "5. Generate personalized development strategies",
+        "6. Project likely future progress paths"
+      ],
+      "performance_trajectory_categories": {
+        "accelerating": "Rapid improvement with increasing momentum",
+        "steady_progress": "Consistent improvement at sustainable pace",
+        "plateau": "Performance stabilized at current level",
+        "inconsistent": "Variable performance without clear pattern", 
+        "declining": "Decreasing performance requiring intervention"
+      },
+      "development_stage_categories": {
+        "early_learning": "Building foundational understanding",
+        "skill_development": "Actively developing core competencies",
+        "consolidation": "Strengthening and integrating skills",
+        "advanced_application": "Applying skills in complex contexts"
+      },
+      "pattern_recognition_templates": {
+        "time_based": "Performance changes over chronological sequence",
+        "complexity_based": "Performance varies with task complexity",
+        "context_based": "Performance differs across contexts",
+        "support_based": "Performance related to assistance levels"
+      },
+      "quality_validation_checklist": [
+        "Historical data properly analyzed",
+        "Trends identified with supporting evidence", 
+        "Trajectory classification justified",
+        "Recommendations personalized to learner",
+        "Future projections realistic and actionable"
+      ],
+      "output_schema": {
+        "trend_analysis": {
+          "performance_trajectory": "string",
+          "trajectory_evidence": ["array of supporting data points"],
+          "development_stage": "string",
+          "historical_patterns": {
+            "improvement_areas": ["array"],
+            "consistent_strengths": ["array"],
+            "recurring_challenges": ["array"]
+          },
+          "personalized_recommendations": [
+            {
+              "recommendation": "string",
+              "rationale": "string",
+              "priority": "string (high/medium/low)"
+            }
+          ],
+          "projected_development": {
+            "next_milestone": "string",
+            "estimated_timeline": "string", 
+            "success_indicators": ["array"]
+          }
+        }
+      }
+    },
+
+    "feedback_generation": {
+      "description": "Synthesis of all evaluation results into constructive, motivational learner feedback",
+      "phase_root_key": "student_feedback",
+      "llm_defaults": {
+        "temperature": 0.8,
+        "max_tokens": 2500,
+        "top_p": 0.9
+      },
+      "primary_objectives": [
+        "Synthesize all evaluation results coherently",
+        "Translate technical insights to learner-friendly language",
+        "Generate motivational and constructive guidance", 
+        "Provide specific, actionable next steps",
+        "Celebrate achievements while addressing gaps"
+      ],
+      "process_steps": [
+        "1. Review comprehensive evaluation results from all phases",
+        "2. Identify key themes and messages",
+        "3. Translate technical language to accessible terms",
+        "4. Balance recognition of strengths with growth areas",
+        "5. Generate specific, actionable recommendations", 
+        "6. Ensure motivational and supportive tone"
+      ],
+      "feedback_tone_categories": {
+        "celebratory": "Recognizing significant achievements and breakthroughs",
+        "encouraging": "Supporting continued effort and development",
+        "constructive": "Providing guidance for improvement and growth",
+        "motivational": "Inspiring continued learning and application",
+        "supportive": "Offering assistance and resources for development"
+      },
+      "tone_calibration_examples": {
+        "high_performance": "Fantastic work! You've demonstrated strong mastery of [skill]. To reach the next level...",
+        "solid_progress": "Good progress! You're showing real improvement in [skill]. Let's build on this by...",
+        "developing": "You're on the right track with [skill]. Focus on [specific area] to strengthen your abilities...",
+        "struggling": "I see you're working hard on [skill]. Let's focus on [foundation area] to build your confidence..."
+      },
+      "motivational_framework": [
+        "Recognition of effort and persistence",
+        "Celebration of specific achievements",
+        "Clear pathway for continued growth", 
+        "Connection to learner's goals and interests",
+        "Confidence-building through success highlighting"
+      ],
+      "quality_validation_checklist": [
+        "All evaluation phases synthesized coherently",
+        "Language accessible to learner level",
+        "Tone appropriate for performance level",
+        "Next steps specific and actionable",
+        "Motivational elements integrated throughout"
+      ],
+      "output_schema": {
+        "feedback_generation": {
+          "performance_summary": {
+            "overall_assessment": "string",
+            "key_strengths": ["array"],
+            "primary_opportunities": ["array"],
+            "achievement_highlights": ["array"]
+          },
+          "detailed_insights": {
+            "competency_development": [
+              {
+                "skill_area": "string",
+                "current_level": "string", 
+                "progress_description": "string",
+                "specific_demonstrations": ["array"]
+              }
+            ],
+            "learning_behavior_insights": "string"
+          },
+          "actionable_guidance": {
+            "immediate_next_steps": [
+              {
+                "action": "string",
+                "rationale": "string",
+                "resources": ["array"],
+                "timeline": "string"
+              }
+            ],
+            "practice_recommendations": [
+              {
+                "skill_focus": "string",
+                "activities": ["array"],
+                "strategies": ["array"]
+              }
+            ]
+          },
+          "motivation_elements": {
+            "encouragement": "string",
+            "progress_celebration": ["array"],
+            "confidence_building": "string"
+          }
+        }
+      }
+    }
+  },
+
+  "item_type_specifications": {
+    "constructed_response": {
+      "evaluation_method": "rubric_scored",
+      "specific_considerations": {
+        "rubric_evaluation": "Focus on analysis depth, evidence use, argument structure, and critical thinking demonstration",
+        "validity_analysis": "Track structural hints, content guidance, and example provision - consider response length for proportional impact",
+        "diagnostic_intelligence": "Map to analytical reasoning subskills, identify writing and thinking patterns",
+        "trend_analysis": "Monitor improvement in analytical sophistication and evidence usage over time",
+        "feedback_generation": "Emphasize reasoning development and analytical skill building"
+      },
+      "evidence_characteristics": [
+        "Depth of analysis and critical thinking",
+        "Quality of evidence usage and integration", 
+        "Clarity of argument structure and organization",
+        "Demonstration of domain knowledge application"
+      ]
+    },
+
+    "coding_exercise": {
+      "evaluation_method": "rubric_scored",
+      "specific_considerations": {
+        "rubric_evaluation": "Assess code functionality, efficiency, style, problem-solving approach and implementation quality",
+        "validity_analysis": "Track syntax help, logic hints, solution guidance - consider lines of code and complexity for proportional impact",
+        "diagnostic_intelligence": "Map to programming and problem-solving subskills, identify coding patterns and debugging abilities",
+        "trend_analysis": "Monitor improvement in code quality, problem-solving sophistication, and technical skill development",
+        "feedback_generation": "Focus on technical skill development and problem-solving strategy improvement"
+      },
+      "evidence_characteristics": [
+        "Code functionality and correctness",
+        "Programming style and best practices",
+        "Problem-solving approach and efficiency",
+        "Technical implementation quality"
+      ]
+    },
+
+    "role_play": {
+      "evaluation_method": "rubric_scored", 
+      "specific_considerations": {
+        "rubric_evaluation": "Assess communication effectiveness, professionalism, objective achievement, and adaptability",
+        "validity_analysis": "Track conversation coaching, strategy hints, content suggestions - consider turns and complexity for proportional impact",
+        "diagnostic_intelligence": "Map to communication and interpersonal subskills, identify professional behavior patterns",
+        "trend_analysis": "Monitor improvement in communication skills, professional behavior, and scenario management",
+        "feedback_generation": "Emphasize communication skill development and professional competency growth"
+      },
+      "evidence_characteristics": [
+        "Communication effectiveness and clarity",
+        "Professional behavior and judgment",
+        "Adaptability to conversation dynamics", 
+        "Strategic objective achievement"
+      ]
+    },
+
+    "selected_response": {
+      "evaluation_method": "autoscored",
+      "specific_considerations": {
+        "validity_analysis": "Track hint usage, elimination assistance, clarification requests - consider question count and difficulty for proportional impact",
+        "diagnostic_intelligence": "Map to knowledge recall and application subskills, identify conceptual understanding patterns",
+        "trend_analysis": "Monitor accuracy trends, speed improvement, and concept mastery patterns",
+        "feedback_generation": "Focus on knowledge consolidation and test-taking strategy development"
+      },
+      "evidence_characteristics": [
+        "Response accuracy patterns",
+        "Conceptual understanding indicators",
+        "Decision-making processes", 
+        "Knowledge application efficiency"
+      ]
+    },
+
+    "branching_scenario": {
+      "evaluation_method": "autoscored",
+      "specific_considerations": {
+        "validity_analysis": "Track decision assistance, consequence previews, path guidance - consider decision points and complexity for proportional impact",
+        "diagnostic_intelligence": "Map to decision-making and strategic thinking subskills, identify judgment and prediction patterns", 
+        "trend_analysis": "Monitor decision quality improvement, pattern recognition, and strategic development",
+        "feedback_generation": "Emphasize decision-making skills and strategic thinking development"
+      },
+      "evidence_characteristics": [
+        "Decision quality and rationale",
+        "Strategic thinking patterns",
+        "Consequence awareness and prediction",
+        "Adaptive response to scenarios"
+      ]
+    }
+  },
+
+  "validity_modifier_framework": {
+    "calculation_guidance": "The validity modifier represents the degree to which the learner's response demonstrates independent competency. Apply STRICT standards - any assistance related to the core competency should rapidly decrease the modifier.",
+    
+    "strict_calculation_rules": [
+      "Single substantial assistance event: Maximum modifier 0.6",
+      "Multiple moderate assistance events: Compound impact below 0.5",
+      "Any major assistance: Maximum modifier 0.3", 
+      "Direct solution provision: Modifier approaches 0.0"
+    ],
+    
+    "assistance_pattern_recognition": {
+      "escalating_assistance": "Multiple assistance requests indicate increasing struggle - compound the validity impact",
+      "content_specific_help": "Assistance directly related to target skill significantly impacts validity more than general guidance",
+      "timing_sensitivity": "Late-stage assistance after substantial independent work has less impact than early intervention"
+    },
+    
+    "evidence_volume_adjustment": "Final evidence volume = base_evidence_volume × validity_modifier × response_quality_factor"
+  },
+
+  "leveling_framework": {
+    "cognitive_levels": {
+      "L1": {
+        "name": "Remember",
+        "description": "Recall facts, basic concepts, and procedures",
+        "cognitive_demands": "Recognition, retrieval, identification of information"
+      },
+      "L2": {
+        "name": "Understand", 
+        "description": "Explain ideas, concepts, and their relationships",
+        "cognitive_demands": "Interpretation, explanation, summarization, comparison"
+      },
+      "L3": {
+        "name": "Apply",
+        "description": "Use information, methods, and concepts in new situations",
+        "cognitive_demands": "Implementation, execution, problem-solving in familiar contexts"
+      },
+      "L4": {
+        "name": "Analyze",
+        "description": "Draw connections among ideas, examine relationships", 
+        "cognitive_demands": "Differentiation, organization, attribution, critical examination"
+      }
+    },
+    
+    "depth_levels": {
+      "D1": {
+        "name": "Recognition",
+        "description": "Identify and recall basic elements and concepts",
+        "content_complexity": "Surface-level recognition of key terms, facts, and basic procedures"
+      },
+      "D2": {
+        "name": "Comprehension",
+        "description": "Understand relationships and demonstrate conceptual grasp", 
+        "content_complexity": "Understanding connections, explaining concepts, demonstrating relationships"
+      },
+      "D3": {
+        "name": "Application", 
+        "description": "Apply knowledge and skills in structured contexts",
+        "content_complexity": "Using knowledge in guided situations, following established procedures"
+      },
+      "D4": {
+        "name": "Analysis",
+        "description": "Integrate knowledge for complex problem-solving and evaluation",
+        "content_complexity": "Synthesis of multiple concepts, evaluation of alternatives, creative application"
+      }
+    }
+  },
+
+  "json_validation_requirements": {
+    "critical_format_warning": "CRITICAL JSON FORMAT REQUIREMENTS:\n- Begin response with { and end with }\n- No text before opening brace or after closing brace\n- No markdown code blocks or formatting\n- No explanatory text outside JSON structure\n- Use exact field names from schema\n- Ensure all required fields are present\n- Use correct data types (strings, floats, arrays)\n- Maintain proper JSON syntax throughout",
+    
+    "validation_patterns": [
+      "Direct JSON parsing: json.loads(response)",
+      "No preprocessing should be required", 
+      "Must match exact schema structure",
+      "All required fields must be present"
+    ],
+    
+    "common_errors_to_avoid": [
+      "Including markdown code blocks",
+      "Adding explanatory text",
+      "Using incorrect field names",
+      "Missing required fields",
+      "Invalid data types"
+    ]
+  },
+
+  "domain_model_integration": {
+    "structure_guide": "The domain model defines a hierarchical competency framework:\n- COMPETENCIES (C001-C004): Top-level capability areas\n- SKILLS (S001-S016): Specific competency components\n- SUBSKILLS (SS001-SS055): Granular, measurable skill elements\n- DEPENDENCIES: Prerequisite relationships between skills\n- TASKS: Real-world application contexts",
+    
+    "evaluation_hierarchy": "Evaluations flow from subskills → skills → competencies. Each activity targets one primary skill but evaluates through its component subskills.",
+    
+    "rubric_alignment_instructions": "Rubric aspects should map to specific subskills. Each aspect score contributes evidence toward the subskill demonstration.",
+    
+    "diagnostic_mapping_instructions": "Map observed performance to specific subskills, identify prerequisite gaps, and trace dependencies for development recommendations.",
+    
+    "prerequisite_analysis_guidance": "Use dependency relationships to identify foundational gaps that may be limiting current performance."
+  },
+
+  "prompt_assembly_instructions": {
+    "assembly_order": [
+      "1. Universal introduction components",
+      "2. Phase-specific system prompt attributes",
+      "3. Item-type considerations", 
+      "4. User prompt with dynamic content",
+      "5. Output format reminder",
+      "6. Critical requirements recap"
+    ],
+    
+    "variable_substitution": {
+      "required_variables": [
+        "phase_name",
+        "item_type", 
+        "skill_id",
+        "skill_name",
+        "skill_description",
+        "cognitive_level",
+        "depth_level",
+        "competency_id",
+        "competency_description",
+        "subskills_list",
+        "l_d_complexity"
+      ],
+      "context_dependent_variables": [
+        "previous_scores",
+        "validity_modifier",
+        "prerequisite_skills",
+        "dependency_position", 
+        "progression_context"
+      ]
+    },
+    
+    "quality_checklist": [
+      "All variables properly substituted",
+      "No placeholder text remaining",
+      "Phase-appropriate components included",
+      "Item-type specifications incorporated",
+      "Output schema clearly defined"
+    ]
+  },
+
+  "prompt_templates": {
+    "CR_rubric": {
+      "system_components": [
+        "universal_introduction.evaluation_context",
+        "universal_introduction.target_skill_context", 
+        "universal_introduction.complexity_context",
+        "general_context.system_role",
+        "general_context.evaluation_philosophy",
+        "phase_configurations.rubric_evaluation.description",
+        "phase_configurations.rubric_evaluation.primary_objectives",
+        "phase_configurations.rubric_evaluation.process_steps",
+        "item_type_specifications.constructed_response.specific_considerations.rubric_evaluation",
+        "general_context.critical_guidelines",
+        "json_validation_requirements.critical_format_warning"
+      ],
+      "required_variables": [
+        "activity_spec",
+        "activity_transcript", 
+        "domain_model",
+        "target_skill_context",
+        "rubric_details"
+      ],
+      "user_prompt_template": "ACTIVITY SPECIFICATION:\n{activity_spec}\n\nLEARNER RESPONSE:\n{activity_transcript}\n\nTARGET SKILL CONTEXT:\n{target_skill_context}\n\nRUBRIC DETAILS:\n{rubric_details}\n\nRUBRIC EVALUATION TASK: Please evaluate this constructed response according to the provided rubric, scoring each aspect and providing detailed rationale based on observable evidence."
+    },
+
+    "COD_rubric": {
+      "system_components": [
+        "universal_introduction.evaluation_context",
+        "universal_introduction.target_skill_context",
+        "universal_introduction.complexity_context", 
+        "general_context.system_role",
+        "general_context.evaluation_philosophy",
+        "phase_configurations.rubric_evaluation.description",
+        "phase_configurations.rubric_evaluation.primary_objectives",
+        "phase_configurations.rubric_evaluation.process_steps",
+        "item_type_specifications.coding_exercise.specific_considerations.rubric_evaluation",
+        "general_context.critical_guidelines",
+        "json_validation_requirements.critical_format_warning"
+      ],
+      "required_variables": [
+        "activity_spec",
+        "activity_transcript",
+        "domain_model", 
+        "target_skill_context",
+        "rubric_details",
+        "code_execution_results"
+      ],
+      "user_prompt_template": "ACTIVITY SPECIFICATION:\n{activity_spec}\n\nCODE SUBMISSION:\n{activity_transcript}\n\nEXECUTION RESULTS:\n{code_execution_results}\n\nTARGET SKILL CONTEXT:\n{target_skill_context}\n\nRUBRIC DETAILS:\n{rubric_details}\n\nRUBRIC EVALUATION TASK: Please evaluate this coding exercise according to the provided rubric, assessing code quality, functionality, and problem-solving approach."
+    },
+
+    "RP_rubric": {
+      "system_components": [
+        "universal_introduction.evaluation_context",
+        "universal_introduction.target_skill_context",
+        "universal_introduction.complexity_context",
+        "general_context.system_role", 
+        "general_context.evaluation_philosophy",
+        "phase_configurations.rubric_evaluation.description",
+        "phase_configurations.rubric_evaluation.primary_objectives",
+        "phase_configurations.rubric_evaluation.process_steps",
+        "item_type_specifications.role_play.specific_considerations.rubric_evaluation",
+        "general_context.critical_guidelines",
+        "json_validation_requirements.critical_format_warning"
+      ],
+      "required_variables": [
+        "activity_spec",
+        "activity_transcript",
+        "domain_model",
+        "target_skill_context",
+        "rubric_details",
+        "conversation_analysis"
+      ],
+      "user_prompt_template": "ACTIVITY SPECIFICATION:\n{activity_spec}\n\nCONVERSATION LOG:\n{activity_transcript}\n\nCONVERSATION ANALYSIS:\n{conversation_analysis}\n\nTARGET SKILL CONTEXT:\n{target_skill_context}\n\nRUBRIC DETAILS:\n{rubric_details}\n\nRUBRIC EVALUATION TASK: Please evaluate this role play conversation according to the provided rubric, assessing communication effectiveness and professional competency demonstration."
+    },
+
+    "CR_validity": {
+      "system_components": [
+        "universal_introduction.evaluation_context",
+        "general_context.system_role",
+        "phase_configurations.validity_analysis.description",
+        "phase_configurations.validity_analysis.primary_objectives",
+        "phase_configurations.validity_analysis.strict_assistance_principles",
+        "phase_configurations.validity_analysis.assistance_impact_categories", 
+        "item_type_specifications.constructed_response.specific_considerations.validity_analysis",
+        "validity_modifier_framework.calculation_guidance",
+        "json_validation_requirements.critical_format_warning"
+      ],
+      "required_variables": [
+        "activity_spec",
+        "activity_transcript",
+        "assistance_log",
+        "response_analysis"
+      ],
+      "user_prompt_template": "ACTIVITY SPECIFICATION:\n{activity_spec}\n\nLEARNER RESPONSE:\n{activity_transcript}\n\nASSISTANCE LOG:\n{assistance_log}\n\nRESPONSE ANALYSIS:\n{response_analysis}\n\nVALIDITY ANALYSIS TASK: Please analyze the assistance provided and calculate a validity modifier based on impact severity and proportion of response affected."
+    },
+
+    "COD_validity": {
+      "system_components": [
+        "universal_introduction.evaluation_context",
+        "general_context.system_role",
+        "phase_configurations.validity_analysis.description",
+        "phase_configurations.validity_analysis.primary_objectives",
+        "phase_configurations.validity_analysis.strict_assistance_principles",
+        "phase_configurations.validity_analysis.assistance_impact_categories",
+        "item_type_specifications.coding_exercise.specific_considerations.validity_analysis",
+        "validity_modifier_framework.calculation_guidance",
+        "json_validation_requirements.critical_format_warning"
+      ],
+      "required_variables": [
+        "activity_spec",
+        "activity_transcript",
+        "assistance_log", 
+        "code_analysis"
+      ],
+      "user_prompt_template": "ACTIVITY SPECIFICATION:\n{activity_spec}\n\nCODE SUBMISSION:\n{activity_transcript}\n\nASSISTANCE LOG:\n{assistance_log}\n\nCODE ANALYSIS:\n{code_analysis}\n\nVALIDITY ANALYSIS TASK: Please analyze coding assistance provided and calculate validity modifier considering lines of code affected and complexity impact."
+    },
+
+    "RP_validity": {
+      "system_components": [
+        "universal_introduction.evaluation_context",
+        "general_context.system_role",
+        "phase_configurations.validity_analysis.description",
+        "phase_configurations.validity_analysis.primary_objectives", 
+        "phase_configurations.validity_analysis.strict_assistance_principles",
+        "phase_configurations.validity_analysis.assistance_impact_categories",
+        "item_type_specifications.role_play.specific_considerations.validity_analysis",
+        "validity_modifier_framework.calculation_guidance",
+        "json_validation_requirements.critical_format_warning"
+      ],
+      "required_variables": [
+        "activity_spec",
+        "activity_transcript",
+        "assistance_log",
+        "conversation_analysis"
+      ],
+      "user_prompt_template": "ACTIVITY SPECIFICATION:\n{activity_spec}\n\nCONVERSATION LOG:\n{activity_transcript}\n\nASSISTANCE LOG:\n{assistance_log}\n\nCONVERSATION ANALYSIS:\n{conversation_analysis}\n\nVALIDITY ANALYSIS TASK: Please analyze conversation assistance and calculate validity modifier considering conversation turns affected and communication competency impact."
+    },
+
+    "SR_validity": {
+      "system_components": [
+        "universal_introduction.evaluation_context",
+        "general_context.system_role",
+        "phase_configurations.validity_analysis.description",
+        "phase_configurations.validity_analysis.primary_objectives",
+        "phase_configurations.validity_analysis.strict_assistance_principles",
+        "phase_configurations.validity_analysis.assistance_impact_categories",
+        "item_type_specifications.selected_response.specific_considerations.validity_analysis",
+        "validity_modifier_framework.calculation_guidance",
+        "json_validation_requirements.critical_format_warning"
+      ],
+      "required_variables": [
+        "activity_spec",
+        "activity_transcript",
+        "assistance_log",
+        "response_analysis"
+      ],
+      "user_prompt_template": "ACTIVITY SPECIFICATION:\n{activity_spec}\n\nRESPONSE SELECTIONS:\n{activity_transcript}\n\nASSISTANCE LOG:\n{assistance_log}\n\nRESPONSE ANALYSIS:\n{response_analysis}\n\nVALIDITY ANALYSIS TASK: Please analyze assistance provided for selected response questions and calculate validity modifier based on hint usage and question proportion affected."
+    },
+
+    "BR_validity": {
+      "system_components": [
+        "universal_introduction.evaluation_context",
+        "general_context.system_role",
+        "phase_configurations.validity_analysis.description", 
+        "phase_configurations.validity_analysis.primary_objectives",
+        "phase_configurations.validity_analysis.strict_assistance_principles",
+        "phase_configurations.validity_analysis.assistance_impact_categories",
+        "item_type_specifications.branching_scenario.specific_considerations.validity_analysis",
+        "validity_modifier_framework.calculation_guidance",
+        "json_validation_requirements.critical_format_warning"
+      ],
+      "required_variables": [
+        "activity_spec",
+        "activity_transcript",
+        "assistance_log",
+        "decision_analysis"
+      ],
+      "user_prompt_template": "ACTIVITY SPECIFICATION:\n{activity_spec}\n\nDECISION PATH:\n{activity_transcript}\n\nASSISTANCE LOG:\n{assistance_log}\n\nDECISION ANALYSIS:\n{decision_analysis}\n\nVALIDITY ANALYSIS TASK: Please analyze decision assistance provided and calculate validity modifier considering decision points affected and strategic thinking impact."
+    },
+
+    "CR_diagnostic": {
+      "system_components": [
+        "universal_introduction.evaluation_context",
+        "universal_introduction.target_skill_context",
+        "phase_specific_components.prerequisite_context",
+        "general_context.system_role",
+        "phase_configurations.diagnostic_intelligence.description",
+        "phase_configurations.diagnostic_intelligence.primary_objectives",
+        "phase_configurations.diagnostic_intelligence.subskill_performance_levels",
+        "item_type_specifications.constructed_response.specific_considerations.diagnostic_intelligence",
+        "domain_model_integration.diagnostic_mapping_instructions", 
+        "json_validation_requirements.critical_format_warning"
+      ],
+      "required_variables": [
+        "activity_spec",
+        "activity_transcript",
+        "rubric_evaluation_results",
+        "validity_analysis_results",
+        "target_skill_context",
+        "prerequisite_relationships"
+      ],
+      "user_prompt_template": "ACTIVITY SPECIFICATION:\n{activity_spec}\n\nLEARNER RESPONSE:\n{activity_transcript}\n\nRUBRIC EVALUATION RESULTS:\n{rubric_evaluation_results}\n\nVALIDITY ANALYSIS RESULTS:\n{validity_analysis_results}\n\nTARGET SKILL CONTEXT:\n{target_skill_context}\n\nPREREQUISITE RELATIONSHIPS:\n{prerequisite_relationships}\n\nDIAGNOSTIC INTELLIGENCE TASK: Please analyze performance patterns and generate diagnostic insights for constructed response competencies."
+    },
+
+    "COD_diagnostic": {
+      "system_components": [
+        "universal_introduction.evaluation_context", 
+        "universal_introduction.target_skill_context",
+        "phase_specific_components.prerequisite_context",
+        "general_context.system_role",
+        "phase_configurations.diagnostic_intelligence.description",
+        "phase_configurations.diagnostic_intelligence.primary_objectives",
+        "phase_configurations.diagnostic_intelligence.subskill_performance_levels",
+        "item_type_specifications.coding_exercise.specific_considerations.diagnostic_intelligence",
+        "domain_model_integration.diagnostic_mapping_instructions",
+        "json_validation_requirements.critical_format_warning"
+      ],
+      "required_variables": [
+        "activity_spec",
+        "activity_transcript",
+        "rubric_evaluation_results",
+        "validity_analysis_results",
+        "target_skill_context", 
+        "prerequisite_relationships",
+        "code_execution_results"
+      ],
+      "user_prompt_template": "ACTIVITY SPECIFICATION:\n{activity_spec}\n\nCODE SUBMISSION:\n{activity_transcript}\n\nEXECUTION RESULTS:\n{code_execution_results}\n\nRUBRIC EVALUATION RESULTS:\n{rubric_evaluation_results}\n\nVALIDITY ANALYSIS RESULTS:\n{validity_analysis_results}\n\nTARGET SKILL CONTEXT:\n{target_skill_context}\n\nPREREQUISITE RELATIONSHIPS:\n{prerequisite_relationships}\n\nDIAGNOSTIC INTELLIGENCE TASK: Please analyze coding performance patterns and generate diagnostic insights for programming competencies."
+    },
+
+    "RP_diagnostic": {
+      "system_components": [
+        "universal_introduction.evaluation_context",
+        "universal_introduction.target_skill_context",
+        "phase_specific_components.prerequisite_context",
+        "general_context.system_role",
+        "phase_configurations.diagnostic_intelligence.description",
+        "phase_configurations.diagnostic_intelligence.primary_objectives",
+        "phase_configurations.diagnostic_intelligence.subskill_performance_levels",
+        "item_type_specifications.role_play.specific_considerations.diagnostic_intelligence", 
+        "domain_model_integration.diagnostic_mapping_instructions",
+        "json_validation_requirements.critical_format_warning"
+      ],
+      "required_variables": [
+        "activity_spec",
+        "activity_transcript",
+        "rubric_evaluation_results",
+        "validity_analysis_results",
+        "target_skill_context",
+        "prerequisite_relationships",
+        "conversation_analysis"
+      ],
+      "user_prompt_template": "ACTIVITY SPECIFICATION:\n{activity_spec}\n\nCONVERSATION LOG:\n{activity_transcript}\n\nCONVERSATION ANALYSIS:\n{conversation_analysis}\n\nRUBRIC EVALUATION RESULTS:\n{rubric_evaluation_results}\n\nVALIDITY ANALYSIS RESULTS:\n{validity_analysis_results}\n\nTARGET SKILL CONTEXT:\n{target_skill_context}\n\nPREREQUISITE RELATIONSHIPS:\n{prerequisite_relationships}\n\nDIAGNOSTIC INTELLIGENCE TASK: Please analyze communication performance patterns and generate diagnostic insights for interpersonal competencies."
+    },
+
+    "SR_diagnostic": {
+      "system_components": [
+        "universal_introduction.evaluation_context",
+        "universal_introduction.target_skill_context", 
+        "phase_specific_components.prerequisite_context",
+        "general_context.system_role",
+        "phase_configurations.diagnostic_intelligence.description",
+        "phase_configurations.diagnostic_intelligence.primary_objectives",
+        "phase_configurations.diagnostic_intelligence.subskill_performance_levels",
+        "item_type_specifications.selected_response.specific_considerations.diagnostic_intelligence",
+        "domain_model_integration.diagnostic_mapping_instructions",
+        "json_validation_requirements.critical_format_warning"
+      ],
+      "required_variables": [
+        "activity_spec",
+        "activity_transcript",
+        "validity_analysis_results",
+        "target_skill_context",
+        "prerequisite_relationships",
+        "response_analysis"
+      ],
+      "user_prompt_template": "ACTIVITY SPECIFICATION:\n{activity_spec}\n\nRESPONSE SELECTIONS:\n{activity_transcript}\n\nRESPONSE ANALYSIS:\n{response_analysis}\n\nVALIDITY ANALYSIS RESULTS:\n{validity_analysis_results}\n\nTARGET SKILL CONTEXT:\n{target_skill_context}\n\nPREREQUISITE RELATIONSHIPS:\n{prerequisite_relationships}\n\nDIAGNOSTIC INTELLIGENCE TASK: Please analyze response patterns and generate diagnostic insights for knowledge-based competencies."
+    },
+
+    "BR_diagnostic": {
+      "system_components": [
+        "universal_introduction.evaluation_context",
+        "universal_introduction.target_skill_context",
+        "phase_specific_components.prerequisite_context",
+        "general_context.system_role",
+        "phase_configurations.diagnostic_intelligence.description",
+        "phase_configurations.diagnostic_intelligence.primary_objectives", 
+        "phase_configurations.diagnostic_intelligence.subskill_performance_levels",
+        "item_type_specifications.branching_scenario.specific_considerations.diagnostic_intelligence",
+        "domain_model_integration.diagnostic_mapping_instructions",
+        "json_validation_requirements.critical_format_warning"
+      ],
+      "required_variables": [
+        "activity_spec",
+        "activity_transcript",
+        "validity_analysis_results",
+        "target_skill_context",
+        "prerequisite_relationships",
+        "decision_analysis"
+      ],
+      "user_prompt_template": "ACTIVITY SPECIFICATION:\n{activity_spec}\n\nDECISION PATH:\n{activity_transcript}\n\nDECISION ANALYSIS:\n{decision_analysis}\n\nVALIDITY ANALYSIS RESULTS:\n{validity_analysis_results}\n\nTARGET SKILL CONTEXT:\n{target_skill_context}\n\nPREREQUISITE RELATIONSHIPS:\n{prerequisite_relationships}\n\nDIAGNOSTIC INTELLIGENCE TASK: Please analyze decision-making patterns and generate diagnostic insights for strategic thinking competencies."
+    },
+
+    "CR_trend": {
+      "system_components": [
+        "universal_introduction.evaluation_context",
+        "phase_specific_components.pipeline_continuity",
+        "general_context.system_role",
+        "phase_configurations.trend_analysis.description",
+        "phase_configurations.trend_analysis.performance_trajectory_categories",
+        "phase_configurations.trend_analysis.pattern_recognition_templates",
+        "item_type_specifications.constructed_response.specific_considerations.trend_analysis",
+        "json_validation_requirements.critical_format_warning"
+      ],
+      "required_variables": [
+        "activity_spec",
+        "activity_transcript",
+        "historical_performance_data",
+        "current_diagnostic_results",
+        "temporal_context"
+      ],
+      "user_prompt_template": "CURRENT ACTIVITY:\n{activity_spec}\n\nCURRENT RESPONSE:\n{activity_transcript}\n\nHISTORICAL PERFORMANCE DATA:\n{historical_performance_data}\n\nCURRENT DIAGNOSTIC RESULTS:\n{current_diagnostic_results}\n\nTEMPORAL CONTEXT:\n{temporal_context}\n\nTREND ANALYSIS TASK: Please analyze performance trends for constructed response activities and generate personalized development recommendations."
+    },
+
+    "COD_trend": {
+      "system_components": [
+        "universal_introduction.evaluation_context",
+        "phase_specific_components.pipeline_continuity",
+        "general_context.system_role",
+        "phase_configurations.trend_analysis.description",
+        "phase_configurations.trend_analysis.performance_trajectory_categories", 
+        "phase_configurations.trend_analysis.pattern_recognition_templates",
+        "item_type_specifications.coding_exercise.specific_considerations.trend_analysis",
+        "json_validation_requirements.critical_format_warning"
+      ],
+      "required_variables": [
+        "activity_spec",
+        "activity_transcript",
+        "historical_performance_data",
+        "current_diagnostic_results",
+        "temporal_context"
+      ],
+      "user_prompt_template": "CURRENT ACTIVITY:\n{activity_spec}\n\nCURRENT CODE:\n{activity_transcript}\n\nHISTORICAL PERFORMANCE DATA:\n{historical_performance_data}\n\nCURRENT DIAGNOSTIC RESULTS:\n{current_diagnostic_results}\n\nTEMPORAL CONTEXT:\n{temporal_context}\n\nTREND ANALYSIS TASK: Please analyze coding performance trends and generate personalized development recommendations for programming competencies."
+    },
+
+    "RP_trend": {
+      "system_components": [
+        "universal_introduction.evaluation_context",
+        "phase_specific_components.pipeline_continuity",
+        "general_context.system_role",
+        "phase_configurations.trend_analysis.description",
+        "phase_configurations.trend_analysis.performance_trajectory_categories",
+        "phase_configurations.trend_analysis.pattern_recognition_templates", 
+        "item_type_specifications.role_play.specific_considerations.trend_analysis",
+        "json_validation_requirements.critical_format_warning"
+      ],
+      "required_variables": [
+        "activity_spec",
+        "activity_transcript",
+        "historical_performance_data",
+        "current_diagnostic_results",
+        "temporal_context"
+      ],
+      "user_prompt_template": "CURRENT ACTIVITY:\n{activity_spec}\n\nCURRENT CONVERSATION:\n{activity_transcript}\n\nHISTORICAL PERFORMANCE DATA:\n{historical_performance_data}\n\nCURRENT DIAGNOSTIC RESULTS:\n{current_diagnostic_results}\n\nTEMPORAL CONTEXT:\n{temporal_context}\n\nTREND ANALYSIS TASK: Please analyze communication performance trends and generate personalized development recommendations for interpersonal competencies."
+    },
+
+    "SR_trend": {
+      "system_components": [
+        "universal_introduction.evaluation_context",
+        "phase_specific_components.pipeline_continuity",
+        "general_context.system_role",
+        "phase_configurations.trend_analysis.description",
+        "phase_configurations.trend_analysis.performance_trajectory_categories",
+        "phase_configurations.trend_analysis.pattern_recognition_templates",
+        "item_type_specifications.selected_response.specific_considerations.trend_analysis",
+        "json_validation_requirements.critical_format_warning"
+      ],
+      "required_variables": [
+        "activity_spec",
+        "activity_transcript",
+        "historical_performance_data", 
+        "current_diagnostic_results",
+        "temporal_context"
+      ],
+      "user_prompt_template": "CURRENT ACTIVITY:\n{activity_spec}\n\nCURRENT RESPONSES:\n{activity_transcript}\n\nHISTORICAL PERFORMANCE DATA:\n{historical_performance_data}\n\nCURRENT DIAGNOSTIC RESULTS:\n{current_diagnostic_results}\n\nTEMPORAL CONTEXT:\n{temporal_context}\n\nTREND ANALYSIS TASK: Please analyze knowledge assessment trends and generate personalized development recommendations for conceptual understanding."
+    },
+
+    "BR_trend": {
+      "system_components": [
+        "universal_introduction.evaluation_context",
+        "phase_specific_components.pipeline_continuity",
+        "general_context.system_role",
+        "phase_configurations.trend_analysis.description",
+        "phase_configurations.trend_analysis.performance_trajectory_categories",
+        "phase_configurations.trend_analysis.pattern_recognition_templates",
+        "item_type_specifications.branching_scenario.specific_considerations.trend_analysis",
+        "json_validation_requirements.critical_format_warning"
+      ],
+      "required_variables": [
+        "activity_spec",
+        "activity_transcript", 
+        "historical_performance_data",
+        "current_diagnostic_results",
+        "temporal_context"
+      ],
+      "user_prompt_template": "CURRENT ACTIVITY:\n{activity_spec}\n\nCURRENT DECISIONS:\n{activity_transcript}\n\nHISTORICAL PERFORMANCE DATA:\n{historical_performance_data}\n\nCURRENT DIAGNOSTIC RESULTS:\n{current_diagnostic_results}\n\nTEMPORAL CONTEXT:\n{temporal_context}\n\nTREND ANALYSIS TASK: Please analyze decision-making trends and generate personalized development recommendations for strategic thinking competencies."
+    },
+
+    "CR_feedback": {
+      "system_components": [
+        "universal_introduction.evaluation_context",
+        "phase_specific_components.pipeline_continuity",
+        "general_context.system_role",
+        "phase_configurations.feedback_generation.description",
+        "phase_configurations.feedback_generation.feedback_tone_categories",
+        "phase_configurations.feedback_generation.motivational_framework",
+        "item_type_specifications.constructed_response.specific_considerations.feedback_generation",
+        "json_validation_requirements.critical_format_warning"
+      ],
+      "required_variables": [
+        "activity_spec",
+        "activity_transcript",
+        "all_pipeline_results",
+        "performance_context",
+        "motivational_context"
+      ],
+      "user_prompt_template": "ACTIVITY SPECIFICATION:\n{activity_spec}\n\nLEARNER RESPONSE:\n{activity_transcript}\n\nCOMPLETE EVALUATION RESULTS:\n{all_pipeline_results}\n\nPERFORMANCE CONTEXT:\n{performance_context}\n\nMOTIVATIONAL CONTEXT:\n{motivational_context}\n\nFEEDBACK GENERATION TASK: Please synthesize all evaluation results into comprehensive, motivational feedback for constructed response performance."
+    },
+
+    "COD_feedback": {
+      "system_components": [
+        "universal_introduction.evaluation_context",
+        "phase_specific_components.pipeline_continuity",
+        "general_context.system_role",
+        "phase_configurations.feedback_generation.description",
+        "phase_configurations.feedback_generation.feedback_tone_categories",
+        "phase_configurations.feedback_generation.motivational_framework",
+        "item_type_specifications.coding_exercise.specific_considerations.feedback_generation",
+        "json_validation_requirements.critical_format_warning"
+      ],
+      "required_variables": [
+        "activity_spec", 
+        "activity_transcript",
+        "all_pipeline_results",
+        "performance_context",
+        "motivational_context"
+      ],
+      "user_prompt_template": "ACTIVITY SPECIFICATION:\n{activity_spec}\n\nCODE SUBMISSION:\n{activity_transcript}\n\nCOMPLETE EVALUATION RESULTS:\n{all_pipeline_results}\n\nPERFORMANCE CONTEXT:\n{performance_context}\n\nMOTIVATIONAL CONTEXT:\n{motivational_context}\n\nFEEDBACK GENERATION TASK: Please synthesize all evaluation results into comprehensive, motivational feedback for coding performance."
+    },
+
+    "RP_feedback": {
+      "system_components": [
+        "universal_introduction.evaluation_context",
+        "phase_specific_components.pipeline_continuity",
+        "general_context.system_role",
+        "phase_configurations.feedback_generation.description",
+        "phase_configurations.feedback_generation.feedback_tone_categories",
+        "phase_configurations.feedback_generation.motivational_framework",
+        "item_type_specifications.role_play.specific_considerations.feedback_generation",
+        "json_validation_requirements.critical_format_warning"
+      ],
+      "required_variables": [
+        "activity_spec",
+        "activity_transcript",
+        "all_pipeline_results",
+        "performance_context",
+        "motivational_context"
+      ],
+      "user_prompt_template": "ACTIVITY SPECIFICATION:\n{activity_spec}\n\nCONVERSATION LOG:\n{activity_transcript}\n\nCOMPLETE EVALUATION RESULTS:\n{all_pipeline_results}\n\nPERFORMANCE CONTEXT:\n{performance_context}\n\nMOTIVATIONAL CONTEXT:\n{motivational_context}\n\nFEEDBACK GENERATION TASK: Please synthesize all evaluation results into comprehensive, motivational feedback for communication performance."
+    },
+
+    "SR_feedback": {
+      "system_components": [
+        "universal_introduction.evaluation_context",
+        "phase_specific_components.pipeline_continuity", 
+        "general_context.system_role",
+        "phase_configurations.feedback_generation.description",
+        "phase_configurations.feedback_generation.feedback_tone_categories",
+        "phase_configurations.feedback_generation.motivational_framework",
+        "item_type_specifications.selected_response.specific_considerations.feedback_generation",
+        "json_validation_requirements.critical_format_warning"
+      ],
+      "required_variables": [
+        "activity_spec",
+        "activity_transcript",
+        "all_pipeline_results",
+        "performance_context",
+        "motivational_context"
+      ],
+      "user_prompt_template": "ACTIVITY SPECIFICATION:\n{activity_spec}\n\nRESPONSE SELECTIONS:\n{activity_transcript}\n\nCOMPLETE EVALUATION RESULTS:\n{all_pipeline_results}\n\nPERFORMANCE CONTEXT:\n{performance_context}\n\nMOTIVATIONAL CONTEXT:\n{motivational_context}\n\nFEEDBACK GENERATION TASK: Please synthesize all evaluation results into comprehensive, motivational feedback for knowledge assessment performance."
+    },
+
+    "BR_feedback": {
+      "system_components": [
+        "universal_introduction.evaluation_context",
+        "phase_specific_components.pipeline_continuity",
+        "general_context.system_role",
+        "phase_configurations.feedback_generation.description",
+        "phase_configurations.feedback_generation.feedback_tone_categories",
+        "phase_configurations.feedback_generation.motivational_framework",
+        "item_type_specifications.branching_scenario.specific_considerations.feedback_generation",
+        "json_validation_requirements.critical_format_warning"
+      ],
+      "required_variables": [
+        "activity_spec",
+        "activity_transcript",
+        "all_pipeline_results",
+        "performance_context", 
+        "motivational_context"
+      ],
+      "user_prompt_template": "ACTIVITY SPECIFICATION:\n{activity_spec}\n\nDECISION PATH:\n{activity_transcript}\n\nCOMPLETE EVALUATION RESULTS:\n{all_pipeline_results}\n\nPERFORMANCE CONTEXT:\n{performance_context}\n\nMOTIVATIONAL CONTEXT:\n{motivational_context}\n\nFEEDBACK GENERATION TASK: Please synthesize all evaluation results into comprehensive, motivational feedback for decision-making performance."
+    }
+  }
+}

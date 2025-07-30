@@ -1,0 +1,290 @@
+{
+    "activity_id": "requirements_prioritization_dilemma_br",
+    "activity_type": "BR",
+    "title": "Requirements Prioritization Dilemma Branching Scenario",
+    "description": "Choose how to frame and prioritize competing problem statements when resources are limited. Each decision impacts subsequent options and stakeholder relationships.",
+    "target_skill": "S002",
+    "target_evidence_volume": 2.5,
+    "cognitive_level": "L2",
+    "depth_level": "D1",
+    "content": {
+        "initial_scenario": "Your team has identified three significant user problems that need addressing, but you only have resources to tackle one this quarter. Each problem affects different user segments and stakeholders are advocating for their priorities. How you frame and prioritize these problems will impact product direction and stakeholder relationships.",
+        "decision_points": [
+            {
+                "decision_id": "problem_framing_approach",
+                "decision_prompt": "You have three user problems competing for limited resources. How should you approach framing these problems to help with prioritization?",
+                "context_update": "Three problems identified: (1) New users struggling with onboarding complexity, (2) Power users hitting performance limits with large datasets, (3) Mid-tier users requesting better collaboration features. Each has vocal advocates and clear user impact.",
+                "options": [
+                    {
+                        "option_id": "impact_framing",
+                        "option_text": "Frame each problem in terms of user impact and business consequences to enable objective comparison",
+                        "rationale": "Impact-based framing enables data-driven prioritization and stakeholder alignment",
+                        "consequences": "Clear framework for decision-making, though some stakeholders may still disagree with priorities"
+                    },
+                    {
+                        "option_id": "segment_framing",
+                        "option_text": "Frame problems around different user segments to highlight distinct needs and use cases",
+                        "rationale": "Segment-based framing clarifies user types but may create silos and complicate prioritization",
+                        "consequences": "Clear user segment understanding but difficulty making cross-segment priority decisions"
+                    },
+                    {
+                        "option_id": "solution_framing",
+                        "option_text": "Frame problems in terms of potential solutions and technical feasibility for easier implementation",
+                        "rationale": "Solution-focused framing loses user perspective and may optimize for wrong outcomes",
+                        "consequences": "Engineering team alignment but risk of building wrong solutions for user needs"
+                    }
+                ],
+                "time_limit_seconds": null,
+                "decision_weight": 1.0
+            },
+            {
+                "decision_id": "stakeholder_communication",
+                "decision_prompt": "How will you communicate the prioritization decision to stakeholders whose problems weren't selected?",
+                "context_update": "You've chosen your problem framing approach. Now stakeholders representing the non-selected problems are asking for explanations and pushing back on the decision.",
+                "options": [
+                    {
+                        "option_id": "transparent_rationale",
+                        "option_text": "Provide transparent explanation of decision criteria and how each problem was evaluated",
+                        "rationale": "Transparency builds trust and helps stakeholders understand the decision process",
+                        "consequences": "Some disappointment but maintained credibility and future collaboration"
+                    },
+                    {
+                        "option_id": "future_roadmap",
+                        "option_text": "Focus on future roadmap plans and when their problems might be addressed",
+                        "rationale": "Forward-looking approach but may create unrealistic expectations",
+                        "consequences": "Temporary stakeholder satisfaction but potential future conflicts over timeline commitments"
+                    },
+                    {
+                        "option_id": "resource_constraints",
+                        "option_text": "Emphasize resource limitations and external constraints as primary decision factors",
+                        "rationale": "Deflects responsibility but undermines strategic authority and problem framing work",
+                        "consequences": "Reduced immediate pushback but weakened position for future strategic decisions"
+                    }
+                ],
+                "time_limit_seconds": null,
+                "decision_weight": 0.75
+            },
+            {
+                "decision_id": "problem_refinement",
+                "decision_prompt": "As you begin working on the selected problem, you discover it's more complex than initially framed. How do you adapt?",
+                "context_update": "Initial user research reveals the selected problem has multiple underlying causes and may require a different solution approach than originally anticipated.",
+                "options": [
+                    {
+                        "option_id": "reframe_problem",
+                        "option_text": "Reframe the problem based on new insights while maintaining focus on core user needs",
+                        "rationale": "Adaptive problem framing ensures you're solving the right problem with new information",
+                        "consequences": "Better solution outcomes though may require timeline adjustments and stakeholder updates"
+                    },
+                    {
+                        "option_id": "scope_reduction",
+                        "option_text": "Narrow the problem scope to fit original timeline and resource constraints",
+                        "rationale": "Maintains timeline but may not address full user needs",
+                        "consequences": "On-time delivery but potentially incomplete solution to user problem"
+                    },
+                    {
+                        "option_id": "maintain_original",
+                        "option_text": "Maintain original problem framing to avoid confusion and timeline impact",
+                        "rationale": "Avoids change management but risks solving wrong problem",
+                        "consequences": "Predictable execution but potential mismatch between solution and actual user needs"
+                    }
+                ],
+                "time_limit_seconds": null,
+                "decision_weight": 0.75
+            }
+        ],
+        "paths": [
+            {
+                "path_id": "strategic_approach_path",
+                "decisions": ["problem_framing_approach:impact_framing", "stakeholder_communication:transparent_rationale", "problem_refinement:reframe_problem"],
+                "path_outcome": "Strategic approach with strong problem framing and stakeholder management"
+            },
+            {
+                "path_id": "mixed_approach_path",
+                "decisions": ["problem_framing_approach:impact_framing", "stakeholder_communication:future_roadmap", "problem_refinement:scope_reduction"],
+                "path_outcome": "Mixed approach with good initial framing but weaker follow-through"
+            },
+            {
+                "path_id": "tactical_approach_path",
+                "decisions": ["problem_framing_approach:segment_framing", "stakeholder_communication:transparent_rationale", "problem_refinement:reframe_problem"],
+                "path_outcome": "Tactically sound approach with room for strategic improvement"
+            }
+        ]
+    },
+    "metadata": {
+        "created": "2024-12-19T10:00:00Z",
+        "llm_model_used": "claude-sonnet-4",
+        "estimated_time": 10,
+        "activity_complexity": "intermediate",
+        "requires_scenario": true,
+        "allows_assistance": true,
+        "assistance_impact_guidelines": "Minor clarification reduces modifier to 0.95. Guidance on decision criteria reduces to 0.8. Major strategic direction reduces to 0.4."
+    },
+    "activity_generation_output": {
+        "activity_type": "branching_scenario",
+        "activity_type_variant": "problem_prioritization_cascade",
+        "activity_purpose": "challenge",
+        "l_d_complexity": "L2-D1",
+        "evaluation_method": "autoscored",
+        "components": [
+            {
+                "component_id": "prioritization_decisions_main",
+                "component_type": "branching_scenario",
+                "component_purpose": "challenge",
+                "component_weight": 1.0,
+                "student_facing_content": {
+                    "stem": "Navigate through three critical decisions about problem framing and prioritization when resources are limited. Each choice affects how problems are perceived and stakeholder relationships.",
+                    "scenario": "You're the Product Manager for a project management SaaS platform. Your team has identified three significant user problems through recent research, but you only have resources to tackle one this quarter. Each problem affects different user segments: new users struggling with onboarding complexity, power users hitting performance limits with large datasets, and mid-tier users requesting better collaboration features. Stakeholders are advocating for their priorities and expect clear rationale for decisions.",
+                    "given": "Three user problems identified: (1) Complex onboarding affecting new user conversion, (2) Performance issues blocking power users with large datasets, (3) Missing collaboration features requested by mid-tier segment. Resource constraint: one problem this quarter. Active stakeholder advocacy for each problem.",
+                    "instructions": "Make decisions about how to frame problems, communicate with stakeholders, and adapt when new information emerges. Consider problem framing principles, stakeholder management, and iterative refinement based on learning.",
+                    "response_format": "Select the best option at each decision point. Consider how problem framing affects prioritization, stakeholder relationships, and solution outcomes.",
+                    "assessment_information": "• Problem framing and prioritization approach • Stakeholder communication and relationship management • Adaptive problem refinement • Strategic thinking under resource constraints",
+                    "time_estimate": 10
+                },
+                "subskill_targeting": [
+                    {
+                        "subskill_id": "SS006",
+                        "weight_in_component": 0.25,
+                        "target_evidence_volume": 0.625
+                    },
+                    {
+                        "subskill_id": "SS007",
+                        "weight_in_component": 0.20,
+                        "target_evidence_volume": 0.5
+                    },
+                    {
+                        "subskill_id": "SS008",
+                        "weight_in_component": 0.25,
+                        "target_evidence_volume": 0.625
+                    },
+                    {
+                        "subskill_id": "SS009",
+                        "weight_in_component": 0.15,
+                        "target_evidence_volume": 0.375
+                    },
+                    {
+                        "subskill_id": "SS010",
+                        "weight_in_component": 0.15,
+                        "target_evidence_volume": 0.375
+                    }
+                ],
+                "branching_decisions": [
+                    {
+                        "decision_id": "problem_framing_approach",
+                        "decision_prompt": "You have three user problems competing for limited resources. How should you approach framing these problems to help with prioritization?",
+                        "context_update": "Three problems identified: (1) New users struggling with onboarding complexity, (2) Power users hitting performance limits with large datasets, (3) Mid-tier users requesting better collaboration features. Each has vocal advocates and clear user impact.",
+                        "options": [
+                            {
+                                "option_id": "impact_framing",
+                                "option_text": "Frame each problem in terms of user impact and business consequences to enable objective comparison",
+                                "rationale": "Impact-based framing enables data-driven prioritization and stakeholder alignment",
+                                "consequences": "Clear framework for decision-making, though some stakeholders may still disagree with priorities"
+                            },
+                            {
+                                "option_id": "segment_framing",
+                                "option_text": "Frame problems around different user segments to highlight distinct needs and use cases",
+                                "rationale": "Segment-based framing clarifies user types but may create silos and complicate prioritization",
+                                "consequences": "Clear user segment understanding but difficulty making cross-segment priority decisions"
+                            },
+                            {
+                                "option_id": "solution_framing",
+                                "option_text": "Frame problems in terms of potential solutions and technical feasibility for easier implementation",
+                                "rationale": "Solution-focused framing loses user perspective and may optimize for wrong outcomes",
+                                "consequences": "Engineering team alignment but risk of building wrong solutions for user needs"
+                            }
+                        ],
+                        "time_limit_seconds": null,
+                        "decision_weight": 1.0
+                    },
+                    {
+                        "decision_id": "stakeholder_communication",
+                        "decision_prompt": "How will you communicate the prioritization decision to stakeholders whose problems weren't selected?",
+                        "context_update": "You've chosen your problem framing approach. Now stakeholders representing the non-selected problems are asking for explanations and pushing back on the decision.",
+                        "options": [
+                            {
+                                "option_id": "transparent_rationale",
+                                "option_text": "Provide transparent explanation of decision criteria and how each problem was evaluated",
+                                "rationale": "Transparency builds trust and helps stakeholders understand the decision process",
+                                "consequences": "Some disappointment but maintained credibility and future collaboration"
+                            },
+                            {
+                                "option_id": "future_roadmap",
+                                "option_text": "Focus on future roadmap plans and when their problems might be addressed",
+                                "rationale": "Forward-looking approach but may create unrealistic expectations",
+                                "consequences": "Temporary stakeholder satisfaction but potential future conflicts over timeline commitments"
+                            },
+                            {
+                                "option_id": "resource_constraints",
+                                "option_text": "Emphasize resource limitations and external constraints as primary decision factors",
+                                "rationale": "Deflects responsibility but undermines strategic authority and problem framing work",
+                                "consequences": "Reduced immediate pushback but weakened position for future strategic decisions"
+                            }
+                        ],
+                        "time_limit_seconds": null,
+                        "decision_weight": 0.75
+                    },
+                    {
+                        "decision_id": "problem_refinement",
+                        "decision_prompt": "As you begin working on the selected problem, you discover it's more complex than initially framed. How do you adapt?",
+                        "context_update": "Initial user research reveals the selected problem has multiple underlying causes and may require a different solution approach than originally anticipated.",
+                        "options": [
+                            {
+                                "option_id": "reframe_problem",
+                                "option_text": "Reframe the problem based on new insights while maintaining focus on core user needs",
+                                "rationale": "Adaptive problem framing ensures you're solving the right problem with new information",
+                                "consequences": "Better solution outcomes though may require timeline adjustments and stakeholder updates"
+                            },
+                            {
+                                "option_id": "scope_reduction",
+                                "option_text": "Narrow the problem scope to fit original timeline and resource constraints",
+                                "rationale": "Maintains timeline but may not address full user needs",
+                                "consequences": "On-time delivery but potentially incomplete solution to user problem"
+                            },
+                            {
+                                "option_id": "maintain_original",
+                                "option_text": "Maintain original problem framing to avoid confusion and timeline impact",
+                                "rationale": "Avoids change management but risks solving wrong problem",
+                                "consequences": "Predictable execution but potential mismatch between solution and actual user needs"
+                            }
+                        ],
+                        "time_limit_seconds": null,
+                        "decision_weight": 0.75
+                    }
+                ],
+                "target_evidence_volume": 2.5
+            }
+        ],
+        "activity_level_subskill_targeting": [
+            {
+                "subskill_id": "SS006",
+                "total_weight_in_activity": 0.25,
+                "target_activity_evidence_volume": 0.625,
+                "components_targeting": ["prioritization_decisions_main"]
+            },
+            {
+                "subskill_id": "SS007",
+                "total_weight_in_activity": 0.20,
+                "target_activity_evidence_volume": 0.5,
+                "components_targeting": ["prioritization_decisions_main"]
+            },
+            {
+                "subskill_id": "SS008",
+                "total_weight_in_activity": 0.25,
+                "target_activity_evidence_volume": 0.625,
+                "components_targeting": ["prioritization_decisions_main"]
+            },
+            {
+                "subskill_id": "SS009",
+                "total_weight_in_activity": 0.15,
+                "target_activity_evidence_volume": 0.375,
+                "components_targeting": ["prioritization_decisions_main"]
+            },
+            {
+                "subskill_id": "SS010",
+                "total_weight_in_activity": 0.15,
+                "target_activity_evidence_volume": 0.375,
+                "components_targeting": ["prioritization_decisions_main"]
+            }
+        ]
+    },
+    "learner_id": "string"
+}

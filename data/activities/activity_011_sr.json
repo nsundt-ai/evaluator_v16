@@ -1,0 +1,340 @@
+{
+    "activity_id": "user_need_identification_quiz_sr",
+    "activity_type": "SR",
+    "title": "User Need Identification Quiz - Selected Response",
+    "description": "Answer selected response questions testing ability to parse requirements, identify contradictions, infer motivations, and organize needs by priority.",
+    "target_skill": "S001",
+    "target_evidence_volume": 3.5,
+    "cognitive_level": "L2",
+    "depth_level": "D1",
+    "content": {
+        "question": "A sales director says: 'Customers keep asking for real-time notifications but our support team says they're getting complaints about too many alerts.' What should be your first step?",
+        "options": [
+            {
+                "option_id": "a",
+                "text": "Implement configurable notification settings to satisfy both requests"
+            },
+            {
+                "option_id": "b",
+                "text": "Investigate what specific information users actually need and when they need it"
+            },
+            {
+                "option_id": "c",
+                "text": "Prioritize the sales director's request since it directly impacts revenue"
+            },
+            {
+                "option_id": "d",
+                "text": "Survey users to determine if they want more or fewer notifications"
+            }
+        ],
+        "correct_answer": "b",
+        "explanation": "The contradiction suggests deeper user needs aren't understood. Before implementing solutions, you need to understand what information users actually need and in what context."
+    },
+    "metadata": {
+        "created": "2024-12-19T10:00:00Z",
+        "llm_model_used": "claude-sonnet-4",
+        "estimated_time": 7,
+        "activity_complexity": "intermediate",
+        "requires_scenario": true,
+        "allows_assistance": true,
+        "assistance_impact_guidelines": "Minor clarification reduces modifier to 0.95. Guidance on user needs analysis reduces to 0.8. Major hints about correct answers reduces to 0.5.",
+        "scoring_model": "SR uses standard correct/incorrect scoring with 1.0 point per question"
+    },
+    "activity_generation_output": {
+        "activity_type": "selected_response",
+        "activity_type_variant": "multiple_choice_scenario",
+        "activity_purpose": "challenge",
+        "l_d_complexity": "L2-D1",
+        "evaluation_method": "autoscored",
+        "components": [
+            {
+                "component_id": "q1_contradiction_identification",
+                "component_type": "selected_response",
+                "component_purpose": "challenge",
+                "component_weight": 0.2,
+                "student_facing_content": {
+                    "stem": "A sales director says: 'Customers keep asking for real-time notifications but our support team says they're getting complaints about too many alerts.' What should be your first step?",
+                    "scenario": "You're analyzing conflicting feedback about notification features in your B2B project management platform.",
+                    "given": "Sales team reports customer requests for real-time notifications. Support team reports complaints about too many alerts.",
+                    "instructions": "Select the most appropriate first step for understanding user needs.",
+                    "response_format": "Select one option.",
+                    "assessment_information": "• Contradiction identification • Requirements parsing • User needs analysis",
+                    "time_estimate": 1
+                },
+                "subskill_targeting": [
+                    {
+                        "subskill_id": "SS003",
+                        "weight_in_component": 0.6,
+                        "target_evidence_volume": 0.42
+                    },
+                    {
+                        "subskill_id": "SS002",
+                        "weight_in_component": 0.4,
+                        "target_evidence_volume": 0.28
+                    }
+                ],
+                "question": {
+                    "question_text": "A sales director says: 'Customers keep asking for real-time notifications but our support team says they're getting complaints about too many alerts.' What should be your first step?",
+                    "options": [
+                        {
+                            "option_id": "a",
+                            "text": "Implement configurable notification settings to satisfy both requests"
+                        },
+                        {
+                            "option_id": "b",
+                            "text": "Investigate what specific information users actually need and when they need it"
+                        },
+                        {
+                            "option_id": "c",
+                            "text": "Prioritize the sales director's request since it directly impacts revenue"
+                        },
+                        {
+                            "option_id": "d",
+                            "text": "Survey users to determine if they want more or fewer notifications"
+                        }
+                    ],
+                    "correct_answer": "b",
+                    "explanation": "The contradiction suggests deeper user needs aren't understood. Before implementing solutions, you need to understand what information users actually need and in what context."
+                },
+                "target_evidence_volume": 0.7
+            },
+            {
+                "component_id": "q2_motivation_inference",
+                "component_type": "selected_response",
+                "component_purpose": "challenge",
+                "component_weight": 0.2,
+                "student_facing_content": {
+                    "stem": "A department head requests: 'We need better reporting for our quarterly reviews. The current dashboards don't show what executives want to see.' What underlying motivation should you investigate?",
+                    "scenario": "Department head is requesting reporting improvements for executive presentations.",
+                    "given": "Current dashboards inadequate for quarterly executive reviews. Department head needs different reporting capabilities.",
+                    "instructions": "Select the most important underlying motivation to investigate.",
+                    "response_format": "Select one option.",
+                    "assessment_information": "• Motivation inference • Stakeholder needs analysis • Requirements clarification",
+                    "time_estimate": 1
+                },
+                "subskill_targeting": [
+                    {
+                        "subskill_id": "SS002",
+                        "weight_in_component": 0.7,
+                        "target_evidence_volume": 0.49
+                    },
+                    {
+                        "subskill_id": "SS005",
+                        "weight_in_component": 0.3,
+                        "target_evidence_volume": 0.21
+                    }
+                ],
+                "question": {
+                    "question_text": "A department head requests: 'We need better reporting for our quarterly reviews. The current dashboards don't show what executives want to see.' What underlying motivation should you investigate?",
+                    "options": [
+                        {
+                            "option_id": "a",
+                            "text": "The department head wants to impress executives with better-looking reports"
+                        },
+                        {
+                            "option_id": "b",
+                            "text": "The department head needs to demonstrate specific business outcomes or performance metrics"
+                        },
+                        {
+                            "option_id": "c",
+                            "text": "The current dashboards have poor visual design and need UI improvements"
+                        },
+                        {
+                            "option_id": "d",
+                            "text": "The department head wants more control over what data is included in reports"
+                        }
+                    ],
+                    "correct_answer": "b",
+                    "explanation": "The reference to 'what executives want to see' suggests the department head needs to demonstrate specific business value or performance metrics that align with executive priorities and decision-making needs."
+                },
+                "target_evidence_volume": 0.7
+            },
+            {
+                "component_id": "q3_requirements_parsing",
+                "component_type": "selected_response",
+                "component_purpose": "challenge",
+                "component_weight": 0.2,
+                "student_facing_content": {
+                    "stem": "A team lead says: 'Our workflow is completely broken. We need automation to fix everything because manual processes are killing us.' What critical information is missing?",
+                    "scenario": "Team lead is frustrated with current workflow processes and requesting automation solutions.",
+                    "given": "Workflow described as 'completely broken'. Manual processes are problematic. Team lead wants automation to 'fix everything'.",
+                    "instructions": "Select the most critical missing information needed to understand the requirements.",
+                    "response_format": "Select one option.",
+                    "assessment_information": "• Requirements parsing • Gap identification • Information gathering",
+                    "time_estimate": 2
+                },
+                "subskill_targeting": [
+                    {
+                        "subskill_id": "SS001",
+                        "weight_in_component": 0.5,
+                        "target_evidence_volume": 0.35
+                    },
+                    {
+                        "subskill_id": "SS005",
+                        "weight_in_component": 0.5,
+                        "target_evidence_volume": 0.35
+                    }
+                ],
+                "question": {
+                    "question_text": "A team lead says: 'Our workflow is completely broken. We need automation to fix everything because manual processes are killing us.' What critical information is missing?",
+                    "options": [
+                        {
+                            "option_id": "a",
+                            "text": "Which specific steps in the workflow are causing the most problems"
+                        },
+                        {
+                            "option_id": "b",
+                            "text": "How much budget is available for automation tools"
+                        },
+                        {
+                            "option_id": "c",
+                            "text": "What automation technologies the team prefers to use"
+                        },
+                        {
+                            "option_id": "d",
+                            "text": "How long the current workflow has been in place"
+                        }
+                    ],
+                    "correct_answer": "a",
+                    "explanation": "The request is vague about what specifically is broken. Understanding which steps cause problems is essential to identifying the real user needs and determining if automation is the right solution."
+                },
+                "target_evidence_volume": 0.7
+            },
+            {
+                "component_id": "q4_needs_organization",
+                "component_type": "selected_response",
+                "component_purpose": "challenge",
+                "component_weight": 0.2,
+                "student_facing_content": {
+                    "stem": "You receive requests from three different teams: Marketing wants lead tracking, Sales wants deal forecasting, and Support wants ticket analytics. How should you organize these requirements?",
+                    "scenario": "Multiple teams have submitted different reporting and analytics requests for your business intelligence platform.",
+                    "given": "Marketing team: lead tracking capabilities. Sales team: deal forecasting tools. Support team: ticket analytics features.",
+                    "instructions": "Select the best approach for organizing these diverse requirements.",
+                    "response_format": "Select one option.",
+                    "assessment_information": "• Requirements organization • Stakeholder needs analysis • Prioritization approach",
+                    "time_estimate": 2
+                },
+                "subskill_targeting": [
+                    {
+                        "subskill_id": "SS004",
+                        "weight_in_component": 0.6,
+                        "target_evidence_volume": 0.42
+                    },
+                    {
+                        "subskill_id": "SS001",
+                        "weight_in_component": 0.4,
+                        "target_evidence_volume": 0.28
+                    }
+                ],
+                "question": {
+                    "question_text": "You receive requests from three different teams: Marketing wants lead tracking, Sales wants deal forecasting, and Support wants ticket analytics. How should you organize these requirements?",
+                    "options": [
+                        {
+                            "option_id": "a",
+                            "text": "Group by team to ensure each department's needs are clearly represented"
+                        },
+                        {
+                            "option_id": "b",
+                            "text": "Group by underlying data needs and user workflows to identify common patterns"
+                        },
+                        {
+                            "option_id": "c",
+                            "text": "Group by technical complexity to determine implementation order"
+                        },
+                        {
+                            "option_id": "d",
+                            "text": "Group by business impact to prioritize the most valuable features first"
+                        }
+                    ],
+                    "correct_answer": "b",
+                    "explanation": "Organizing by underlying data needs and workflows helps identify common user patterns and shared requirements across teams, leading to more efficient solutions that serve multiple stakeholders."
+                },
+                "target_evidence_volume": 0.7
+            },
+            {
+                "component_id": "q5_clarification_questions",
+                "component_type": "selected_response",
+                "component_purpose": "challenge",
+                "component_weight": 0.2,
+                "student_facing_content": {
+                    "stem": "A product owner states: 'Users are complaining about the mobile app being slow.' What's the most strategic clarification question to ask?",
+                    "scenario": "Product owner reports user complaints about mobile app performance issues.",
+                    "given": "User complaints about mobile app speed. Unclear specifics about the performance problems.",
+                    "instructions": "Select the most strategic question to clarify user needs.",
+                    "response_format": "Select one option.",
+                    "assessment_information": "• Strategic questioning • User needs clarification • Information gathering priorities",
+                    "time_estimate": 1
+                },
+                "subskill_targeting": [
+                    {
+                        "subskill_id": "SS005",
+                        "weight_in_component": 0.7,
+                        "target_evidence_volume": 0.49
+                    },
+                    {
+                        "subskill_id": "SS002",
+                        "weight_in_component": 0.3,
+                        "target_evidence_volume": 0.21
+                    }
+                ],
+                "question": {
+                    "question_text": "A product owner states: 'Users are complaining about the mobile app being slow.' What's the most strategic clarification question to ask?",
+                    "options": [
+                        {
+                            "option_id": "a",
+                            "text": "What specific actions or features feel slow to users?"
+                        },
+                        {
+                            "option_id": "b",
+                            "text": "How many users have complained about speed issues?"
+                        },
+                        {
+                            "option_id": "c",
+                            "text": "What devices and operating systems are users experiencing issues on?"
+                        },
+                        {
+                            "option_id": "d",
+                            "text": "When did users first start reporting these speed issues?"
+                        }
+                    ],
+                    "correct_answer": "a",
+                    "explanation": "Understanding which specific actions feel slow helps identify the user needs and workflows being impacted, leading to more targeted solutions that address actual user pain points."
+                },
+                "target_evidence_volume": 0.7
+            }
+        ],
+        "activity_level_subskill_targeting": [
+            {
+                "subskill_id": "SS001",
+                "total_weight_in_activity": 0.18,
+                "target_activity_evidence_volume": 0.63,
+                "components_targeting": ["q3_requirements_parsing", "q4_needs_organization"]
+            },
+            {
+                "subskill_id": "SS002",
+                "total_weight_in_activity": 0.22,
+                "target_activity_evidence_volume": 0.77,
+                "components_targeting": ["q1_contradiction_identification", "q2_motivation_inference", "q5_clarification_questions"]
+            },
+            {
+                "subskill_id": "SS003",
+                "total_weight_in_activity": 0.12,
+                "target_activity_evidence_volume": 0.42,
+                "components_targeting": ["q1_contradiction_identification"]
+            },
+            {
+                "subskill_id": "SS004",
+                "total_weight_in_activity": 0.12,
+                "target_activity_evidence_volume": 0.42,
+                "components_targeting": ["q4_needs_organization"]
+            },
+            {
+                "subskill_id": "SS005",
+                "total_weight_in_activity": 0.36,
+                "target_activity_evidence_volume": 1.26,
+                "components_targeting": ["q2_motivation_inference", "q3_requirements_parsing", "q5_clarification_questions"]
+            }
+        ]
+    },
+    "learner_id": "string"
+}

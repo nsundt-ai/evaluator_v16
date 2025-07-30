@@ -1,0 +1,269 @@
+{
+    "activity_id": "stakeholder_conflict_resolution_rp",
+    "activity_type": "RP",
+    "title": "Stakeholder Conflict Resolution Meeting Role Play",
+    "description": "Navigate a conversation with a frustrated customer success manager who has conflicting feature requests from different client segments.",
+    "target_skill": "S001",
+    "target_evidence_volume": 4.0,
+    "cognitive_level": "L2",
+    "depth_level": "D1",
+    "content": {
+        "scenario_context": "Quick standup meeting with customer success manager who is frustrated about conflicting client requests. Maya is stressed about renewal risk but willing to collaborate if she feels heard and understood.",
+        "character_profile": "Maya Rodriguez, Customer Success Manager - 4 years experience, relationship-focused, passionate about client satisfaction. Currently managing competing demands from enterprise vs SMB clients with different feature needs.",
+        "objectives": [
+            "Understand the specific needs of different client segments",
+            "Identify underlying business drivers behind feature requests",
+            "Parse conflicting requirements to find common ground",
+            "Build alignment on next steps for requirements gathering"
+        ]
+    },
+    "rubric": {
+        "rubric_id": "stakeholder_conversation_rubric",
+        "target_component_evidence_volume": 4.0,
+        "aspects": [
+            {
+                "aspect_id": "active_listening",
+                "aspect_name": "Active Listening and Information Gathering",
+                "aspect_description": "Demonstrates effective listening skills and gathers relevant information about stakeholder concerns",
+                "aspect_weight": 0.30,
+                "target_evidence_volume": 1.2,
+                "primary_subskills": ["SS001", "SS002"],
+                "secondary_subskills": ["SS004"],
+                "anchor_points": {
+                    "range_0_75_to_1_00": "Excellent active listening with thoughtful follow-up questions. Demonstrates genuine understanding of stakeholder concerns and effectively gathers detailed information about user needs.",
+                    "range_0_50_to_0_74": "Good listening skills with appropriate responses to stakeholder concerns. Gathers relevant information though may miss some opportunities for deeper insight.",
+                    "range_0_25_to_0_49": "Basic listening skills that address surface-level concerns but may miss important nuances or fail to probe for deeper understanding.",
+                    "range_0_00_to_0_24": "Poor listening skills with limited understanding of stakeholder concerns. May dominate conversation or fail to gather relevant information."
+                }
+            },
+            {
+                "aspect_id": "requirements_parsing",
+                "aspect_name": "Requirements Parsing and Contradiction Identification",
+                "aspect_description": "Identifies and addresses contradictions or conflicts in stakeholder requirements",
+                "aspect_weight": 0.25,
+                "target_evidence_volume": 1.0,
+                "primary_subskills": ["SS003", "SS004"],
+                "secondary_subskills": ["SS001"],
+                "anchor_points": {
+                    "range_0_75_to_1_00": "Excellent identification of contradictions and conflicts in requirements. Skillfully helps stakeholder recognize and work through competing demands.",
+                    "range_0_50_to_0_74": "Good recognition of conflicts in requirements with appropriate efforts to address contradictions, though may miss some subtle conflicts.",
+                    "range_0_25_to_0_49": "Basic recognition of obvious conflicts but may struggle to help stakeholder work through contradictions effectively.",
+                    "range_0_00_to_0_24": "Limited ability to identify or address conflicts in requirements. May accept contradictory information without seeking resolution."
+                }
+            },
+            {
+                "aspect_id": "stakeholder_relationship",
+                "aspect_name": "Stakeholder Relationship Building and Rapport",
+                "aspect_description": "Builds positive working relationship and demonstrates empathy for stakeholder challenges",
+                "aspect_weight": 0.25,
+                "target_evidence_volume": 1.0,
+                "primary_subskills": ["SS002", "SS004"],
+                "secondary_subskills": ["SS001"],
+                "anchor_points": {
+                    "range_0_75_to_1_00": "Excellent rapport building with genuine empathy for stakeholder challenges. Creates collaborative atmosphere and builds trust through understanding.",
+                    "range_0_50_to_0_74": "Good relationship building with appropriate empathy and professional interaction, though may miss some opportunities for deeper connection.",
+                    "range_0_25_to_0_49": "Basic professional interaction but limited evidence of rapport building or deep empathy for stakeholder challenges.",
+                    "range_0_00_to_0_24": "Poor relationship skills with little empathy shown. May be dismissive or fail to acknowledge stakeholder challenges appropriately."
+                }
+            },
+            {
+                "aspect_id": "strategic_questioning",
+                "aspect_name": "Strategic Questioning and Clarification",
+                "aspect_description": "Uses targeted questions to uncover underlying needs and priorities",
+                "aspect_weight": 0.20,
+                "target_evidence_volume": 0.8,
+                "primary_subskills": ["SS005"],
+                "secondary_subskills": ["SS002", "SS003"],
+                "anchor_points": {
+                    "range_0_75_to_1_00": "Excellent strategic questioning that uncovers underlying needs, priorities, and business drivers. Questions are targeted and reveal important insights.",
+                    "range_0_50_to_0_74": "Good use of clarifying questions that gather relevant information, though may miss some strategic opportunities for deeper insight.",
+                    "range_0_25_to_0_49": "Basic questioning that covers obvious information needs but may be too surface-level or miss important strategic insights.",
+                    "range_0_00_to_0_24": "Poor questioning with generic or irrelevant questions that don't effectively uncover stakeholder needs or priorities."
+                }
+            }
+        ]
+    },
+    "metadata": {
+        "created": "2024-12-19T10:00:00Z",
+        "llm_model_used": "claude-sonnet-4",
+        "estimated_time": 8,
+        "activity_complexity": "intermediate",
+        "requires_scenario": true,
+        "allows_assistance": true,
+        "assistance_impact_guidelines": "Minor coaching reduces modifier to 0.9. Significant guidance on approach reduces to 0.75. Major intervention in conversation reduces to 0.4."
+    },
+    "activity_generation_output": {
+        "activity_type": "role_play",
+        "activity_type_variant": "stakeholder_conversation",
+        "activity_purpose": "challenge",
+        "l_d_complexity": "L2-D1",
+        "evaluation_method": "rubric_scored",
+        "components": [
+            {
+                "component_id": "stakeholder_conflict_main",
+                "component_type": "role_play",
+                "component_purpose": "challenge",
+                "component_weight": 1.0,
+                "student_facing_content": {
+                    "stem": "Navigate a conversation with a customer success manager who is dealing with conflicting feature requests from different client segments. Use active listening and strategic questioning to understand the underlying user needs.",
+                    "scenario": "You're meeting with Maya Rodriguez, your Customer Success Manager, who manages both enterprise and SMB clients. She's frustrated because enterprise clients are demanding advanced workflow automation features, while SMB clients need simpler onboarding and basic reporting. Both segments are threatening churn if their needs aren't prioritized. Maya has a client renewal meeting tomorrow and needs clarity on the product roadmap.",
+                    "given": "Two client segments with conflicting needs: Enterprise clients want workflow automation, SMB clients need simpler onboarding and basic reporting. Both segments are renewal risks. Maya needs roadmap clarity for tomorrow's renewal meeting.",
+                    "instructions": "Engage in a natural conversation with Maya to: 1) Understand the specific needs of each client segment, 2) Identify the underlying business drivers behind these requests, 3) Help Maya articulate the real user problems, 4) Build alignment on next steps. Keep responses conversational and concise - this should feel like a natural workplace discussion with short exchanges.",
+                    "response_format": "Engage in natural, brief conversational exchanges. Ask questions, acknowledge concerns, and work collaboratively to understand the stakeholder needs.",
+                    "assessment_information": "• Active listening and information gathering • Requirements parsing and conflict identification • Stakeholder relationship building • Strategic questioning and clarification",
+                    "time_estimate": 8
+                },
+                "scoring_rubric": {
+                    "rubric_id": "stakeholder_conversation_rubric",
+                    "target_component_evidence_volume": 4.0,
+                    "aspects": [
+                        {
+                            "aspect_id": "active_listening",
+                            "aspect_name": "Active Listening and Information Gathering",
+                            "aspect_description": "Demonstrates effective listening skills and gathers relevant information about stakeholder concerns",
+                            "aspect_weight": 0.30,
+                            "target_evidence_volume": 1.2,
+                            "primary_subskills": ["SS001", "SS002"],
+                            "secondary_subskills": ["SS004"],
+                            "anchor_points": {
+                                "range_0_75_to_1_00": "Excellent active listening with thoughtful follow-up questions. Demonstrates genuine understanding of stakeholder concerns and effectively gathers detailed information about user needs.",
+                                "range_0_50_to_0_74": "Good listening skills with appropriate responses to stakeholder concerns. Gathers relevant information though may miss some opportunities for deeper insight.",
+                                "range_0_25_to_0_49": "Basic listening skills that address surface-level concerns but may miss important nuances or fail to probe for deeper understanding.",
+                                "range_0_00_to_0_24": "Poor listening skills with limited understanding of stakeholder concerns. May dominate conversation or fail to gather relevant information."
+                            }
+                        },
+                        {
+                            "aspect_id": "requirements_parsing",
+                            "aspect_name": "Requirements Parsing and Contradiction Identification",
+                            "aspect_description": "Identifies and addresses contradictions or conflicts in stakeholder requirements",
+                            "aspect_weight": 0.25,
+                            "target_evidence_volume": 1.0,
+                            "primary_subskills": ["SS003", "SS004"],
+                            "secondary_subskills": ["SS001"],
+                            "anchor_points": {
+                                "range_0_75_to_1_00": "Excellent identification of contradictions and conflicts in requirements. Skillfully helps stakeholder recognize and work through competing demands.",
+                                "range_0_50_to_0_74": "Good recognition of conflicts in requirements with appropriate efforts to address contradictions, though may miss some subtle conflicts.",
+                                "range_0_25_to_0_49": "Basic recognition of obvious conflicts but may struggle to help stakeholder work through contradictions effectively.",
+                                "range_0_00_to_0_24": "Limited ability to identify or address conflicts in requirements. May accept contradictory information without seeking resolution."
+                            }
+                        },
+                        {
+                            "aspect_id": "stakeholder_relationship",
+                            "aspect_name": "Stakeholder Relationship Building and Rapport",
+                            "aspect_description": "Builds positive working relationship and demonstrates empathy for stakeholder challenges",
+                            "aspect_weight": 0.25,
+                            "target_evidence_volume": 1.0,
+                            "primary_subskills": ["SS002", "SS004"],
+                            "secondary_subskills": ["SS001"],
+                            "anchor_points": {
+                                "range_0_75_to_1_00": "Excellent rapport building with genuine empathy for stakeholder challenges. Creates collaborative atmosphere and builds trust through understanding.",
+                                "range_0_50_to_0_74": "Good relationship building with appropriate empathy and professional interaction, though may miss some opportunities for deeper connection.",
+                                "range_0_25_to_0_49": "Basic professional interaction but limited evidence of rapport building or deep empathy for stakeholder challenges.",
+                                "range_0_00_to_0_24": "Poor relationship skills with little empathy shown. May be dismissive or fail to acknowledge stakeholder challenges appropriately."
+                            }
+                        },
+                        {
+                            "aspect_id": "strategic_questioning",
+                            "aspect_name": "Strategic Questioning and Clarification",
+                            "aspect_description": "Uses targeted questions to uncover underlying needs and priorities",
+                            "aspect_weight": 0.20,
+                            "target_evidence_volume": 0.8,
+                            "primary_subskills": ["SS005"],
+                            "secondary_subskills": ["SS002", "SS003"],
+                            "anchor_points": {
+                                "range_0_75_to_1_00": "Excellent strategic questioning that uncovers underlying needs, priorities, and business drivers. Questions are targeted and reveal important insights.",
+                                "range_0_50_to_0_74": "Good use of clarifying questions that gather relevant information, though may miss some strategic opportunities for deeper insight.",
+                                "range_0_25_to_0_49": "Basic questioning that covers obvious information needs but may be too surface-level or miss important strategic insights.",
+                                "range_0_00_to_0_24": "Poor questioning with generic or irrelevant questions that don't effectively uncover stakeholder needs or priorities."
+                            }
+                        }
+                    ]
+                },
+                "subskill_targeting": [
+                    {
+                        "subskill_id": "SS001",
+                        "weight_in_component": 0.25,
+                        "target_evidence_volume": 1.0
+                    },
+                    {
+                        "subskill_id": "SS002",
+                        "weight_in_component": 0.20,
+                        "target_evidence_volume": 0.8
+                    },
+                    {
+                        "subskill_id": "SS003",
+                        "weight_in_component": 0.20,
+                        "target_evidence_volume": 0.8
+                    },
+                    {
+                        "subskill_id": "SS004",
+                        "weight_in_component": 0.20,
+                        "target_evidence_volume": 0.8
+                    },
+                    {
+                        "subskill_id": "SS005",
+                        "weight_in_component": 0.15,
+                        "target_evidence_volume": 0.6
+                    }
+                ],
+                "interactive_configuration": {
+                    "role_play": {
+                        "character_profile": "Maya Rodriguez, Customer Success Manager - 4 years experience, relationship-focused, passionate about client satisfaction. Currently managing competing demands from enterprise vs SMB clients with different feature needs.",
+                        "scenario_context": "Quick standup meeting with customer success manager who is frustrated about conflicting client requests. Maya is stressed about renewal risk but willing to collaborate if she feels heard and understood.",
+                        "conversation_objectives": [
+                            "Understand the specific needs of different client segments",
+                            "Identify underlying business drivers behind feature requests",
+                            "Parse conflicting requirements to find common ground",
+                            "Build alignment on next steps for requirements gathering"
+                        ],
+                        "character_constraints": [
+                            "Feels pressure from both client segments and renewal deadlines",
+                            "Wants to advocate strongly for both client types",
+                            "Responds well to active listening and empathy",
+                            "May become defensive if needs aren't acknowledged"
+                        ],
+                        "success_indicators": [
+                            "Stakeholder feels heard and understood",
+                            "Specific client needs are clearly articulated",
+                            "Underlying business drivers are identified",
+                            "Collaborative path forward is established"
+                        ]
+                    }
+                }
+            }
+        ],
+        "activity_level_subskill_targeting": [
+            {
+                "subskill_id": "SS001",
+                "total_weight_in_activity": 0.25,
+                "target_activity_evidence_volume": 1.0,
+                "components_targeting": ["stakeholder_conflict_main"]
+            },
+            {
+                "subskill_id": "SS002",
+                "total_weight_in_activity": 0.20,
+                "target_activity_evidence_volume": 0.8,
+                "components_targeting": ["stakeholder_conflict_main"]
+            },
+            {
+                "subskill_id": "SS003",
+                "total_weight_in_activity": 0.20,
+                "target_activity_evidence_volume": 0.8,
+                "components_targeting": ["stakeholder_conflict_main"]
+            },
+            {
+                "subskill_id": "SS004",
+                "total_weight_in_activity": 0.20,
+                "target_activity_evidence_volume": 0.8,
+                "components_targeting": ["stakeholder_conflict_main"]
+            },
+            {
+                "subskill_id": "SS005",
+                "total_weight_in_activity": 0.15,
+                "target_activity_evidence_volume": 0.6,
+                "components_targeting": ["stakeholder_conflict_main"]
+            }
+        ]
+    },
+    "learner_id": "string"
+}

@@ -1,0 +1,82 @@
+{
+    "learner_id": "learner_004",
+    "created": "2024-12-01T11:00:00Z",
+    "last_updated": "2024-12-01T11:00:00Z",
+    "profile": {
+      "name": "Nathan Sundt",
+      "email": "nathan.sundt@example.com",
+      "enrollment_date": "2024-12-01T11:00:00Z",
+      "status": "active",
+      "background": "Recent graduate with a degree in Business Administration and minor in Computer Science. Completed internships in marketing and data analysis. Strong analytical mindset with experience in customer research and market analysis. Eager to develop product management skills to bridge business strategy with technical implementation.",
+      "experience_level": "beginner"
+    },
+    "activities": [],
+    "skill_progress": {
+      "S001": {
+        "skill_name": "Ask effective questions to understand business needs",
+        "cumulative_score": 0.0,
+        "total_adjusted_evidence": 0.0,
+        "activity_count": 0,
+        "gate_1_status": "needs_improvement",
+        "gate_2_status": "insufficient_evidence",
+        "overall_status": "not_started",
+        "last_activity_date": null,
+        "activities": []
+      },
+      "S002": {
+        "skill_name": "Translate business requirements to technical specifications",
+        "cumulative_score": 0.0,
+        "total_adjusted_evidence": 0.0,
+        "activity_count": 0,
+        "gate_1_status": "needs_improvement",
+        "gate_2_status": "insufficient_evidence",
+        "overall_status": "not_started",
+        "last_activity_date": null,
+        "activities": []
+      },
+      "S003": {
+        "skill_name": "Write and run basic Python scripts",
+        "cumulative_score": 0.0,
+        "total_adjusted_evidence": 0.0,
+        "activity_count": 0,
+        "gate_1_status": "needs_improvement",
+        "gate_2_status": "insufficient_evidence",
+        "overall_status": "not_started",
+        "last_activity_date": null,
+        "activities": []
+      },
+      "S004": {
+        "skill_name": "Analyze product metrics and user data",
+        "cumulative_score": 0.0,
+        "total_adjusted_evidence": 0.0,
+        "activity_count": 0,
+        "gate_1_status": "needs_improvement",
+        "gate_2_status": "insufficient_evidence",
+        "overall_status": "not_started",
+        "last_activity_date": null,
+        "activities": []
+      },
+      "S005": {
+        "skill_name": "Prioritize features and make data-driven decisions",
+        "cumulative_score": 0.0,
+        "total_adjusted_evidence": 0.0,
+        "activity_count": 0,
+        "gate_1_status": "needs_improvement",
+        "gate_2_status": "insufficient_evidence",
+        "overall_status": "not_started",
+        "last_activity_date": null,
+        "activities": []
+      },
+      "S006": {
+        "skill_name": "Communicate effectively with stakeholders",
+        "cumulative_score": 0.0,
+        "total_adjusted_evidence": 0.0,
+        "activity_count": 0,
+        "gate_1_status": "needs_improvement",
+        "gate_2_status": "insufficient_evidence",
+        "overall_status": "not_started",
+        "last_activity_date": null,
+        "activities": []
+      }
+    }
+} 

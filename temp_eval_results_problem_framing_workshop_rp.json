@@ -1,0 +1,269 @@
+{
+  "activity_id": "problem_framing_workshop_rp",
+  "learner_id": "learner_002",
+  "evaluation_timestamp": "2025-07-28T19:21:08.455944",
+  "pipeline_phases": {
+    "combined_evaluation": {
+      "status": "completed",
+      "execution_time": 13.501,
+      "tokens_used": 9459,
+      "cost_estimate": 0.00189405,
+      "result": {
+        "aspect_scores": [
+          {
+            "aspect_id": "coaching_approach",
+            "aspect_name": "Effective Coaching and Guidance",
+            "score": 0.35,
+            "rationale": "The learner provides some guidance by suggesting a focus on user stories and shifting attention to the user's experience rather than technical functionality. However, the approach is quite prescriptive ('A great place to start is creating user stories') and does not include open-ended questions or encouragement to foster independent thinking. There is little evidence of building Alex's confidence or using guided discovery.",
+            "evidence_references": [
+              "great question! it's really about focusing on the user's experience rather  than the technical functionality. A great place to start is creating user stories."
+            ],
+            "subskill_evidence": {
+              "SS006": "Mentions focusing on user experience, but does not prompt Alex to reflect or explore independently.",
+              "SS008": "Introduces user stories as a tool, but does not model collaborative or inquiry-based coaching."
+            }
+          },
+          {
+            "aspect_id": "user_perspective_shift",
+            "aspect_name": "Facilitating User Perspective Shift",
+            "score": 0.4,
+            "rationale": "The learner identifies the need to focus on the user's experience and suggests user stories as a method. However, the response does not actively guide Alex through the transition from technical to user-centered thinking, nor does it probe for Alex's understanding of user needs or experiences. The shift is mentioned but not facilitated through dialogue.",
+            "evidence_references": [
+              "it's really about focusing on the user's experience rather  than the technical functionality."
+            ],
+            "subskill_evidence": {
+              "SS006": "States the importance of user experience but does not engage Alex in exploring user needs.",
+              "SS007": "Does not ask Alex to articulate user impact or reflect on user perspective."
+            }
+          },
+          {
+            "aspect_id": "problem_construction_guidance",
+            "aspect_name": "Problem Statement Construction Guidance",
+            "score": 0.3,
+            "rationale": "The learner suggests using user stories but does not demonstrate or guide the collaborative construction of an actionable, user-centered problem statement. There is no modeling, scaffolding, or step-by-step support for Alex to build a problem statement. The opportunity for deeper learning is missed.",
+            "evidence_references": [
+              "A great place to start is creating user stories."
+            ],
+            "subskill_evidence": {
+              "SS008": "Mentions user stories but does not guide their construction.",
+              "SS010": "No evidence of collaborative or actionable problem statement development."
+            }
+          },
+          {
+            "aspect_id": "iterative_refinement",
+            "aspect_name": "Iterative Refinement and Improvement",
+            "score": 0.1,
+            "rationale": "There is no evidence of iterative refinement. The learner does not prompt Alex to revise or improve a problem statement, nor is there any collaborative dialogue to refine ideas. The conversation does not progress beyond the initial suggestion.",
+            "evidence_references": [],
+            "subskill_evidence": {
+              "SS008": "No evidence of iterative improvement.",
+              "SS009": "No evidence of guiding multiple iterations or refinement."
+            }
+          }
+        ],
+        "overall_score": 0.29,
+        "rationale": "The learner demonstrates a basic awareness of the need to shift from technical to user-centered thinking and suggests user stories as a tool. However, the response is prescriptive, lacks open-ended coaching, and does not engage in collaborative or iterative problem framing. There is minimal evidence of effective coaching, facilitation of perspective shift, or guidance in constructing and refining problem statements.",
+        "validity_modifier": 0.9,
+        "validity_analysis": "The response is authentic and unassisted, but the evidence volume is low and the depth of engagement is limited. The assessment is valid for the evidence provided, but the limited interaction constrains confidence in a higher score.",
+        "validity_reason": "No external assistance was used; however, the short, surface-level response reduces the completeness of the evidence.",
+        "evidence_quality": "Low to moderate\u2014evidence is relevant but sparse and lacks depth.",
+        "assistance_impact": "No assistance detected.",
+        "evidence_volume_assessment": "Evidence volume is insufficient for full evaluation of all rubric aspects. The conversation is brief and does not progress through the full coaching cycle.",
+        "assessment_confidence": "Moderate\u2014confidence in the low scores is high due to clear lack of evidence, but cannot rule out higher skill with more interaction.",
+        "key_observations": [
+          "Response is brief and does not model collaborative or inquiry-based coaching.",
+          "Mentions user stories but does not guide their construction or refinement.",
+          "Does not facilitate iterative improvement or deeper user perspective exploration.",
+          "No open-ended questions or encouragement to build confidence.",
+          "Evidence is sufficient to identify basic awareness but not skillful execution."
+        ]
+      },
+      "error": null
+    },
+    "scoring": {
+      "status": "completed",
+      "execution_time": 0.01,
+      "tokens_used": 0,
+      "cost_estimate": 0,
+      "result": {
+        "activity_score": 0.29,
+        "target_evidence_volume": 3.5,
+        "validity_modifier": 0.9,
+        "adjusted_evidence_volume": 3.15,
+        "final_score": 0.29,
+        "aspect_scores": [
+          {
+            "aspect_id": "coaching_approach",
+            "aspect_name": "Effective Coaching and Guidance",
+            "score": 0.35,
+            "rationale": "The learner provides some guidance by suggesting a focus on user stories and shifting attention to the user's experience rather than technical functionality. However, the approach is quite prescriptive ('A great place to start is creating user stories') and does not include open-ended questions or encouragement to foster independent thinking. There is little evidence of building Alex's confidence or using guided discovery.",
+            "evidence_references": [
+              "great question! it's really about focusing on the user's experience rather  than the technical functionality. A great place to start is creating user stories."
+            ],
+            "subskill_evidence": {
+              "SS006": "Mentions focusing on user experience, but does not prompt Alex to reflect or explore independently.",
+              "SS008": "Introduces user stories as a tool, but does not model collaborative or inquiry-based coaching."
+            }
+          },
+          {
+            "aspect_id": "user_perspective_shift",
+            "aspect_name": "Facilitating User Perspective Shift",
+            "score": 0.4,
+            "rationale": "The learner identifies the need to focus on the user's experience and suggests user stories as a method. However, the response does not actively guide Alex through the transition from technical to user-centered thinking, nor does it probe for Alex's understanding of user needs or experiences. The shift is mentioned but not facilitated through dialogue.",
+            "evidence_references": [
+              "it's really about focusing on the user's experience rather  than the technical functionality."
+            ],
+            "subskill_evidence": {
+              "SS006": "States the importance of user experience but does not engage Alex in exploring user needs.",
+              "SS007": "Does not ask Alex to articulate user impact or reflect on user perspective."
+            }
+          },
+          {
+            "aspect_id": "problem_construction_guidance",
+            "aspect_name": "Problem Statement Construction Guidance",
+            "score": 0.3,
+            "rationale": "The learner suggests using user stories but does not demonstrate or guide the collaborative construction of an actionable, user-centered problem statement. There is no modeling, scaffolding, or step-by-step support for Alex to build a problem statement. The opportunity for deeper learning is missed.",
+            "evidence_references": [
+              "A great place to start is creating user stories."
+            ],
+            "subskill_evidence": {
+              "SS008": "Mentions user stories but does not guide their construction.",
+              "SS010": "No evidence of collaborative or actionable problem statement development."
+            }
+          },
+          {
+            "aspect_id": "iterative_refinement",
+            "aspect_name": "Iterative Refinement and Improvement",
+            "score": 0.1,
+            "rationale": "There is no evidence of iterative refinement. The learner does not prompt Alex to revise or improve a problem statement, nor is there any collaborative dialogue to refine ideas. The conversation does not progress beyond the initial suggestion.",
+            "evidence_references": [],
+            "subskill_evidence": {
+              "SS008": "No evidence of iterative improvement.",
+              "SS009": "No evidence of guiding multiple iterations or refinement."
+            }
+          }
+        ],
+        "scoring_rationale": "Activity scored with 1 skills evaluated"
+      },
+      "error": null
+    },
+    "intelligent_feedback": {
+      "status": "completed",
+      "execution_time": 10.167,
+      "tokens_used": 9267,
+      "cost_estimate": 0.00170595,
+      "result": {
+        "intelligent_feedback": {
+          "diagnostic_analysis": {
+            "strength_areas": [
+              "Awareness of the importance of user-centered thinking",
+              "Introduction of user stories as a tool for problem framing"
+            ],
+            "improvement_areas": [
+              "Facilitating open-ended, inquiry-based coaching",
+              "Guiding the actual shift from technical to user perspective through dialogue",
+              "Collaborative construction and iterative refinement of problem statements",
+              "Encouraging independent thinking and building learner confidence"
+            ],
+            "subskill_performance": [
+              {
+                "subskill_name": "SS006 (User Perspective Awareness)",
+                "performance_level": "developing",
+                "development_priority": "high"
+              },
+              {
+                "subskill_name": "SS007 (Guiding Perspective Shift)",
+                "performance_level": "needs_improvement",
+                "development_priority": "high"
+              },
+              {
+                "subskill_name": "SS008 (Collaborative Problem Framing)",
+                "performance_level": "needs_improvement",
+                "development_priority": "high"
+              },
+              {
+                "subskill_name": "SS009 (Iterative Refinement)",
+                "performance_level": "needs_improvement",
+                "development_priority": "medium"
+              },
+              {
+                "subskill_name": "SS010 (Actionable Problem Statement Construction)",
+                "performance_level": "needs_improvement",
+                "development_priority": "high"
+              }
+            ]
+          },
+          "student_feedback": {
+            "performance_summary": {
+              "overall_assessment": "You are developing an understanding of the need to reframe technical issues in user-centered terms and have taken a first step by suggesting user stories. However, your coaching approach is mostly directive and does not yet foster independent thinking or collaborative problem construction. There is minimal evidence of guiding Alex through the process or encouraging iterative improvement.",
+              "key_strengths": [
+                "Recognized the importance of focusing on user experience",
+                "Suggested a practical tool (user stories) for reframing problems"
+              ],
+              "primary_opportunities": [
+                "Engage Alex with open-ended questions to prompt reflection and discovery",
+                "Guide Alex step-by-step in shifting from technical to user-centered framing",
+                "Model and co-construct actionable problem statements collaboratively",
+                "Encourage Alex to iterate and refine problem statements for clarity and impact"
+              ],
+              "achievement_highlights": [
+                "Demonstrated initial awareness of user-centered thinking",
+                "Showed willingness to provide guidance and support"
+              ]
+            },
+            "actionable_guidance": {
+              "immediate_next_steps": [
+                "Practice asking open-ended questions that help Alex articulate the user impact (e.g., 'How might slow API responses affect what our users are trying to do?').",
+                "Encourage Alex to describe the problem from the user's perspective before suggesting solutions.",
+                "Work together to draft a user-centered problem statement, then review and refine it collaboratively."
+              ],
+              "recommendations": [
+                "Observe or role-play coaching conversations that use guided discovery and collaborative dialogue.",
+                "Review examples of actionable, user-centered problem statements and analyze what makes them effective.",
+                "Reflect on how to balance providing guidance with encouraging independent thinking in your coaching style.",
+                "Seek feedback from peers or mentors on your coaching approach and iterate based on their input."
+              ]
+            }
+          }
+        }
+      },
+      "error": null
+    },
+    "trend_analysis": {
+      "status": "completed",
+      "execution_time": 0,
+      "tokens_used": 0,
+      "cost_estimate": 0,
+      "result": {
+        "trend_analysis": {
+          "performance_trajectory": "stable",
+          "trend_analysis": "Trend Analysis Disabled - This feature has been disabled to reduce costs and processing time.",
+          "growth_patterns": [],
+          "learning_velocity": {
+            "current_velocity": "stable",
+            "velocity_trend": "no_change",
+            "velocity_factors": [
+              "feature_disabled"
+            ]
+          },
+          "improvement_areas": [
+            "feature_disabled"
+          ],
+          "strength_areas": [
+            "feature_disabled"
+          ],
+          "recommendations": [
+            "Trend analysis has been disabled to reduce costs and processing time."
+          ]
+        }
+      },
+      "error": null
+    }
+  },
+  "final_skill_scores": {},
+  "overall_success": true,
+  "total_execution_time_ms": 23698,
+  "total_cost_estimate": 0.0036,
+  "error_summary": null,
+  "timestamp": 1753752068.456287
+}

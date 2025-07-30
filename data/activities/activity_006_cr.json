@@ -1,0 +1,210 @@
+{
+    "activity_id": "user_requirements_clarification_cr",
+    "activity_type": "CR",
+    "title": "User Requirements Clarification - Constructed Response",
+    "description": "Analyze an ambiguous feature request and identify what additional information is needed to understand the real user needs.",
+    "target_skill": "S001",
+    "target_evidence_volume": 3.0,
+    "cognitive_level": "L2",
+    "depth_level": "D1",
+    "content": {
+        "prompt": "Analyze the following feature request from the sales team and identify the key information you need to gather to understand the actual user needs behind this request.",
+        "response_guidelines": "Write a brief analysis (2-4 sentences) that identifies: 1) What specific information is missing or unclear, 2) What questions you would ask to understand the underlying user needs, 3) What assumptions might be embedded in the request that need validation.",
+        "assessment_information": "• Ability to parse unclear requirements • Identification of missing information and gaps • Understanding of user-centered needs analysis • Quality of clarification questions"
+    },
+    "rubric": {
+        "rubric_id": "requirements_clarification_rubric",
+        "target_component_evidence_volume": 3.0,
+        "aspects": [
+            {
+                "aspect_id": "requirements_parsing",
+                "aspect_name": "Requirements Parsing and Gap Identification",
+                "aspect_description": "Identifies unclear language, missing information, and gaps in the requirements",
+                "aspect_weight": 0.35,
+                "target_evidence_volume": 1.05,
+                "primary_subskills": ["SS001", "SS003"],
+                "secondary_subskills": ["SS002"],
+                "anchor_points": {
+                    "range_0_75_to_1_00": "Excellent identification of specific gaps, unclear language, and missing information in the requirements. Demonstrates sophisticated understanding of what constitutes complete requirements.",
+                    "range_0_50_to_0_74": "Good identification of major gaps and unclear areas in requirements, though may miss some subtle ambiguities or secondary information needs.",
+                    "range_0_25_to_0_49": "Basic identification of obvious gaps in requirements but may miss important nuances or fail to recognize all areas needing clarification.",
+                    "range_0_00_to_0_24": "Limited ability to identify gaps or unclear areas in requirements. May accept vague requirements without recognizing the need for clarification."
+                }
+            },
+            {
+                "aspect_id": "user_needs_inference",
+                "aspect_name": "User Needs and Motivation Analysis",
+                "aspect_description": "Demonstrates understanding of underlying user needs and motivations behind requests",
+                "aspect_weight": 0.30,
+                "target_evidence_volume": 0.9,
+                "primary_subskills": ["SS002", "SS004"],
+                "secondary_subskills": ["SS001"],
+                "anchor_points": {
+                    "range_0_75_to_1_00": "Excellent insight into underlying user motivations and needs. Clearly distinguishes between stated requests and actual user problems that need solving.",
+                    "range_0_50_to_0_74": "Good understanding of user needs behind requests with solid inference about motivations, though may miss some deeper insights.",
+                    "range_0_25_to_0_49": "Basic understanding of user needs but may take requests at face value without deeper analysis of underlying motivations.",
+                    "range_0_00_to_0_24": "Limited understanding of user needs. Focuses primarily on surface-level requests without considering underlying motivations or problems."
+                }
+            },
+            {
+                "aspect_id": "clarification_questions",
+                "aspect_name": "Quality of Clarification Questions",
+                "aspect_description": "Formulates targeted, effective questions to gather missing information",
+                "aspect_weight": 0.35,
+                "target_evidence_volume": 1.05,
+                "primary_subskills": ["SS005"],
+                "secondary_subskills": ["SS003", "SS004"],
+                "anchor_points": {
+                    "range_0_75_to_1_00": "Excellent clarification questions that are specific, targeted, and designed to uncover user needs and validate assumptions. Questions demonstrate strategic thinking about information gathering.",
+                    "range_0_50_to_0_74": "Good clarification questions that address key information gaps, though may be somewhat general or miss some strategic opportunities for insight.",
+                    "range_0_25_to_0_49": "Basic clarification questions that cover obvious information needs but may be too broad or fail to target the most important gaps.",
+                    "range_0_00_to_0_24": "Poor or generic clarification questions that don't effectively address the information gaps or demonstrate understanding of what's needed."
+                }
+            }
+        ]
+    },
+    "metadata": {
+        "created": "2024-12-19T10:00:00Z",
+        "llm_model_used": "claude-sonnet-4",
+        "estimated_time": 6,
+        "activity_complexity": "intermediate",
+        "requires_scenario": true,
+        "allows_assistance": true,
+        "assistance_impact_guidelines": "Minor clarification reduces modifier to 0.95. Guidance on analysis approach reduces to 0.8. Major insights provided reduces to 0.5."
+    },
+    "activity_generation_output": {
+        "activity_type": "constructed_response",
+        "activity_type_variant": "brief_analysis",
+        "activity_purpose": "challenge",
+        "l_d_complexity": "L2-D1",
+        "evaluation_method": "rubric_scored",
+        "components": [
+            {
+                "component_id": "requirements_clarification_main",
+                "component_type": "constructed_response",
+                "component_purpose": "challenge",
+                "component_weight": 1.0,
+                "student_facing_content": {
+                    "stem": "Analyze the following feature request from the sales team and identify the key information you need to gather to understand the actual user needs behind this request.",
+                    "scenario": "Your sales team has submitted the following feature request: 'Our biggest prospects keep asking for better reporting capabilities. They want to see their data in a more visual way and export it easily. This is blocking several deals worth $500K+ ARR. Can we build some kind of dashboard with charts and export features? They need this ASAP to close deals this quarter.'",
+                    "given": "Sales team request: Dashboard with visual reporting and export capabilities. Business impact: $500K+ ARR deals at risk. Timeline pressure: Needed this quarter for deal closure.",
+                    "instructions": "Write a brief analysis (2-4 sentences) that identifies: 1) What specific information is missing or unclear, 2) What questions you would ask to understand the underlying user needs, 3) What assumptions might be embedded in the request that need validation.",
+                    "response_format": "Brief written analysis in 2-4 complete sentences that demonstrates requirements parsing and user needs analysis.",
+                    "assessment_information": "• Ability to parse unclear requirements • Identification of missing information and gaps • Understanding of user-centered needs analysis • Quality of clarification questions",
+                    "time_estimate": 6
+                },
+                "scoring_rubric": {
+                    "rubric_id": "requirements_clarification_rubric",
+                    "target_component_evidence_volume": 3.0,
+                    "aspects": [
+                        {
+                            "aspect_id": "requirements_parsing",
+                            "aspect_name": "Requirements Parsing and Gap Identification",
+                            "aspect_description": "Identifies unclear language, missing information, and gaps in the requirements",
+                            "aspect_weight": 0.35,
+                            "target_evidence_volume": 1.05,
+                            "primary_subskills": ["SS001", "SS003"],
+                            "secondary_subskills": ["SS002"],
+                            "anchor_points": {
+                                "range_0_75_to_1_00": "Excellent identification of specific gaps, unclear language, and missing information in the requirements. Demonstrates sophisticated understanding of what constitutes complete requirements.",
+                                "range_0_50_to_0_74": "Good identification of major gaps and unclear areas in requirements, though may miss some subtle ambiguities or secondary information needs.",
+                                "range_0_25_to_0_49": "Basic identification of obvious gaps in requirements but may miss important nuances or fail to recognize all areas needing clarification.",
+                                "range_0_00_to_0_24": "Limited ability to identify gaps or unclear areas in requirements. May accept vague requirements without recognizing the need for clarification."
+                            }
+                        },
+                        {
+                            "aspect_id": "user_needs_inference",
+                            "aspect_name": "User Needs and Motivation Analysis",
+                            "aspect_description": "Demonstrates understanding of underlying user needs and motivations behind requests",
+                            "aspect_weight": 0.30,
+                            "target_evidence_volume": 0.9,
+                            "primary_subskills": ["SS002", "SS004"],
+                            "secondary_subskills": ["SS001"],
+                            "anchor_points": {
+                                "range_0_75_to_1_00": "Excellent insight into underlying user motivations and needs. Clearly distinguishes between stated requests and actual user problems that need solving.",
+                                "range_0_50_to_0_74": "Good understanding of user needs behind requests with solid inference about motivations, though may miss some deeper insights.",
+                                "range_0_25_to_0_49": "Basic understanding of user needs but may take requests at face value without deeper analysis of underlying motivations.",
+                                "range_0_00_to_0_24": "Limited understanding of user needs. Focuses primarily on surface-level requests without considering underlying motivations or problems."
+                            }
+                        },
+                        {
+                            "aspect_id": "clarification_questions",
+                            "aspect_name": "Quality of Clarification Questions",
+                            "aspect_description": "Formulates targeted, effective questions to gather missing information",
+                            "aspect_weight": 0.35,
+                            "target_evidence_volume": 1.05,
+                            "primary_subskills": ["SS005"],
+                            "secondary_subskills": ["SS003", "SS004"],
+                            "anchor_points": {
+                                "range_0_75_to_1_00": "Excellent clarification questions that are specific, targeted, and designed to uncover user needs and validate assumptions. Questions demonstrate strategic thinking about information gathering.",
+                                "range_0_50_to_0_74": "Good clarification questions that address key information gaps, though may be somewhat general or miss some strategic opportunities for insight.",
+                                "range_0_25_to_0_49": "Basic clarification questions that cover obvious information needs but may be too broad or fail to target the most important gaps.",
+                                "range_0_00_to_0_24": "Poor or generic clarification questions that don't effectively address the information gaps or demonstrate understanding of what's needed."
+                            }
+                        }
+                    ]
+                },
+                "subskill_targeting": [
+                    {
+                        "subskill_id": "SS001",
+                        "weight_in_component": 0.25,
+                        "target_evidence_volume": 0.75
+                    },
+                    {
+                        "subskill_id": "SS002",
+                        "weight_in_component": 0.20,
+                        "target_evidence_volume": 0.6
+                    },
+                    {
+                        "subskill_id": "SS003",
+                        "weight_in_component": 0.20,
+                        "target_evidence_volume": 0.6
+                    },
+                    {
+                        "subskill_id": "SS004",
+                        "weight_in_component": 0.15,
+                        "target_evidence_volume": 0.45
+                    },
+                    {
+                        "subskill_id": "SS005",
+                        "weight_in_component": 0.20,
+                        "target_evidence_volume": 0.6
+                    }
+                ]
+            }
+        ],
+        "activity_level_subskill_targeting": [
+            {
+                "subskill_id": "SS001",
+                "total_weight_in_activity": 0.25,
+                "target_activity_evidence_volume": 0.75,
+                "components_targeting": ["requirements_clarification_main"]
+            },
+            {
+                "subskill_id": "SS002",
+                "total_weight_in_activity": 0.20,
+                "target_activity_evidence_volume": 0.6,
+                "components_targeting": ["requirements_clarification_main"]
+            },
+            {
+                "subskill_id": "SS003",
+                "total_weight_in_activity": 0.20,
+                "target_activity_evidence_volume": 0.6,
+                "components_targeting": ["requirements_clarification_main"]
+            },
+            {
+                "subskill_id": "SS004",
+                "total_weight_in_activity": 0.15,
+                "target_activity_evidence_volume": 0.45,
+                "components_targeting": ["requirements_clarification_main"]
+            },
+            {
+                "subskill_id": "SS005",
+                "total_weight_in_activity": 0.20,
+                "target_activity_evidence_volume": 0.6,
+                "components_targeting": ["requirements_clarification_main"]
+            }
+        ]
+    },
+    "learner_id": "string"
+}

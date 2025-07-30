@@ -1,0 +1,219 @@
+{
+  "activity_id": "problem_statement_crafting_cr",
+  "learner_id": "learner_002",
+  "evaluation_timestamp": "2025-07-29T11:01:36.222371",
+  "pipeline_phases": {
+    "combined_evaluation": {
+      "status": "completed",
+      "execution_time": 13.651,
+      "tokens_used": 7005,
+      "cost_estimate": 0.0013945499999999998,
+      "result": {
+        "aspect_scores": [
+          {
+            "aspect_id": "user_centered_language",
+            "aspect_name": "User-Centered Language and Perspective",
+            "score": 0.65,
+            "rationale": "The response uses user-centered language by focusing on users' inability to find their files and the resulting problems for users. However, it occasionally reverts to technical framing ('the search doesn't work properly') and lacks deeper exploration of user goals or emotional impact.",
+            "evidence_references": [
+              "Users can't find their old files because the search doesn't work properly.",
+              "This is causing problems for users who need to access documents they saved before."
+            ],
+            "subskill_evidence": {
+              "SS006": "References user needs and experience, but with some technical framing."
+            }
+          },
+          {
+            "aspect_id": "friction_identification",
+            "aspect_name": "Core Friction and Pain Point Identification",
+            "score": 0.55,
+            "rationale": "The response identifies the obvious friction (users can't find old files), but does not articulate the most fundamental or nuanced pain points, such as wasted time, frustration, or impact on user productivity.",
+            "evidence_references": [
+              "Users can't find their old files",
+              "causing problems for users who need to access documents they saved before"
+            ],
+            "subskill_evidence": {
+              "SS007": "Identifies surface-level friction but lacks depth on user pain."
+            }
+          },
+          {
+            "aspect_id": "actionable_framing",
+            "aspect_name": "Actionable Problem Framing",
+            "score": 0.55,
+            "rationale": "The response expresses the need to 'fix' the search feature so users can find files more easily, which is actionable but somewhat vague. It provides general direction for solution development but lacks specificity and focus.",
+            "evidence_references": [
+              "The search feature needs to be fixed so users can find their files more easily and don't have to contact support for help."
+            ],
+            "subskill_evidence": {
+              "SS008": "States a need for improvement but lacks clear, focused criteria.",
+              "SS010": "Actionable intent is present but not well-defined."
+            }
+          }
+        ],
+        "overall_score": 0.58,
+        "rationale": "The response demonstrates a basic to good grasp of user-centered problem framing, identifying the main friction and suggesting an actionable direction. However, it lacks depth, specificity, and a fully user-focused perspective, resulting in moderate scores across all aspects.",
+        "validity_modifier": 1.0,
+        "validity_analysis": "No assistance was logged and the response is the learner's own work. The evaluation is valid for the evidence provided.",
+        "validity_reason": "No evidence of external assistance; response is self-generated.",
+        "evidence_quality": "Moderate. The evidence is relevant but limited in depth and detail.",
+        "assistance_impact": "None detected.",
+        "evidence_volume_assessment": "Evidence volume is below target; the response is concise but does not fully elaborate on user needs, pain points, or actionable framing.",
+        "assessment_confidence": "High confidence in the assessment given the clear alignment with rubric anchors and the straightforward nature of the response.",
+        "key_observations": [
+          "User needs are referenced but not deeply explored.",
+          "Friction is identified at a surface level; lacks nuance.",
+          "Actionable framing is present but vague.",
+          "Response is concise but omits detail and specificity.",
+          "No evidence of assistance or external input."
+        ],
+        "metadata": {
+          "prompt_tokens": 6241,
+          "completion_tokens": 764
+        }
+      },
+      "error": null
+    },
+    "scoring": {
+      "status": "completed",
+      "execution_time": 0.01,
+      "tokens_used": 0,
+      "cost_estimate": 0,
+      "result": {
+        "activity_score": 0.58,
+        "target_evidence_volume": 2.5,
+        "validity_modifier": 1.0,
+        "adjusted_evidence_volume": 2.5,
+        "final_score": 0.58,
+        "aspect_scores": [
+          {
+            "aspect_id": "user_centered_language",
+            "aspect_name": "User-Centered Language and Perspective",
+            "score": 0.65,
+            "rationale": "The response uses user-centered language by focusing on users' inability to find their files and the resulting problems for users. However, it occasionally reverts to technical framing ('the search doesn't work properly') and lacks deeper exploration of user goals or emotional impact.",
+            "evidence_references": [
+              "Users can't find their old files because the search doesn't work properly.",
+              "This is causing problems for users who need to access documents they saved before."
+            ],
+            "subskill_evidence": {
+              "SS006": "References user needs and experience, but with some technical framing."
+            }
+          },
+          {
+            "aspect_id": "friction_identification",
+            "aspect_name": "Core Friction and Pain Point Identification",
+            "score": 0.55,
+            "rationale": "The response identifies the obvious friction (users can't find old files), but does not articulate the most fundamental or nuanced pain points, such as wasted time, frustration, or impact on user productivity.",
+            "evidence_references": [
+              "Users can't find their old files",
+              "causing problems for users who need to access documents they saved before"
+            ],
+            "subskill_evidence": {
+              "SS007": "Identifies surface-level friction but lacks depth on user pain."
+            }
+          },
+          {
+            "aspect_id": "actionable_framing",
+            "aspect_name": "Actionable Problem Framing",
+            "score": 0.55,
+            "rationale": "The response expresses the need to 'fix' the search feature so users can find files more easily, which is actionable but somewhat vague. It provides general direction for solution development but lacks specificity and focus.",
+            "evidence_references": [
+              "The search feature needs to be fixed so users can find their files more easily and don't have to contact support for help."
+            ],
+            "subskill_evidence": {
+              "SS008": "States a need for improvement but lacks clear, focused criteria.",
+              "SS010": "Actionable intent is present but not well-defined."
+            }
+          }
+        ],
+        "scoring_rationale": "Activity scored with 1 skills evaluated"
+      },
+      "error": null
+    },
+    "intelligent_feedback": {
+      "status": "completed",
+      "execution_time": 7.636,
+      "tokens_used": 7574,
+      "cost_estimate": 0.00141465,
+      "result": {
+        "intelligent_feedback": {
+          "backend_intelligence": {
+            "overview": "The learner demonstrates an emerging ability to translate a business complaint into a user-centered, actionable problem statement. The response identifies the main user friction and attempts to frame the problem in terms that could guide solution development. However, the statement lacks depth in articulating user pain points and does not fully leverage user-centered language, occasionally reverting to technical framing. Actionable direction is present but remains general and lacks specificity.",
+            "strengths": [
+              "The learner references user needs and experience, focusing on users' inability to find their files and the resulting problems.",
+              "The response identifies the primary friction point\u2014users' difficulty locating old files\u2014and connects this to the need for an improved search feature.",
+              "There is an attempt to express the problem in actionable terms by stating that the search feature needs to be fixed to help users find files more easily."
+            ],
+            "weaknesses": [
+              "The learner's response occasionally reverts to technical framing (e.g., 'the search doesn't work properly') rather than maintaining a fully user-centered perspective.",
+              "The identification of user friction is surface-level and does not explore deeper pain points such as wasted time, frustration, or productivity loss.",
+              "Actionable framing is present but lacks specificity and clear criteria for what constitutes a successful solution."
+            ],
+            "subskill_ratings": [
+              {
+                "subskill_name": "User-Centered Language (SS006)",
+                "performance_level": "developing",
+                "development_priority": "medium"
+              },
+              {
+                "subskill_name": "Friction and Pain Point Identification (SS007)",
+                "performance_level": "developing",
+                "development_priority": "high"
+              },
+              {
+                "subskill_name": "Actionable Problem Framing (SS008/SS010)",
+                "performance_level": "developing",
+                "development_priority": "high"
+              }
+            ]
+          },
+          "learner_feedback": {
+            "overall": "You are developing your ability to turn business complaints into clear, user-centered problem statements. Your response shows that you can identify the main issue users face and suggest a direction for improvement, which is a great step forward.",
+            "strengths": "You focused on what users are experiencing and recognized that the search feature is making it hard for them to find their files. You also suggested that improving the search would help users and reduce their need to contact support. This shows you are thinking about both user needs and possible solutions.",
+            "opportunities": "You are not yet fully capturing the deeper frustrations users might feel, such as wasted time or lost productivity, and your statement could be even more user-focused by describing how solving this problem would improve their experience. Try to be more specific about what a better search experience would look like for users. As a next step, practice describing user pain points in more detail and framing problems in a way that clearly guides what needs to be solved."
+          }
+        },
+        "metadata": {
+          "prompt_tokens": 6955,
+          "completion_tokens": 619
+        }
+      },
+      "error": null
+    },
+    "trend_analysis": {
+      "status": "completed",
+      "execution_time": 0,
+      "tokens_used": 0,
+      "cost_estimate": 0,
+      "result": {
+        "trend_analysis": {
+          "performance_trajectory": "stable",
+          "trend_analysis": "Trend Analysis Disabled - This feature has been disabled to reduce costs and processing time.",
+          "growth_patterns": [],
+          "learning_velocity": {
+            "current_velocity": "stable",
+            "velocity_trend": "no_change",
+            "velocity_factors": [
+              "feature_disabled"
+            ]
+          },
+          "improvement_areas": [
+            "feature_disabled"
+          ],
+          "strength_areas": [
+            "feature_disabled"
+          ],
+          "recommendations": [
+            "Trend analysis has been disabled to reduce costs and processing time."
+          ]
+        }
+      },
+      "error": null
+    }
+  },
+  "final_skill_scores": {},
+  "overall_success": true,
+  "total_execution_time_ms": 21316,
+  "total_cost_estimate": 0.0028091999999999995,
+  "error_summary": null,
+  "timestamp": 1753808496.223155
+}

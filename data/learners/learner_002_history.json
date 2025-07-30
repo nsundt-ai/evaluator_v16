@@ -1,0 +1,60 @@
+{
+  "learner_id": "learner_002",
+  "created": "2025-07-27T20:46:39.794505+00:00",
+  "last_updated": "2025-07-27T20:46:39.794505+00:00",
+  "profile": {
+    "name": "Sarah Martinez",
+    "email": "sarah.martinez@example.com",
+    "enrollment_date": "2024-10-08T11:15:00Z",
+    "status": "active",
+    "background": "Former business analyst with 3 years experience transitioning to product management. MBA graduate with concentration in technology management. Strong analytical skills and business acumen. Experience with stakeholder management and project coordination in enterprise software environment.",
+    "experience_level": "intermediate"
+  },
+  "activities": [
+    "problem_statement_crafting_cr",
+    "problem_statement_crafting_cr",
+    "problem_statement_crafting_cr",
+    "problem_statement_crafting_cr",
+    "problem_statement_crafting_cr",
+    "problem_statement_crafting_cr",
+    "problem_statement_crafting_cr",
+    "requirements_prioritization_dilemma_br",
+    "requirements_prioritization_dilemma_br",
+    "requirements_prioritization_dilemma_br",
+    "user_need_identification_quiz_sr",
+    "problem_statement_crafting_cr",
+    "problem_statement_crafting_cr",
+    "problem_statement_crafting_cr",
+    "problem_statement_crafting_cr"
+  ],
+  "skill_progress": {
+    "S002": {
+      "skill_name": "S002",
+      "cumulative_score": 0.0,
+      "total_adjusted_evidence": 7.5,
+      "activity_count": 3,
+      "gate_1_status": "needs_improvement",
+      "gate_2_status": "needs_improvement",
+      "overall_status": "needs_improvement",
+      "last_activity_date": "2025-07-29T17:01:28.569424+00:00",
+      "activities": []
+    },
+    "S001": {
+      "skill_name": "S001",
+      "cumulative_score": 0.0,
+      "total_adjusted_evidence": 3.5,
+      "activity_count": 1,
+      "gate_1_status": "needs_improvement",
+      "gate_2_status": "needs_improvement",
+      "overall_status": "needs_improvement",
+      "last_activity_date": "2025-07-29T03:04:12.879501+00:00",
+      "activities": []
+    }
+  },
+  "competency_progress": {},
+  "metadata": {
+    "total_activities": 15,
+    "total_time_minutes": 0,
+    "last_activity_date": "2025-07-27T20:46:39.794505+00:00"
+  }
+}

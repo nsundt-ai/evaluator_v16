@@ -1,0 +1,269 @@
+{
+    "activity_id": "problem_framing_workshop_rp",
+    "activity_type": "RP",
+    "title": "Problem Framing Workshop Role Play",
+    "description": "Lead a conversation with a junior product manager who needs guidance on how to reframe a technical complaint into a user-centered problem statement.",
+    "target_skill": "S002",
+    "target_evidence_volume": 3.5,
+    "cognitive_level": "L2",
+    "depth_level": "D1",
+    "content": {
+        "scenario_context": "Informal coaching session with junior PM who is struggling to translate technical complaints into user-centered problems. Alex is eager to learn but tends to think in technical terms rather than user impact.",
+        "character_profile": "Alex Kim, Junior Product Manager - 1 year experience, engineering background, analytical mindset, enthusiastic about learning. Tends to focus on technical solutions rather than user problems.",
+        "objectives": [
+            "Guide Alex to think from user perspective rather than technical perspective",
+            "Help reframe technical complaints as user experience problems",
+            "Teach problem statement construction through collaborative dialogue",
+            "Build Alex's confidence in user-centered problem framing"
+        ]
+    },
+    "rubric": {
+        "rubric_id": "problem_framing_coaching_rubric",
+        "target_component_evidence_volume": 3.5,
+        "aspects": [
+            {
+                "aspect_id": "coaching_approach",
+                "aspect_name": "Effective Coaching and Guidance",
+                "aspect_description": "Provides helpful guidance while encouraging independent thinking and learning",
+                "aspect_weight": 0.25,
+                "target_evidence_volume": 0.875,
+                "primary_subskills": ["SS006", "SS008"],
+                "secondary_subskills": ["SS007"],
+                "anchor_points": {
+                    "range_0_75_to_1_00": "Excellent coaching approach that guides learning through questions and encouragement. Builds confidence while teaching effective problem framing techniques.",
+                    "range_0_50_to_0_74": "Good coaching with appropriate guidance and support, though may occasionally be too directive or miss opportunities for guided discovery.",
+                    "range_0_25_to_0_49": "Basic coaching that provides some guidance but may be too prescriptive or fail to encourage independent thinking.",
+                    "range_0_00_to_0_24": "Poor coaching approach that is either too directive or fails to provide adequate guidance for learning problem framing skills."
+                }
+            },
+            {
+                "aspect_id": "user_perspective_shift",
+                "aspect_name": "Facilitating User Perspective Shift",
+                "aspect_description": "Helps transition thinking from technical/business perspective to user-centered perspective",
+                "aspect_weight": 0.30,
+                "target_evidence_volume": 1.05,
+                "primary_subskills": ["SS006", "SS007"],
+                "secondary_subskills": ["SS008"],
+                "anchor_points": {
+                    "range_0_75_to_1_00": "Excellent facilitation of perspective shift from technical to user-centered thinking. Effectively guides the conversation toward user needs and experiences.",
+                    "range_0_50_to_0_74": "Good facilitation of user perspective with solid guidance toward user-centered thinking, though may occasionally revert to technical framing.",
+                    "range_0_25_to_0_49": "Basic facilitation of perspective shift but may struggle to consistently maintain user-centered focus or effectively guide the transition.",
+                    "range_0_00_to_0_24": "Limited facilitation of perspective shift. May remain focused on technical aspects or fail to effectively guide toward user-centered thinking."
+                }
+            },
+            {
+                "aspect_id": "problem_construction_guidance",
+                "aspect_name": "Problem Statement Construction Guidance",
+                "aspect_description": "Guides the collaborative construction of effective, actionable problem statements",
+                "aspect_weight": 0.30,
+                "target_evidence_volume": 1.05,
+                "primary_subskills": ["SS008", "SS010"],
+                "secondary_subskills": ["SS006", "SS009"],
+                "anchor_points": {
+                    "range_0_75_to_1_00": "Excellent guidance in problem statement construction. Effectively teaches how to create actionable, user-centered problem statements through collaborative dialogue.",
+                    "range_0_50_to_0_74": "Good guidance in problem construction with solid teaching of key principles, though may miss some opportunities for deeper learning.",
+                    "range_0_25_to_0_49": "Basic guidance in problem construction that covers main points but may lack depth or fail to fully develop actionable problem statements.",
+                    "range_0_00_to_0_24": "Poor guidance in problem construction with little effective teaching of problem statement principles or collaborative development."
+                }
+            },
+            {
+                "aspect_id": "iterative_refinement",
+                "aspect_name": "Iterative Refinement and Improvement",
+                "aspect_description": "Facilitates iterative improvement of problem statements through collaborative dialogue",
+                "aspect_weight": 0.15,
+                "target_evidence_volume": 0.525,
+                "primary_subskills": ["SS008", "SS009"],
+                "secondary_subskills": ["SS010"],
+                "anchor_points": {
+                    "range_0_75_to_1_00": "Excellent facilitation of iterative refinement. Effectively guides multiple iterations to improve problem statement quality and clarity.",
+                    "range_0_50_to_0_74": "Good iterative refinement with appropriate guidance for improvement, though may not fully optimize the problem statement development process.",
+                    "range_0_25_to_0_49": "Basic iterative refinement that makes some improvements but may not fully develop the problem statement or miss key refinement opportunities.",
+                    "range_0_00_to_0_24": "Limited iterative refinement with little improvement in problem statement quality or effectiveness through the conversation."
+                }
+            }
+        ]
+    },
+    "metadata": {
+        "created": "2024-12-19T10:00:00Z",
+        "llm_model_used": "claude-sonnet-4",
+        "estimated_time": 9,
+        "activity_complexity": "intermediate",
+        "requires_scenario": true,
+        "allows_assistance": true,
+        "assistance_impact_guidelines": "Minor coaching reduces modifier to 0.9. Significant guidance on teaching approach reduces to 0.75. Major intervention in coaching reduces to 0.4."
+    },
+    "activity_generation_output": {
+        "activity_type": "role_play",
+        "activity_type_variant": "coaching_conversation",
+        "activity_purpose": "challenge",
+        "l_d_complexity": "L2-D1",
+        "evaluation_method": "rubric_scored",
+        "components": [
+            {
+                "component_id": "problem_framing_coaching_main",
+                "component_type": "role_play",
+                "component_purpose": "challenge",
+                "component_weight": 1.0,
+                "student_facing_content": {
+                    "stem": "Coach a junior product manager on reframing a technical complaint into a user-centered problem statement. Use a collaborative approach to guide their learning and build their problem framing skills.",
+                    "scenario": "You're mentoring Alex Kim, a junior PM with an engineering background who tends to think in technical terms. Alex has received a complaint from the development team: 'The API response times are terrible - some queries take 8+ seconds. The database architecture is outdated and we need to refactor the entire backend to improve performance.' Alex wants to write this up as a problem statement but is focused on the technical solution rather than the user impact.",
+                    "given": "Technical complaint: API response times of 8+ seconds, outdated database architecture, backend refactoring needed. Alex has engineering background and thinks technically rather than user-centered.",
+                    "instructions": "Guide Alex through reframing this technical complaint into a user-centered problem statement. Use short, conversational exchanges to: 1) Help Alex think from the user perspective, 2) Identify the real user friction caused by slow performance, 3) Collaboratively construct an actionable problem statement, 4) Build Alex's confidence in user-centered thinking. Keep your responses brief and coaching-focused.",
+                    "response_format": "Engage in natural, brief coaching conversation. Ask guiding questions, provide encouragement, and work collaboratively to develop problem framing skills.",
+                    "assessment_information": "• Effective coaching and guidance • Facilitating user perspective shift • Problem statement construction guidance • Iterative refinement and improvement",
+                    "time_estimate": 9
+                },
+                "scoring_rubric": {
+                    "rubric_id": "problem_framing_coaching_rubric",
+                    "target_component_evidence_volume": 3.5,
+                    "aspects": [
+                        {
+                            "aspect_id": "coaching_approach",
+                            "aspect_name": "Effective Coaching and Guidance",
+                            "aspect_description": "Provides helpful guidance while encouraging independent thinking and learning",
+                            "aspect_weight": 0.25,
+                            "target_evidence_volume": 0.875,
+                            "primary_subskills": ["SS006", "SS008"],
+                            "secondary_subskills": ["SS007"],
+                            "anchor_points": {
+                                "range_0_75_to_1_00": "Excellent coaching approach that guides learning through questions and encouragement. Builds confidence while teaching effective problem framing techniques.",
+                                "range_0_50_to_0_74": "Good coaching with appropriate guidance and support, though may occasionally be too directive or miss opportunities for guided discovery.",
+                                "range_0_25_to_0_49": "Basic coaching that provides some guidance but may be too prescriptive or fail to encourage independent thinking.",
+                                "range_0_00_to_0_24": "Poor coaching approach that is either too directive or fails to provide adequate guidance for learning problem framing skills."
+                            }
+                        },
+                        {
+                            "aspect_id": "user_perspective_shift",
+                            "aspect_name": "Facilitating User Perspective Shift",
+                            "aspect_description": "Helps transition thinking from technical/business perspective to user-centered perspective",
+                            "aspect_weight": 0.30,
+                            "target_evidence_volume": 1.05,
+                            "primary_subskills": ["SS006", "SS007"],
+                            "secondary_subskills": ["SS008"],
+                            "anchor_points": {
+                                "range_0_75_to_1_00": "Excellent facilitation of perspective shift from technical to user-centered thinking. Effectively guides the conversation toward user needs and experiences.",
+                                "range_0_50_to_0_74": "Good facilitation of user perspective with solid guidance toward user-centered thinking, though may occasionally revert to technical framing.",
+                                "range_0_25_to_0_49": "Basic facilitation of perspective shift but may struggle to consistently maintain user-centered focus or effectively guide the transition.",
+                                "range_0_00_to_0_24": "Limited facilitation of perspective shift. May remain focused on technical aspects or fail to effectively guide toward user-centered thinking."
+                            }
+                        },
+                        {
+                            "aspect_id": "problem_construction_guidance",
+                            "aspect_name": "Problem Statement Construction Guidance",
+                            "aspect_description": "Guides the collaborative construction of effective, actionable problem statements",
+                            "aspect_weight": 0.30,
+                            "target_evidence_volume": 1.05,
+                            "primary_subskills": ["SS008", "SS010"],
+                            "secondary_subskills": ["SS006", "SS009"],
+                            "anchor_points": {
+                                "range_0_75_to_1_00": "Excellent guidance in problem statement construction. Effectively teaches how to create actionable, user-centered problem statements through collaborative dialogue.",
+                                "range_0_50_to_0_74": "Good guidance in problem construction with solid teaching of key principles, though may miss some opportunities for deeper learning.",
+                                "range_0_25_to_0_49": "Basic guidance in problem construction that covers main points but may lack depth or fail to fully develop actionable problem statements.",
+                                "range_0_00_to_0_24": "Poor guidance in problem construction with little effective teaching of problem statement principles or collaborative development."
+                            }
+                        },
+                        {
+                            "aspect_id": "iterative_refinement",
+                            "aspect_name": "Iterative Refinement and Improvement",
+                            "aspect_description": "Facilitates iterative improvement of problem statements through collaborative dialogue",
+                            "aspect_weight": 0.15,
+                            "target_evidence_volume": 0.525,
+                            "primary_subskills": ["SS008", "SS009"],
+                            "secondary_subskills": ["SS010"],
+                            "anchor_points": {
+                                "range_0_75_to_1_00": "Excellent facilitation of iterative refinement. Effectively guides multiple iterations to improve problem statement quality and clarity.",
+                                "range_0_50_to_0_74": "Good iterative refinement with appropriate guidance for improvement, though may not fully optimize the problem statement development process.",
+                                "range_0_25_to_0_49": "Basic iterative refinement that makes some improvements but may not fully develop the problem statement or miss key refinement opportunities.",
+                                "range_0_00_to_0_24": "Limited iterative refinement with little improvement in problem statement quality or effectiveness through the conversation."
+                            }
+                        }
+                    ]
+                },
+                "subskill_targeting": [
+                    {
+                        "subskill_id": "SS006",
+                        "weight_in_component": 0.25,
+                        "target_evidence_volume": 0.875
+                    },
+                    {
+                        "subskill_id": "SS007",
+                        "weight_in_component": 0.20,
+                        "target_evidence_volume": 0.7
+                    },
+                    {
+                        "subskill_id": "SS008",
+                        "weight_in_component": 0.30,
+                        "target_evidence_volume": 1.05
+                    },
+                    {
+                        "subskill_id": "SS009",
+                        "weight_in_component": 0.15,
+                        "target_evidence_volume": 0.525
+                    },
+                    {
+                        "subskill_id": "SS010",
+                        "weight_in_component": 0.10,
+                        "target_evidence_volume": 0.35
+                    }
+                ],
+                "interactive_configuration": {
+                    "role_play": {
+                        "character_profile": "Alex Kim, Junior Product Manager - 1 year experience, engineering background, analytical mindset, enthusiastic about learning. Tends to focus on technical solutions rather than user problems.",
+                        "scenario_context": "Informal coaching session with junior PM who is struggling to translate technical complaints into user-centered problems. Alex is eager to learn but tends to think in technical terms rather than user impact.",
+                        "conversation_objectives": [
+                            "Guide Alex to think from user perspective rather than technical perspective",
+                            "Help reframe technical complaints as user experience problems",
+                            "Teach problem statement construction through collaborative dialogue",
+                            "Build Alex's confidence in user-centered problem framing"
+                        ],
+                        "character_constraints": [
+                            "Has strong technical background but limited user experience perspective",
+                            "Enthusiastic learner who responds well to guidance",
+                            "May initially resist moving away from technical framing",
+                            "Wants to do well and is open to feedback and coaching"
+                        ],
+                        "success_indicators": [
+                            "Alex demonstrates shift from technical to user-centered thinking",
+                            "Collaborative development of effective problem statement",
+                            "Alex shows understanding of user perspective principles",
+                            "Increased confidence in problem framing skills"
+                        ]
+                    }
+                }
+            }
+        ],
+        "activity_level_subskill_targeting": [
+            {
+                "subskill_id": "SS006",
+                "total_weight_in_activity": 0.25,
+                "target_activity_evidence_volume": 0.875,
+                "components_targeting": ["problem_framing_coaching_main"]
+            },
+            {
+                "subskill_id": "SS007",
+                "total_weight_in_activity": 0.20,
+                "target_activity_evidence_volume": 0.7,
+                "components_targeting": ["problem_framing_coaching_main"]
+            },
+            {
+                "subskill_id": "SS008",
+                "total_weight_in_activity": 0.30,
+                "target_activity_evidence_volume": 1.05,
+                "components_targeting": ["problem_framing_coaching_main"]
+            },
+            {
+                "subskill_id": "SS009",
+                "total_weight_in_activity": 0.15,
+                "target_activity_evidence_volume": 0.525,
+                "components_targeting": ["problem_framing_coaching_main"]
+            },
+            {
+                "subskill_id": "SS010",
+                "total_weight_in_activity": 0.10,
+                "target_activity_evidence_volume": 0.35,
+                "components_targeting": ["problem_framing_coaching_main"]
+            }
+        ]
+    },
+    "learner_id": "string"
+}

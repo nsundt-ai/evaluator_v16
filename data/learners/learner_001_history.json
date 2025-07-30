@@ -1,0 +1,394 @@
+{
+    "learner_id": "learner_001",
+    "created": "2024-11-15T09:30:00Z",
+    "last_updated": "2024-12-18T16:45:00Z",
+    "profile": {
+      "name": "Alex Chen",
+      "email": "alex.chen@example.com",
+      "enrollment_date": "2024-11-15T09:30:00Z",
+      "status": "active",
+      "background": "Recent graduate with Computer Science degree. Completed internship at a mid-size tech company focusing on web development. New to product management but eager to learn. Strong technical foundation with limited business experience.",
+      "experience_level": "beginner"
+    },
+    "activities": [
+      "data_summary_script_001",
+      "product_feature_analysis_cr_001"
+    ],
+    "skill_progress": {
+      "S001": {
+        "skill_name": "Ask effective questions to understand business needs",
+        "cumulative_score": 0.0,
+        "total_adjusted_evidence": 0.0,
+        "activity_count": 0,
+        "gate_1_status": "needs_improvement",
+        "gate_2_status": "insufficient_evidence",
+        "overall_status": "not_started",
+        "last_activity_date": null,
+        "activities": []
+      },
+      "S002": {
+        "skill_name": "Translate business requirements to technical specifications",
+        "cumulative_score": 0.0,
+        "total_adjusted_evidence": 0.0,
+        "activity_count": 0,
+        "gate_1_status": "needs_improvement",
+        "gate_2_status": "insufficient_evidence", 
+        "overall_status": "not_started",
+        "last_activity_date": null,
+        "activities": []
+      },
+      "S003": {
+        "skill_name": "Write and run basic Python scripts",
+        "cumulative_score": 0.72,
+        "total_adjusted_evidence": 3.4,
+        "activity_count": 1,
+        "gate_1_status": "developing",
+        "gate_2_status": "insufficient_evidence",
+        "overall_status": "developing", 
+        "last_activity_date": "2024-12-10T14:20:00Z",
+        "activities": [
+          {
+            "activity_id": "data_summary_script_001",
+            "evaluation_output": {
+              "activity_record": {
+                "activity_score": 0.72,
+                "completion_status": "completed",
+                "duration_minutes": 18,
+                "activity_evidence_summary": {
+                  "target_activity_evidence_volume": 4.0,
+                  "total_validity_adjusted_evidence_volume": 3.4,
+                  "overall_validity_modifier": 0.85,
+                  "component_count": 1,
+                  "evaluation_method_mix": ["rubric_scored"]
+                }
+              },
+              "rubric_evaluation": {
+                "overall_score": 0.72,
+                "component_scores": [
+                  {
+                    "component_id": "data_analysis_script_main",
+                    "component_score": 0.72,
+                    "aspects": [
+                      {
+                        "aspect_id": "data_loading_handling",
+                        "aspect_score": 0.68,
+                        "scoring_reasoning": "Correctly loads CSV with basic error handling but missing some edge cases"
+                      },
+                      {
+                        "aspect_id": "calculation_accuracy", 
+                        "aspect_score": 0.75,
+                        "scoring_reasoning": "Most calculations correct with sound logic, minor optimization opportunities"
+                      },
+                      {
+                        "aspect_id": "code_structure_quality",
+                        "aspect_score": 0.70,
+                        "scoring_reasoning": "Good basic structure though could benefit from more comments and functions"
+                      },
+                      {
+                        "aspect_id": "output_presentation",
+                        "aspect_score": 0.74,
+                        "scoring_reasoning": "Clear results presentation with some business context"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "validity_analysis": {
+                "assistance_impact_assessment": "Minor syntax hints provided, some guidance on pandas methods",
+                "validity_modifier": 0.85,
+                "independence_evaluation": "Mostly independent work with minor assistance",
+                "authenticity_indicators": ["Original problem-solving approach", "Personal coding style evident"],
+                "evidence_reliability": "High",
+                "adjustment_rationale": "Minor assistance reduces evidence volume slightly but work remains authentic"
+              },
+              "scoring": {
+                "skill_scores": [
+                  {
+                    "skill_id": "SS016",
+                    "skill_score": 0.68,
+                    "evidence_volume": 0.68,
+                    "cumulative_update": 0.68
+                  },
+                  {
+                    "skill_id": "SS018",
+                    "skill_score": 0.75,
+                    "evidence_volume": 0.85,
+                    "cumulative_update": 0.75
+                  }
+                ]
+              },
+              "diagnostic_intelligence": {
+                "subskill_analysis": [
+                  {
+                    "subskill_id": "SS016",
+                    "performance_level": "developing",
+                    "evidence_strength": "moderate",
+                    "development_notes": "Shows understanding of data loading basics, needs work on comprehensive error handling"
+                  }
+                ],
+                "competency_assessment": "Early stage data analysis skills with solid foundation",
+                "development_priorities": ["Error handling patterns", "Code organization", "Documentation practices"]
+              },
+              "trend_analysis": null,
+              "feedback_generation": {
+                "student_feedback": {
+                  "positive_highlights": ["Good problem-solving approach", "Clean basic code structure"],
+                  "development_areas": ["Error handling comprehensiveness", "Code documentation"],
+                  "next_steps": ["Practice exception handling patterns", "Add function decomposition"],
+                  "encouragement": "Strong technical foundation - focus on robustness and maintainability"
+                }
+              }
+            },
+            "completion_date": "2024-12-10T14:20:00Z"
+          }
+        ]
+      },
+      "S004": {
+        "skill_name": "Use pandas for data manipulation",
+        "cumulative_score": 0.68,
+        "total_adjusted_evidence": 2.55,
+        "activity_count": 1,
+        "gate_1_status": "developing",
+        "gate_2_status": "insufficient_evidence",
+        "overall_status": "developing",
+        "last_activity_date": "2024-12-10T14:20:00Z", 
+        "activities": [
+          {
+            "activity_id": "data_summary_script_001",
+            "evaluation_output": {
+              "activity_record": {
+                "activity_score": 0.68,
+                "completion_status": "completed", 
+                "duration_minutes": 18,
+                "activity_evidence_summary": {
+                  "target_activity_evidence_volume": 3.0,
+                  "total_validity_adjusted_evidence_volume": 2.55,
+                  "overall_validity_modifier": 0.85,
+                  "component_count": 1,
+                  "evaluation_method_mix": ["rubric_scored"]
+                }
+              },
+              "rubric_evaluation": {
+                "component_scores": [
+                  {
+                    "component_id": "data_analysis_script_main", 
+                    "component_score": 0.68,
+                    "aspects": [
+                      {
+                        "aspect_id": "calculation_accuracy",
+                        "aspect_score": 0.68,
+                        "scoring_reasoning": "Pandas operations mostly correct, some optimization opportunities with aggregations"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "validity_analysis": {
+                "validity_modifier": 0.85,
+                "independence_evaluation": "Mostly independent with minor pandas syntax assistance"
+              },
+              "diagnostic_intelligence": {
+                "subskill_analysis": [
+                  {
+                    "subskill_id": "SS018",
+                    "performance_level": "developing", 
+                    "development_notes": "Good grasp of pandas basics, needs practice with complex aggregations"
+                  }
+                ]
+              },
+              "feedback_generation": {
+                "student_feedback": {
+                  "positive_highlights": ["Solid pandas fundamentals"],
+                  "development_areas": ["Complex aggregation patterns", "Performance optimization"],
+                  "next_steps": ["Practice groupby operations", "Learn vectorization techniques"]
+                }
+              }
+            },
+            "completion_date": "2024-12-10T14:20:00Z"
+          }
+        ]
+      },
+      "S005": {
+        "skill_name": "Handle product data ethically and accessibly",
+        "cumulative_score": 0.78,
+        "total_adjusted_evidence": 3.75,
+        "activity_count": 1,
+        "gate_1_status": "approaching",
+        "gate_2_status": "insufficient_evidence",
+        "overall_status": "developing",
+        "last_activity_date": "2024-12-18T16:45:00Z",
+        "activities": [
+          {
+            "activity_id": "product_feature_analysis_cr_001",
+            "evaluation_output": {
+              "activity_record": {
+                "activity_score": 0.78,
+                "completion_status": "completed",
+                "duration_minutes": 22,
+                "activity_evidence_summary": {
+                  "target_activity_evidence_volume": 5.0,
+                  "total_validity_adjusted_evidence_volume": 3.75,
+                  "overall_validity_modifier": 0.75,
+                  "component_count": 1,
+                  "evaluation_method_mix": ["rubric_scored"]
+                }
+              },
+              "rubric_evaluation": {
+                "overall_score": 0.78,
+                "component_scores": [
+                  {
+                    "component_id": "feature_analysis_main",
+                    "component_score": 0.78,
+                    "aspects": [
+                      {
+                        "aspect_id": "privacy_ethics",
+                        "aspect_score": 0.78,
+                        "scoring_reasoning": "Good consideration of privacy issues with appropriate mitigation approaches"
+                      },
+                      {
+                        "aspect_id": "communication_clarity",
+                        "aspect_score": 0.78,
+                        "scoring_reasoning": "Well-organized analysis with clear business language and logical structure"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "validity_analysis": {
+                "assistance_impact_assessment": "Significant guidance on analysis structure and strategic framework",
+                "validity_modifier": 0.75,
+                "independence_evaluation": "Moderate assistance provided on strategic thinking approach",
+                "authenticity_indicators": ["Original examples used", "Personal writing style evident"],
+                "evidence_reliability": "Moderate",
+                "adjustment_rationale": "Structural guidance reduces authenticity but core thinking remains learner's own"
+              },
+              "diagnostic_intelligence": {
+                "subskill_analysis": [
+                  {
+                    "subskill_id": "SS005", 
+                    "performance_level": "developing",
+                    "evidence_strength": "moderate",
+                    "development_notes": "Shows awareness of ethical considerations, could deepen regulatory compliance knowledge"
+                  }
+                ],
+                "competency_assessment": "Developing ethical thinking with business awareness",
+                "development_priorities": ["Regulatory frameworks", "Risk assessment methodologies"]
+              },
+              "feedback_generation": {
+                "student_feedback": {
+                  "positive_highlights": ["Strong ethical awareness", "Clear communication style"],
+                  "development_areas": ["Strategic analysis depth", "Regulatory compliance knowledge"],
+                  "next_steps": ["Study privacy regulations (GDPR, CCPA)", "Practice risk assessment frameworks"],
+                  "encouragement": "Good ethical foundation - build on this with deeper regulatory knowledge"
+                }
+              }
+            },
+            "completion_date": "2024-12-18T16:45:00Z"
+          }
+        ]
+      },
+      "S006": {
+        "skill_name": "Plan automatable solutions",
+        "cumulative_score": 0.0,
+        "total_adjusted_evidence": 0.0,
+        "activity_count": 0,
+        "gate_1_status": "needs_improvement",
+        "gate_2_status": "insufficient_evidence",
+        "overall_status": "not_started",
+        "last_activity_date": null,
+        "activities": []
+      },
+      "S007": {
+        "skill_name": "Implement maintainable, user-centered scripts",
+        "cumulative_score": 0.0,
+        "total_adjusted_evidence": 0.0,
+        "activity_count": 0,
+        "gate_1_status": "needs_improvement",
+        "gate_2_status": "insufficient_evidence",
+        "overall_status": "not_started",
+        "last_activity_date": null,
+        "activities": []
+      },
+      "S008": {
+        "skill_name": "Iterate in response to feedback",
+        "cumulative_score": 0.0,
+        "total_adjusted_evidence": 0.0,
+        "activity_count": 0,
+        "gate_1_status": "needs_improvement",
+        "gate_2_status": "insufficient_evidence",
+        "overall_status": "not_started",
+        "last_activity_date": null,
+        "activities": []
+      },
+      "S009": {
+        "skill_name": "Summarize and present product data",
+        "cumulative_score": 0.0,
+        "total_adjusted_evidence": 0.0,
+        "activity_count": 0,
+        "gate_1_status": "needs_improvement",
+        "gate_2_status": "insufficient_evidence",
+        "overall_status": "not_started",
+        "last_activity_date": null,
+        "activities": []
+      },
+      "S010": {
+        "skill_name": "Advocate for product decisions",
+        "cumulative_score": 0.82,
+        "total_adjusted_evidence": 4.1,
+        "activity_count": 1,
+        "gate_1_status": "approaching",
+        "gate_2_status": "insufficient_evidence",
+        "overall_status": "developing",
+        "last_activity_date": "2024-12-18T16:45:00Z",
+        "activities": [
+          {
+            "activity_id": "product_feature_analysis_cr_001",
+            "activity_score": 0.82,
+            "target_evidence_volume": 5.5,
+            "validity_modifier": 0.75,
+            "adjusted_evidence_volume": 4.1,
+            "completion_date": "2024-12-18T16:45:00Z"
+          }
+        ]
+      },
+      "S011": {
+        "skill_name": "Collaborate effectively in technical environments",
+        "cumulative_score": 0.0,
+        "total_adjusted_evidence": 0.0,
+        "activity_count": 0,
+        "gate_1_status": "needs_improvement",
+        "gate_2_status": "insufficient_evidence",
+        "overall_status": "not_started",
+        "last_activity_date": null,
+        "activities": []
+      }
+    },
+    "competency_progress": {
+      "C001": {
+        "competency_name": "Product-Oriented Data Analysis",
+        "skills_completed": 0,
+        "total_skills": 4,
+        "completion_fraction": "0/4",
+        "constituent_skills": ["S001", "S002", "S003", "S004"]
+      },
+      "C002": {
+        "competency_name": "Automated Product Solutions",
+        "skills_completed": 0,
+        "total_skills": 4,
+        "completion_fraction": "0/4", 
+        "constituent_skills": ["S005", "S006", "S007", "S008"]
+      },
+      "C003": {
+        "competency_name": "Product Communication and Advocacy",
+        "skills_completed": 0,
+        "total_skills": 3,
+        "completion_fraction": "0/3",
+        "constituent_skills": ["S009", "S010", "S011"]
+      }
+    },
+    "metadata": {
+      "total_activities": 2,
+      "total_time_minutes": 40,
+      "last_activity_date": "2024-12-18T16:45:00Z"
+    }
+  }

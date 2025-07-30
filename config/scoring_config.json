@@ -1,0 +1,253 @@
+{
+  "gate_thresholds": {
+    "gate_1_threshold": 0.75,
+    "gate_2_threshold": 30.0,
+    "gate_1_description": "Performance competency threshold - cumulative score required for proficiency",
+    "gate_2_description": "Evidence volume threshold - total validity-adjusted evidence required for advancement"
+  },
+  "scoring_parameters": {
+    "decay_factor": 0.995,
+    "max_activities_for_scoring": 20,
+    "minimum_activities_for_reliability": 3
+  },
+  "evidence_calculation": {
+    "validity_adjustment_enabled": true,
+    "position_based_decay_enabled": true
+  },
+  "bayesian_parameters": {
+    "prior_mean": 0.0,
+    "use_position_based_decay": true,
+    "sem_calculation_enabled": true
+  },
+  "gate_status_definitions": {
+    "gate_1_statuses": {
+      "passed": {
+        "threshold": 0.75,
+        "description": "Demonstrates proficiency at target competency level"
+      },
+      "approaching": {
+        "threshold": 0.65,
+        "description": "Close to proficiency with minor gaps"
+      },
+      "developing": {
+        "threshold": 0.5,
+        "description": "Showing progress but needs continued development"
+      },
+      "needs_improvement": {
+        "threshold": 0.0,
+        "description": "Requires significant development to reach proficiency"
+      }
+    },
+    "gate_2_statuses": {
+      "passed": {
+        "threshold": 30.0,
+        "description": "Sufficient evidence volume for reliable competency assessment"
+      },
+      "approaching": {
+        "threshold": 20.0,
+        "description": "Substantial evidence with some additional demonstration needed"
+      },
+      "developing": {
+        "threshold": 10.0,
+        "description": "Moderate evidence base requiring more demonstration"
+      },
+      "needs_improvement": {
+        "threshold": 0.0,
+        "description": "Insufficient evidence for reliable competency assessment"
+      }
+    }
+  },
+  "progression_tracking": {
+    "skill_mastery_levels": {
+      "novice": {
+        "score_range": [
+          0.0,
+          0.4
+        ],
+        "description": "Beginning skill development with basic understanding"
+      },
+      "developing": {
+        "score_range": [
+          0.4,
+          0.75
+        ],
+        "description": "Progressing toward competency with improving performance"
+      },
+      "proficient": {
+        "score_range": [
+          0.75,
+          0.9
+        ],
+        "description": "Competent performance meeting target skill requirements"
+      },
+      "mastery": {
+        "score_range": [
+          0.9,
+          1.0
+        ],
+        "description": "Exceptional performance exceeding target requirements"
+      }
+    },
+    "progression_indicators": {
+      "improvement_threshold": 0.05,
+      "stagnation_threshold": 0.02,
+      "regression_threshold": -0.05,
+      "volatility_threshold": 0.1
+    }
+  },
+  "algorithm_implementation": {
+    "description": "Evidence-based decay Bayesian scoring with validity-adjusted evidence",
+    "formula_components": {
+      "adjusted_evidence": "target_evidence * validity_modifier",
+      "cumulative_evidence_weight": "sum of all previous adjusted_evidence values",
+      "decay_factor": "0.9 ^ cumulative_evidence_weight",
+      "weight": "adjusted_evidence * evidence_based_decay",
+      "cumulative_score": "sum(score * weight) / sum(weight)",
+      "sem": "sqrt(cumulative_score * (1 - cumulative_score) / cumulative_weight)"
+    },
+    "notes": [
+      "Evidence weight comes from adjusted evidence volume",
+      "Decay is based on cumulative evidence weight, not activity count",
+      "More evidence weight = more decay for subsequent activities",
+      "Activities with higher evidence volume have more impact on decay",
+      "No prior mean used - starts from first activity",
+      "SEM provides uncertainty measurement"
+    ]
+  },
+  "missing_data_strategies": {
+    "missing_rubric_score": "use_default_score",
+    "missing_validity_modifier": "use_default_modifier",
+    "missing_historical_data": "use_current_only",
+    "invalid_score_range": "clamp_to_valid_range"
+  },
+  "default_values": {
+    "default_validity_modifier": 1.0,
+    "default_target_evidence": 5.0,
+    "fallback_score": 0.0
+  },
+  "validation_rules": {
+    "score_range": [
+      0.0,
+      1.0
+    ],
+    "validity_modifier_range": [
+      0.0,
+      1.0
+    ],
+    "evidence_volume_range": [
+      0.0,
+      50.0
+    ],
+    "decay_factor_range": [
+      0.0,
+      1.0
+    ]
+  },
+  "adjustable_parameters": {
+    "description": "Parameters that should be configurable via UI",
+    "gate_1_threshold": {
+      "current_value": 0.75,
+      "range": [
+        0.5,
+        0.95
+      ],
+      "step": 0.05,
+      "description": "Performance threshold for Gate 1 (competency)"
+    },
+    "gate_2_threshold": {
+      "current_value": 30.0,
+      "range": [
+        10.0,
+        100.0
+      ],
+      "step": 5.0,
+      "description": "Evidence volume threshold for Gate 2"
+    },
+    "decay_factor": {
+      "current_value": 0.9,
+      "range": [
+        0.7,
+        1.0
+      ],
+      "step": 0.05,
+      "description": "Decay rate for evidence-based decay (0.9^cumulative_evidence_weight)"
+    },
+    "max_activities_for_scoring": {
+      "current_value": 20,
+      "range": [
+        5,
+        50
+      ],
+      "step": 5,
+      "description": "Maximum number of recent activities to include"
+    }
+  },
+  "error_handling": {
+    "calculation_precision": 4,
+    "cache_enabled": false,
+    "batch_processing_enabled": true,
+    "parallel_processing_enabled": false,
+    "memory_optimization": true
+  },
+  "historical_data_management": {
+    "activity_retention_policy": {
+      "max_age_days": 365,
+      "max_activity_count": 50,
+      "archival_threshold": 100
+    },
+    "data_cleanup": {
+      "remove_invalid_scores": true,
+      "remove_outliers": false,
+      "outlier_threshold": 3.0,
+      "cleanup_interval_days": 30
+    }
+  },
+  "scoring_metadata": {
+    "version": "1.0.0",
+    "last_updated": "2024-01-15",
+    "configuration_source": "pipeline_default",
+    "validation_status": "verified"
+  },
+  "gate_advancement_rules": {
+    "gate_1_advancement": {
+      "require_consecutive_passes": false,
+      "consecutive_pass_count": 1,
+      "allow_regression": true,
+      "regression_threshold": 0.05
+    },
+    "gate_2_advancement": {
+      "require_sustained_evidence": true,
+      "evidence_accumulation_window": 10,
+      "evidence_decay_consideration": true,
+      "minimum_recent_evidence": 5.0
+    },
+    "combined_advancement": {
+      "require_both_gates": true,
+      "gate_1_weight": 0.6,
+      "gate_2_weight": 0.4,
+      "combined_threshold": 0.8
+    }
+  },
+  "confidence_calculation": {
+    "confidence_factors": {
+      "evidence_volume_weight": 0.3,
+      "score_consistency_weight": 0.3,
+      "activity_count_weight": 0.2,
+      "recency_weight": 0.2
+    },
+    "confidence_thresholds": {
+      "high_confidence": 0.85,
+      "medium_confidence": 0.65,
+      "low_confidence": 0.45,
+      "insufficient_confidence": 0.25
+    }
+  },
+  "reporting_configuration": {
+    "include_detailed_breakdown": true,
+    "include_historical_trend": true,
+    "include_confidence_metrics": true,
+    "include_gate_progression": true,
+    "include_evidence_analysis": true,
+    "decimal_precision": 3
+  }
+}

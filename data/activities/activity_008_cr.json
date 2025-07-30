@@ -1,0 +1,210 @@
+{
+    "activity_id": "problem_statement_crafting_cr",
+    "activity_type": "CR",
+    "title": "Problem Statement Crafting - Constructed Response",
+    "description": "Transform a vague business complaint into a clear, actionable problem statement using user-centered language.",
+    "target_skill": "S002",
+    "target_evidence_volume": 2.5,
+    "cognitive_level": "L2",
+    "depth_level": "D1",
+    "content": {
+        "prompt": "Transform the following business complaint into a clear, actionable problem statement that focuses on user needs and can guide product development.",
+        "response_guidelines": "Write a concise problem statement (3-5 sentences) that: 1) Uses user-centered language, 2) Identifies the core friction or pain point, 3) Expresses the problem in actionable terms that can guide solution development.",
+        "assessment_information": "• Translation to user-centered language • Identification of core user friction • Expression in actionable, solvable terms • Clarity and specificity of problem framing"
+    },
+    "rubric": {
+        "rubric_id": "problem_statement_rubric",
+        "target_component_evidence_volume": 2.5,
+        "aspects": [
+            {
+                "aspect_id": "user_centered_language",
+                "aspect_name": "User-Centered Language and Perspective",
+                "aspect_description": "Translates business concerns into user-focused language and perspective",
+                "aspect_weight": 0.35,
+                "target_evidence_volume": 0.875,
+                "primary_subskills": ["SS006"],
+                "secondary_subskills": ["SS007", "SS008"],
+                "anchor_points": {
+                    "range_0_75_to_1_00": "Excellent translation to user-centered language. Problem statement clearly focuses on user experience, needs, and goals rather than business or technical concerns.",
+                    "range_0_50_to_0_74": "Good use of user-centered language with clear focus on user perspective, though may occasionally revert to business or technical framing.",
+                    "range_0_25_to_0_49": "Basic attempt at user-centered language but may still be heavily influenced by business perspective or technical concerns.",
+                    "range_0_00_to_0_24": "Limited or no use of user-centered language. Problem statement remains focused on business or technical concerns rather than user needs."
+                }
+            },
+            {
+                "aspect_id": "friction_identification",
+                "aspect_name": "Core Friction and Pain Point Identification",
+                "aspect_description": "Identifies the fundamental user friction or pain point underlying the business complaint",
+                "aspect_weight": 0.30,
+                "target_evidence_volume": 0.75,
+                "primary_subskills": ["SS007"],
+                "secondary_subskills": ["SS006", "SS009"],
+                "anchor_points": {
+                    "range_0_75_to_1_00": "Excellent identification of core user friction and pain points. Clearly articulates the fundamental user experience problem that needs solving.",
+                    "range_0_50_to_0_74": "Good identification of user friction with solid understanding of pain points, though may miss some nuances or underlying issues.",
+                    "range_0_25_to_0_49": "Basic identification of obvious friction points but may not identify the most fundamental or impactful user pain points.",
+                    "range_0_00_to_0_24": "Limited ability to identify user friction or pain points. May focus on symptoms rather than underlying user experience problems."
+                }
+            },
+            {
+                "aspect_id": "actionable_framing",
+                "aspect_name": "Actionable Problem Framing",
+                "aspect_description": "Expresses the problem in actionable terms that can guide solution development",
+                "aspect_weight": 0.35,
+                "target_evidence_volume": 0.875,
+                "primary_subskills": ["SS008", "SS010"],
+                "secondary_subskills": ["SS009"],
+                "anchor_points": {
+                    "range_0_75_to_1_00": "Excellent actionable framing that clearly defines a solvable problem and provides direction for solution development. Problem statement enables focused product development efforts.",
+                    "range_0_50_to_0_74": "Good actionable framing with clear problem definition that generally supports solution development, though may lack some specificity or focus.",
+                    "range_0_25_to_0_49": "Basic actionable framing that provides some direction but may be too broad or vague to effectively guide solution development.",
+                    "range_0_00_to_0_24": "Poor actionable framing with little clear direction for solution development. Problem statement may be too abstract or unfocused to be useful."
+                }
+            }
+        ]
+    },
+    "metadata": {
+        "created": "2024-12-19T10:00:00Z",
+        "llm_model_used": "claude-sonnet-4",
+        "estimated_time": 5,
+        "activity_complexity": "intermediate",
+        "requires_scenario": true,
+        "allows_assistance": true,
+        "assistance_impact_guidelines": "Minor clarification reduces modifier to 0.95. Guidance on problem framing approach reduces to 0.8. Major assistance with statement construction reduces to 0.5."
+    },
+    "activity_generation_output": {
+        "activity_type": "constructed_response",
+        "activity_type_variant": "problem_framing",
+        "activity_purpose": "challenge",
+        "l_d_complexity": "L2-D1",
+        "evaluation_method": "rubric_scored",
+        "components": [
+            {
+                "component_id": "problem_statement_main",
+                "component_type": "constructed_response",
+                "component_purpose": "challenge",
+                "component_weight": 1.0,
+                "student_facing_content": {
+                    "stem": "Transform the following business complaint into a clear, actionable problem statement that focuses on user needs and can guide product development.",
+                    "scenario": "Your support team lead has escalated the following complaint: 'We're getting absolutely hammered with support tickets about users not being able to find their old files. The search function is garbage and people are wasting hours looking for documents they saved months ago. It's killing our support metrics and users are furious. This is costing us customers and our team is burnt out from dealing with these angry users every day.'",
+                    "given": "Business complaint: High volume of support tickets about file search functionality. Users can't find old files, search function is inadequate. Impact: Poor support metrics, customer churn risk, team burnout.",
+                    "instructions": "Write a concise problem statement (3-5 sentences) that: 1) Uses user-centered language, 2) Identifies the core friction or pain point, 3) Expresses the problem in actionable terms that can guide solution development.",
+                    "response_format": "Clear, concise problem statement in 3-5 complete sentences focused on user needs and actionable for product development.",
+                    "assessment_information": "• Translation to user-centered language • Identification of core user friction • Expression in actionable, solvable terms • Clarity and specificity of problem framing",
+                    "time_estimate": 5
+                },
+                "scoring_rubric": {
+                    "rubric_id": "problem_statement_rubric",
+                    "target_component_evidence_volume": 2.5,
+                    "aspects": [
+                        {
+                            "aspect_id": "user_centered_language",
+                            "aspect_name": "User-Centered Language and Perspective",
+                            "aspect_description": "Translates business concerns into user-focused language and perspective",
+                            "aspect_weight": 0.35,
+                            "target_evidence_volume": 0.875,
+                            "primary_subskills": ["SS006"],
+                            "secondary_subskills": ["SS007", "SS008"],
+                            "anchor_points": {
+                                "range_0_75_to_1_00": "Excellent translation to user-centered language. Problem statement clearly focuses on user experience, needs, and goals rather than business or technical concerns.",
+                                "range_0_50_to_0_74": "Good use of user-centered language with clear focus on user perspective, though may occasionally revert to business or technical framing.",
+                                "range_0_25_to_0_49": "Basic attempt at user-centered language but may still be heavily influenced by business perspective or technical concerns.",
+                                "range_0_00_to_0_24": "Limited or no use of user-centered language. Problem statement remains focused on business or technical concerns rather than user needs."
+                            }
+                        },
+                        {
+                            "aspect_id": "friction_identification",
+                            "aspect_name": "Core Friction and Pain Point Identification",
+                            "aspect_description": "Identifies the fundamental user friction or pain point underlying the business complaint",
+                            "aspect_weight": 0.30,
+                            "target_evidence_volume": 0.75,
+                            "primary_subskills": ["SS007"],
+                            "secondary_subskills": ["SS006", "SS009"],
+                            "anchor_points": {
+                                "range_0_75_to_1_00": "Excellent identification of core user friction and pain points. Clearly articulates the fundamental user experience problem that needs solving.",
+                                "range_0_50_to_0_74": "Good identification of user friction with solid understanding of pain points, though may miss some nuances or underlying issues.",
+                                "range_0_25_to_0_49": "Basic identification of obvious friction points but may not identify the most fundamental or impactful user pain points.",
+                                "range_0_00_to_0_24": "Limited ability to identify user friction or pain points. May focus on symptoms rather than underlying user experience problems."
+                            }
+                        },
+                        {
+                            "aspect_id": "actionable_framing",
+                            "aspect_name": "Actionable Problem Framing",
+                            "aspect_description": "Expresses the problem in actionable terms that can guide solution development",
+                            "aspect_weight": 0.35,
+                            "target_evidence_volume": 0.875,
+                            "primary_subskills": ["SS008", "SS010"],
+                            "secondary_subskills": ["SS009"],
+                            "anchor_points": {
+                                "range_0_75_to_1_00": "Excellent actionable framing that clearly defines a solvable problem and provides direction for solution development. Problem statement enables focused product development efforts.",
+                                "range_0_50_to_0_74": "Good actionable framing with clear problem definition that generally supports solution development, though may lack some specificity or focus.",
+                                "range_0_25_to_0_49": "Basic actionable framing that provides some direction but may be too broad or vague to effectively guide solution development.",
+                                "range_0_00_to_0_24": "Poor actionable framing with little clear direction for solution development. Problem statement may be too abstract or unfocused to be useful."
+                            }
+                        }
+                    ]
+                },
+                "subskill_targeting": [
+                    {
+                        "subskill_id": "SS006",
+                        "weight_in_component": 0.30,
+                        "target_evidence_volume": 0.75
+                    },
+                    {
+                        "subskill_id": "SS007",
+                        "weight_in_component": 0.25,
+                        "target_evidence_volume": 0.625
+                    },
+                    {
+                        "subskill_id": "SS008",
+                        "weight_in_component": 0.25,
+                        "target_evidence_volume": 0.625
+                    },
+                    {
+                        "subskill_id": "SS009",
+                        "weight_in_component": 0.10,
+                        "target_evidence_volume": 0.25
+                    },
+                    {
+                        "subskill_id": "SS010",
+                        "weight_in_component": 0.10,
+                        "target_evidence_volume": 0.25
+                    }
+                ]
+            }
+        ],
+        "activity_level_subskill_targeting": [
+            {
+                "subskill_id": "SS006",
+                "total_weight_in_activity": 0.30,
+                "target_activity_evidence_volume": 0.75,
+                "components_targeting": ["problem_statement_main"]
+            },
+            {
+                "subskill_id": "SS007",
+                "total_weight_in_activity": 0.25,
+                "target_activity_evidence_volume": 0.625,
+                "components_targeting": ["problem_statement_main"]
+            },
+            {
+                "subskill_id": "SS008",
+                "total_weight_in_activity": 0.25,
+                "target_activity_evidence_volume": 0.625,
+                "components_targeting": ["problem_statement_main"]
+            },
+            {
+                "subskill_id": "SS009",
+                "total_weight_in_activity": 0.10,
+                "target_activity_evidence_volume": 0.25,
+                "components_targeting": ["problem_statement_main"]
+            },
+            {
+                "subskill_id": "SS010",
+                "total_weight_in_activity": 0.10,
+                "target_activity_evidence_volume": 0.25,
+                "components_targeting": ["problem_statement_main"]
+            }
+        ]
+    },
+    "learner_id": "string"
+}

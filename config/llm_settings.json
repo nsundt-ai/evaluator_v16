@@ -1,0 +1,237 @@
+{
+  "providers": {
+    "anthropic": {
+      "name": "Anthropic",
+      "api_base": "https://api.anthropic.com/v1/messages",
+      "default_model": "claude-sonnet-4",
+      "available_models": [
+        "claude-sonnet-4",
+        "claude-opus-4"
+      ],
+      "max_tokens": 8000,
+      "temperature": 0.1,
+      "top_p": 0.9,
+      "timeout": 60,
+      "max_retries": 3,
+      "retry_delay": 1.0,
+      "supported_phases": [
+        "all"
+      ],
+      "cost_per_1k_input_tokens": 0.003,
+      "cost_per_1k_output_tokens": 0.015,
+      "model_details": {
+        "claude-sonnet-4": {
+          "input_cost_per_1k": 0.003,
+          "output_cost_per_1k": 0.015,
+          "endpoint": "claude-sonnet-4"
+        },
+        "claude-opus-4": {
+          "input_cost_per_1k": 15.0,
+          "output_cost_per_1k": 75.0,
+          "endpoint": "claude-opus-4"
+        }
+      }
+    },
+    "openai": {
+      "name": "OpenAI",
+      "api_base": "https://api.openai.com/v1/chat/completions",
+      "default_model": "gpt-4.1",
+      "available_models": [
+        "gpt-4.1",
+        "gpt-4o"
+      ],
+      "max_tokens": 8000,
+      "temperature": 0.1,
+      "top_p": 0.9,
+      "timeout": 60,
+      "max_retries": 3,
+      "retry_delay": 1.0,
+      "supported_phases": [
+        "all"
+      ],
+      "cost_per_1k_input_tokens": 0.002,
+      "cost_per_1k_output_tokens": 0.008,
+      "model_details": {
+        "gpt-4.1": {
+          "input_cost_per_1k": 0.002,
+          "output_cost_per_1k": 0.008,
+          "endpoint": "gpt-4.1"
+        },
+        "gpt-4o": {
+          "input_cost_per_1k": 2.5,
+          "output_cost_per_1k": 10.0,
+          "endpoint": "gpt-4o"
+        }
+      }
+    },
+    "google": {
+      "name": "Google Gemini",
+      "api_base": "https://generativelanguage.googleapis.com/v1beta/models/",
+      "default_model": "gemini-2.5-flash",
+      "available_models": [
+        "gemini-2.5-flash",
+        "gemini-2.5-pro",
+        "gemini-2.5-flash-lite"
+      ],
+      "max_tokens": 8000,
+      "temperature": 0.05,
+      "top_p": 0.9,
+      "timeout": 60,
+      "max_retries": 3,
+      "retry_delay": 1.0,
+      "supported_phases": [
+        "all"
+      ],
+      "cost_per_1k_input_tokens": 0.3,
+      "cost_per_1k_output_tokens": 2.5,
+      "model_details": {
+        "gemini-2.5-flash": {
+          "input_cost_per_1k": 0.3,
+          "output_cost_per_1k": 2.5,
+          "endpoint": "gemini-2.5-flash"
+        },
+        "gemini-2.5-pro": {
+          "input_cost_per_1k": 1.25,
+          "output_cost_per_1k": 10.0,
+          "endpoint": "gemini-2.5-pro",
+          "note": "≤200k token prompts"
+        },
+        "gemini-2.5-pro-large": {
+          "input_cost_per_1k": 2.5,
+          "output_cost_per_1k": 15.0,
+          "endpoint": "gemini-2.5-pro",
+          "note": ">200k token prompts"
+        },
+        "gemini-2.5-flash-lite": {
+          "input_cost_per_1k": 0.1,
+          "output_cost_per_1k": 0.4,
+          "endpoint": "gemini-2.5-flash-lite"
+        }
+      }
+    }
+  },
+  "fallback_configuration": {
+    "enabled": true,
+    "fallback_order": [
+      "openai",
+      "anthropic",
+      "google"
+    ],
+    "retry_on_failure": true,
+    "max_fallback_attempts": 3,
+    "fallback_delay": 2.0,
+    "model_fallback_within_provider": {
+      "anthropic": [
+        "claude-sonnet-4",
+        "claude-opus-4"
+      ],
+      "openai": [
+        "gpt-4.1",
+        "gpt-4o"
+      ],
+      "google": [
+        "gemini-2.5-flash",
+        "gemini-2.5-pro",
+        "gemini-2.5-flash-lite"
+      ]
+    }
+  },
+  "phases": {
+    "combined_evaluation": {
+      "preferred_provider": "openai",
+      "temperature": 0.1,
+      "max_tokens": 6000,
+      "top_p": 0.9,
+      "timeout": 90
+    },
+    "rubric_evaluation": {
+      "preferred_provider": "openai",
+      "temperature": 0.1,
+      "max_tokens": 4000,
+      "top_p": 0.9,
+      "timeout": 60
+    },
+    "validity_analysis": {
+      "preferred_provider": "openai",
+      "temperature": 0.1,
+      "max_tokens": 3000,
+      "top_p": 0.9,
+      "timeout": 30
+    },
+    "scoring": {
+      "preferred_provider": "openai",
+      "temperature": 0.5,
+      "max_tokens": 4000,
+      "top_p": 0.8,
+      "timeout": 45
+    },
+    "diagnostic_intelligence": {
+      "preferred_provider": "openai",
+      "temperature": 0.1,
+      "max_tokens": 5000,
+      "top_p": 0.9,
+      "timeout": 60
+    },
+    "trend_analysis": {
+      "preferred_provider": "openai",
+      "temperature": 0.1,
+      "max_tokens": 6000,
+      "top_p": 0.9,
+      "timeout": 45
+    },
+    "feedback_generation": {
+      "preferred_provider": "openai",
+      "temperature": 0.4,
+      "max_tokens": 5000,
+      "top_p": 0.9,
+      "timeout": 60
+    },
+    "intelligent_feedback": {
+      "preferred_provider": "openai",
+      "temperature": 0.7,
+      "max_tokens": 4000,
+      "top_p": 0.9,
+      "timeout": 90
+    },
+    "role_play": {
+      "preferred_provider": "anthropic",
+      "temperature": 0.7,
+      "max_tokens": 4000,
+      "top_p": 0.95,
+      "timeout": 30
+    },
+    "branching_scenario": {
+      "preferred_provider": "anthropic",
+      "temperature": 0.6,
+      "max_tokens": 5000,
+      "top_p": 0.9,
+      "timeout": 45
+    }
+  },
+  "quality_controls": {
+    "json_validation_enabled": true,
+    "response_length_checks": true,
+    "content_appropriateness_checks": true,
+    "retry_on_malformed_json": true,
+    "max_json_retry_attempts": 3
+  },
+  "logging": {
+    "log_requests": true,
+    "log_responses": true,
+    "log_errors": true,
+    "log_costs": true,
+    "log_performance_metrics": true,
+    "detailed_timing": true
+  },
+  "cost_management": {
+    "track_usage": true,
+    "daily_cost_limit": 50.0,
+    "monthly_cost_limit": 1500.0,
+    "alert_thresholds": [
+      10.0,
+      25.0,
+      40.0
+    ],
+    "cost_reporting_enabled": true
+  }
+}

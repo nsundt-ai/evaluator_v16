@@ -1,0 +1,273 @@
+{
+  "prompt_components": {
+    "universal": {
+      "system_role": "You are an expert educational evaluator specializing in competency-based assessment. Your role is to provide precise, evidence-based evaluations that support learner development through accurate skill measurement and constructive feedback.",
+      "evaluation_philosophy": "EVALUATION PHILOSOPHY:\n- Focus on evidence-based assessment tied to specific learning objectives\n- Maintain consistency and fairness across all evaluations\n- Provide actionable insights that support learner growth\n- Balance rigor with developmental support\n- Ensure all evaluations align with the established competency framework",
+      "domain_focus": "DOMAIN FOCUS:\nThis evaluation system targets professional skill development through a hierarchical competency framework:\n- COMPETENCIES: Top-level capability areas (C001-C004)\n- SKILLS: Specific competency components (S001-S016)\n- SUBSKILLS: Granular, measurable elements (SS001-SS055)\n- DEPENDENCIES: Prerequisite relationships between skills",
+      "single_skill_focus": "SINGLE SKILL FOCUS:\nEach evaluation targets ONE primary skill, but may involve multiple subskills within that skill. All analysis should center on the target skill and its component subskills.",
+      "critical_guidelines": "CRITICAL REQUIREMENTS:\n- Output must be valid JSON format only\n- All scores must be between 0.0 and 1.0\n- Provide specific evidence for all judgments\n- Reference specific parts of learner responses\n- Maintain objectivity and consistency",
+      "json_format_warning": "CRITICAL JSON OUTPUT REQUIREMENT:\nYour response must be ONLY valid JSON. Begin with { and end with }. No text before or after. No markdown formatting. No explanations outside the JSON structure."
+    },
+    "phase_specific": {
+      "combined_evaluation": {
+        "description": "COMBINED EVALUATION PHASE:\nEvaluate the learner's response against the activity rubric while simultaneously assessing validity and evidence quality. This integrated approach considers both performance assessment and evidence reliability in a single comprehensive analysis.",
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "aspect_scores": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "aspect_id": {"type": "string"},
+                  "aspect_name": {"type": "string"},
+                  "score": {"type": "number", "minimum": 0.0, "maximum": 1.0},
+                  "rationale": {"type": "string"},
+                  "evidence_references": {"type": "array", "items": {"type": "string"}},
+                  "subskill_evidence": {"type": "object"}
+                },
+                "required": ["aspect_id", "aspect_name", "score", "rationale"]
+              }
+            },
+            "overall_score": {"type": "number", "minimum": 0.0, "maximum": 1.0},
+            "rationale": {"type": "string"},
+            "validity_modifier": {"type": "number", "minimum": 0.0, "maximum": 1.0},
+            "validity_analysis": {"type": "string"},
+            "validity_reason": {"type": "string"},
+            "evidence_quality": {"type": "string"},
+            "assistance_impact": {"type": "string"},
+            "evidence_volume_assessment": {"type": "string"},
+            "assessment_confidence": {"type": "string"},
+            "key_observations": {"type": "array", "items": {"type": "string"}}
+          },
+          "required": ["aspect_scores", "overall_score", "rationale", "validity_modifier", "validity_analysis"]
+        }
+      },
+      "rubric_evaluation": {
+        "description": "RUBRIC EVALUATION PHASE (DEPRECATED):\nEvaluate the learner's response against the activity rubric, assessing each aspect with specific evidence and scores. This phase has been combined with validity analysis.",
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "aspect_scores": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "aspect_id": {"type": "string"},
+                  "aspect_name": {"type": "string"},
+                  "score": {"type": "number", "minimum": 0.0, "maximum": 1.0},
+                  "rationale": {"type": "string"},
+                  "evidence_references": {"type": "array", "items": {"type": "string"}},
+                  "subskill_evidence": {"type": "object"}
+                },
+                "required": ["aspect_id", "aspect_name", "score", "rationale"]
+              }
+            },
+            "overall_score": {"type": "number", "minimum": 0.0, "maximum": 1.0},
+            "rationale": {"type": "string"}
+          },
+          "required": ["aspect_scores", "overall_score", "rationale"]
+        }
+      },
+      "validity_analysis": {
+        "description": "VALIDITY ANALYSIS PHASE (DEPRECATED):\nAssess the validity and reliability of the learner's response, considering factors like assistance received, response characteristics, and evidence quality. This phase has been combined with rubric evaluation.",
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "validity_modifier": {"type": "number", "minimum": 0.0, "maximum": 1.0},
+            "validity_analysis": {"type": "string"},
+            "validity_reason": {"type": "string"},
+            "evidence_quality": {"type": "string"},
+            "assistance_impact": {"type": "string"}
+          },
+          "required": ["validity_modifier", "validity_analysis"]
+        }
+      },
+      "scoring": {
+        "description": "SCORING PHASE:\nCalculate the final activity score and evidence volume based on rubric evaluation and validity analysis.",
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "score": {"type": "number", "minimum": 0.0, "maximum": 1.0},
+            "target_evidence_volume": {"type": "number", "minimum": 0.0},
+            "validity_modifier": {"type": "number", "minimum": 0.0, "maximum": 1.0},
+            "adjusted_evidence_volume": {"type": "number", "minimum": 0.0},
+            "final_score": {"type": "number", "minimum": 0.0, "maximum": 100.0},
+            "scoring_rationale": {"type": "string"}
+          },
+          "required": ["score", "target_evidence_volume", "validity_modifier", "adjusted_evidence_volume", "final_score"]
+        }
+      },
+      "diagnostic_intelligence": {
+        "description": "DIAGNOSTIC INTELLIGENCE PHASE:\nAnalyze the learner's performance to identify strengths, development areas, and provide targeted recommendations.",
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "strengths": {"type": "array", "items": {"type": "string"}},
+            "development_areas": {"type": "array", "items": {"type": "string"}},
+            "recommendations": {"type": "array", "items": {"type": "string"}},
+            "summary": {"type": "string"}
+          },
+          "required": ["strengths", "development_areas", "recommendations"]
+        }
+      },
+      "trend_analysis": {
+        "description": "TREND ANALYSIS PHASE:\nAnalyze the learner's performance trajectory and identify patterns in their skill development over time.",
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "performance_trajectory": {"type": "string"},
+            "trend_analysis": {"type": "string"},
+            "growth_patterns": {"type": "array", "items": {"type": "string"}},
+            "summary": {"type": "string"}
+          },
+          "required": ["performance_trajectory"]
+        }
+      },
+      "feedback_generation": {
+        "description": "FEEDBACK GENERATION PHASE:\nGenerate personalized, actionable feedback that supports the learner's continued development.",
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "summary": {"type": "string"},
+            "achievements": {"type": "array", "items": {"type": "string"}},
+            "next_steps": {"type": "array", "items": {"type": "string"}},
+            "recommendations": {"type": "array", "items": {"type": "string"}},
+            "personalized_feedback": {"type": "string"}
+          },
+          "required": ["summary", "achievements", "next_steps", "recommendations"]
+        }
+      }
+    }
+  },
+  "activity_type_templates": {
+    "CR": {
+      "combined": {
+        "system_prompt": "You are performing a combined evaluation of a Critical Response (CR) activity. Integrate rubric assessment with validity analysis to provide comprehensive evaluation with evidence volume insights.",
+        "user_prompt_template": "Perform combined evaluation of this critical response activity:\n\nACTIVITY: {activity_description}\nTARGET SKILL: {target_skill_name}\nRUBRIC: {rubric_details}\n\nLEARNER RESPONSE:\n{learner_response}\n\nASSISTANCE: {assistance_log}\nANALYSIS: {response_analysis}\n\nProvide integrated evaluation combining rubric scoring with validity assessment and evidence volume analysis."
+      },
+      "rubric_evaluation": {
+        "system_prompt": "You are evaluating a Critical Response (CR) activity. Focus on analytical thinking, evidence-based reasoning, and clear communication.",
+        "user_prompt_template": "Evaluate the following critical response activity:\n\nACTIVITY: {activity_description}\nTARGET SKILL: {target_skill_name}\nRUBRIC: {rubric_details}\n\nLEARNER RESPONSE:\n{learner_response}\n\nProvide a detailed evaluation following the rubric structure."
+      },
+      "validity_analysis": {
+        "system_prompt": "Analyze the validity of this critical response evaluation.",
+        "user_prompt_template": "Assess the validity of this critical response:\n\nResponse: {learner_response}\nAssistance provided: {assistance_log}\nResponse characteristics: {response_analysis}"
+      }
+    },
+    "COD": {
+      "combined": {
+        "system_prompt": "You are performing a combined evaluation of a Code Development (COD) activity. Integrate rubric assessment with validity analysis to provide comprehensive evaluation with evidence volume insights.",
+        "user_prompt_template": "Perform combined evaluation of this code development activity:\n\nACTIVITY: {activity_description}\nTARGET SKILL: {target_skill_name}\nRUBRIC: {rubric_details}\n\nCODE SOLUTION:\n{code_response}\n\nEXPLANATION:\n{explanation_response}\n\nASSISTANCE: {assistance_log}\nANALYSIS: {response_analysis}\n\nProvide integrated evaluation combining rubric scoring with validity assessment and evidence volume analysis."
+      },
+      "rubric_evaluation": {
+        "system_prompt": "You are evaluating a Code Development (COD) activity. Focus on code quality, problem-solving approach, and technical implementation.",
+        "user_prompt_template": "Evaluate the following code development activity:\n\nACTIVITY: {activity_description}\nTARGET SKILL: {target_skill_name}\nRUBRIC: {rubric_details}\n\nCODE SOLUTION:\n{code_response}\n\nEXPLANATION:\n{explanation_response}\n\nProvide a detailed evaluation following the rubric structure."
+      },
+      "validity_analysis": {
+        "system_prompt": "Analyze the validity of this code development evaluation.",
+        "user_prompt_template": "Assess the validity of this code solution:\n\nCode: {code_response}\nExplanation: {explanation_response}\nAssistance provided: {assistance_log}"
+      }
+    },
+    "RP": {
+      "combined": {
+        "system_prompt": "You are performing a combined evaluation of a Role Play (RP) activity. Integrate rubric assessment with validity analysis to provide comprehensive evaluation with evidence volume insights.",
+        "user_prompt_template": "Perform combined evaluation of this role play activity:\n\nSCENARIO: {scenario_context}\nCHARACTER: {character_profile}\nOBJECTIVES: {objectives}\n\nCONVERSATION:\n{conversation_history}\n\nASSISTANCE: {assistance_log}\nANALYSIS: {response_analysis}\n\nProvide integrated evaluation combining rubric scoring with validity assessment and evidence volume analysis."
+      },
+      "rubric_evaluation": {
+        "system_prompt": "You are evaluating a Role Play (RP) activity. Focus on communication skills, scenario engagement, and appropriate responses.",
+        "user_prompt_template": "Evaluate the following role play activity:\n\nSCENARIO: {scenario_context}\nCHARACTER: {character_profile}\nOBJECTIVES: {objectives}\n\nCONVERSATION:\n{conversation_history}\n\nProvide a detailed evaluation following the rubric structure."
+      },
+      "validity_analysis": {
+        "system_prompt": "Analyze the validity of this role play evaluation.",
+        "user_prompt_template": "Assess the validity of this role play interaction:\n\nConversation: {conversation_history}\nAssistance provided: {assistance_log}"
+      }
+    },
+    "SR": {
+      "combined": {
+        "system_prompt": "You are performing a combined evaluation of a Selected Response (SR) activity. Integrate rubric assessment with validity analysis to provide comprehensive evaluation with evidence volume insights.",
+        "user_prompt_template": "Perform combined evaluation of this selected response activity:\n\nQUESTIONS: {questions}\nRESPONSES: {responses}\nCORRECT ANSWERS: {correct_answers}\n\nASSISTANCE: {assistance_log}\nANALYSIS: {response_analysis}\n\nProvide integrated evaluation combining rubric scoring with validity assessment and evidence volume analysis."
+      },
+      "rubric_evaluation": {
+        "system_prompt": "You are evaluating a Selected Response (SR) activity. Focus on accuracy and reasoning.",
+        "user_prompt_template": "Evaluate the following selected response activity:\n\nQUESTIONS: {questions}\nRESPONSES: {responses}\nCORRECT ANSWERS: {correct_answers}\n\nProvide evaluation based on accuracy and reasoning."
+      },
+      "validity_analysis": {
+        "system_prompt": "Analyze the validity of this selected response evaluation.",
+        "user_prompt_template": "Assess the validity of these responses:\n\nResponses: {responses}\nAssistance provided: {assistance_log}"
+      }
+    },
+    "BR": {
+      "combined": {
+        "system_prompt": "You are performing a combined evaluation of a Branching Scenario (BR) activity. Integrate rubric assessment with validity analysis to provide comprehensive evaluation with evidence volume insights.",
+        "user_prompt_template": "Perform combined evaluation of this branching scenario activity:\n\nSCENARIO: {scenario_description}\nDECISIONS: {decisions}\nOUTCOMES: {outcomes}\n\nASSISTANCE: {assistance_log}\nANALYSIS: {response_analysis}\n\nProvide integrated evaluation combining rubric scoring with validity assessment and evidence volume analysis."
+      },
+      "rubric_evaluation": {
+        "system_prompt": "You are evaluating a Branching Scenario (BR) activity. Focus on decision-making and scenario navigation.",
+        "user_prompt_template": "Evaluate the following branching scenario activity:\n\nSCENARIO: {scenario_description}\nDECISIONS: {decisions}\nOUTCOMES: {outcomes}\n\nProvide evaluation based on decision quality and scenario completion."
+      },
+      "validity_analysis": {
+        "system_prompt": "Analyze the validity of this branching scenario evaluation.",
+        "user_prompt_template": "Assess the validity of this scenario interaction:\n\nDecisions: {decisions}\nAssistance provided: {assistance_log}"
+      }
+    }
+  },
+  "llm_configurations": {
+    "anthropic": {
+              "default_model": "claude-sonnet-4-20250514",
+      "temperature": 0.1,
+      "max_tokens": 2000,
+      "top_p": 0.9
+    },
+    "openai": {
+      "default_model": "gpt-4o-mini",
+      "temperature": 0.1,
+      "max_tokens": 2000,
+      "top_p": 0.9
+    },
+    "google": {
+      "default_model": "gemini-2.5-flash",
+      "temperature": 0.05,
+      "max_tokens": 2000,
+      "top_p": 0.9
+    }
+  },
+  "validation_rules": {
+    "combined_evaluation": [
+      "All scores must be between 0.0 and 1.0",
+      "Each aspect must have a rationale",
+      "Overall score must be calculated from aspect scores",
+      "Evidence references must be specific",
+      "Validity modifier must be between 0.0 and 1.0",
+      "Analysis must be evidence-based",
+      "Consider assistance impact",
+      "Evidence volume assessment must be integrated with rubric evaluation"
+    ],
+    "rubric_evaluation": [
+      "All scores must be between 0.0 and 1.0",
+      "Each aspect must have a rationale",
+      "Overall score must be calculated from aspect scores",
+      "Evidence references must be specific"
+    ],
+    "validity_analysis": [
+      "Validity modifier must be between 0.0 and 1.0",
+      "Analysis must be evidence-based",
+      "Consider assistance impact"
+    ],
+    "diagnostic_intelligence": [
+      "Strengths must be specific and actionable",
+      "Development areas must be constructive",
+      "Recommendations must be practical"
+    ],
+    "trend_analysis": [
+      "Trajectory must be one of: improving, stable, declining",
+      "Analysis must reference historical data",
+      "Patterns must be evidence-based"
+    ],
+    "feedback_generation": [
+      "Feedback must be personalized",
+      "Achievements must be specific",
+      "Next steps must be actionable"
+    ]
+  }
+}

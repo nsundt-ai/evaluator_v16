@@ -1,0 +1,71 @@
+{
+  "application_settings": {
+    "app_name": "Evaluator v16",
+    "version": "1.0.0",
+    "created_date": "2025-01-20",
+    "last_updated": "2025-01-20",
+    "debug_mode": false,
+    "log_level": "INFO"
+  },
+  "ui_state": {
+    "default_tab": "Activity Explorer",
+    "selected_learner": null,
+    "current_activity": null,
+    "queue_filter": "all",
+    "results_view_mode": "summary",
+    "show_advanced_options": false,
+    "items_per_page": 10
+  },
+  "evaluation_settings": {
+    "auto_advance_pipeline": false,
+    "show_intermediate_results": true,
+    "enable_cost_tracking": true,
+    "save_evaluation_logs": true,
+    "pipeline_timeout_minutes": 15,
+    "max_concurrent_evaluations": 1,
+    "trend_analysis_enabled": false
+  },
+  "display_preferences": {
+    "show_token_counts": true,
+    "show_cost_estimates": true,
+    "show_timing_data": true,
+    "compact_view": false,
+    "dark_mode": false,
+    "font_size": "medium"
+  },
+  "data_persistence": {
+    "auto_save_frequency_minutes": 5,
+    "backup_before_evaluation": true,
+    "max_backup_files": 10,
+    "compress_old_data": true,
+    "data_retention_days": 365
+  },
+  "notification_settings": {
+    "show_evaluation_complete": true,
+    "show_error_alerts": true,
+    "show_cost_warnings": true,
+    "show_progress_updates": true,
+    "notification_duration_seconds": 5
+  },
+  "analytics": {
+    "track_user_interactions": true,
+    "track_evaluation_metrics": true,
+    "track_performance_data": true,
+    "export_analytics_enabled": true,
+    "analytics_retention_days": 90
+  },
+  "experimental_features": {
+    "batch_evaluation": false,
+    "parallel_processing": false,
+    "advanced_analytics": false,
+    "export_to_external_systems": false
+  },
+  "session_data": {
+    "current_session_id": null,
+    "session_start_time": null,
+    "activities_evaluated_this_session": 0,
+    "total_cost_this_session": 0.0,
+    "last_activity_timestamp": null
+  },
+  "test_key": "test_value"
+}
